@@ -1,0 +1,22 @@
+.feedback-btn{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    width: 120px;
+    height: 40px;
+    position: fixed;
+    bottom: calc(35%);
+    transform: rotate(-90deg);
+    left: 94vw; 
+    background-color: #fff;
+    border-top-left-radius: 6px;
+    border-top-right-radius: 6px;
+    span{
+        color: #000;
+    }
+    i{
+        color: var(--dark-color);
+    }
+
+}

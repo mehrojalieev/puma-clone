@@ -1,0 +1,32 @@
+{
+    "ProductData": [
+        {
+            "category": [
+                {
+                    "title": "Women"
+                },
+                {
+                    "title": "Men"
+                },
+                {
+                    "title": "Kids"
+                },
+                {
+                    "title": "FENTY x PUMA"
+                },
+                {
+                    "title": "Classics"
+                },
+                {
+                    "title": "Collaborations"
+                },
+                {
+                    "title": "Sport"
+                },
+                {
+                    "title": "Sale"
+                }
+            ]
+        }
+    ]
+}

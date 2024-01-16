@@ -1,10 +1,10 @@
 import { styled } from "styled-components";
 
 const Container: any = styled.div`
-max-width: 1300px;
+max-width: 1600px;
 width: 100%;
 margin: 0px auto;
-padding: 0px 10px;
+padding: 0px 20px;
 `
 
 
