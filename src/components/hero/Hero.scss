@@ -1,0 +1,35 @@
+@mixin f-style($fSize, $color, $fWeight){
+    font-size: $fSize;
+    color: $color !important;
+    font-weight: $fWeight;
+}
+.hero{
+    margin-top: 20px;
+    width: 100%;
+    position: relative;
+}
+.banner__image{
+    width: 100%;
+    min-height: 500px;
+}
+.hero-content{
+    text-align: right;
+    position: absolute;
+    right: 60px;
+    top: calc(30%);
+    h3{
+        @include f-style(37px, var(--light-color), 700);
+        letter-spacing: 0.4px;
+    }
+    p{
+        letter-spacing: 0.4px;
+        margin-top: 10px;
+        @include f-style(23px, var(--light-color), 400);
+    }
+    button{
+        margin-top: 20px;
+        height: 40px;
+        background-color: #fff;
+        color: var(--dark-color);
+    }
+}
