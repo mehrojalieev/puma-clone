@@ -18,6 +18,8 @@ import Tooltip from '@mui/material/Tooltip';
 
 
 const Nav = () => {
+  console.log(Data);
+  
   const [searchDronDown, setSearchDropDown] = useState<boolean>(false)
   const [clearBtn, setClearBtn] = useState<boolean>(false)
   const [inputValue, setInputValue] = useState("")
@@ -64,15 +66,17 @@ const Nav = () => {
   const FormBox: any = useRef() 
   const [formFocus, setFormFocus] = useState<boolean>(false)
 
-  useEffect(() =>{
-    if(formFocus){
-      FormBox.current.style = "box-shadow: 0 0 3px 3px gray"
-    } else{
-      FormBox.current.style = "box-shadow: 0 0 0px #fff"
+  // useEffect(() =>{
+  //   if(formFocus){
+  //     FormBox.current.style = "box-shadow: 0 0 3px 3px gray"
+  //   } else{
+  //     FormBox.current.style = "box-shadow: 0 0 0px #fff"
       
       
-    }
-  }, [formFocus])
+  //   }
+  // }, [formFocus])
+
+  const [itemMenuCategory, setItemMenuCategory] = useState(false)
 
 
   return (
@@ -95,8 +99,8 @@ const Nav = () => {
             <ul className="nav__menu">
               <li><Link className="nav-logo" to={"/"}><SiPuma/></Link></li>
               {
-                Data.map(link =>
-                  <li><NavLink className={({ isActive }) => isActive ? "nav-link nav-link--active" : "nav-link"} to={"/"}>{link.title}</NavLink></li>
+                Data.map((link, index) =>
+                  <li onMouseOver={() => setItemMenuCategory(true)} key={index} ><NavLink className={({ isActive }) => isActive ? "nav-link nav-link--active" : "nav-link"} to={"/"}>{link.title}</NavLink></li>
                 )
               }
             </ul>
@@ -173,14 +177,26 @@ const Nav = () => {
         <MenuItem className="menu__item-list">  Wishlist</MenuItem>
         <Divider />
         <MenuItem className="menu__item-list">  Language</MenuItem>
-        <MenuItem className="login-item"><Link to={"/login"} className="profile__menu-login">LOGIN</Link></MenuItem>
-        <MenuItem className="login__item"><Link to={"/register"} className=" profile__menu-register">REGISTER HERE</Link></MenuItem>
+        <MenuItem className="login-item"><Link to={"/auth/login"} className="profile__menu-login">LOGIN</Link></MenuItem>
+        <MenuItem className="login__item"><Link to={"/auth/register"} className=" profile__menu-register">REGISTER HERE</Link></MenuItem>
         
       
       </Menu>
               </div>
             </div>
           </div>
+          <Container>
+          <div style={itemMenuCategory ? {display: "block"} : {display: "none"} }className="navmenu__category-wrapper">
+            {
+              Data.map(items =>{
+                return <h3>{items.title}</h3>
+              
+
+              }
+                )
+            }
+          </div>
+          </Container>
         </Container>
         <div style={searchDronDown ? { transform: "scaleY(1)", transition: "0.3s" } : {transform: "scaleY(0)"}} className="search__content-wrapper">
                 <div className="dropdown__search-navigation">
