@@ -53,8 +53,6 @@ const Nav = () => {
     return () => clearInterval(f)
   }, [dd])
 
-
-
   useEffect(() => {
     if(inputValue){
         setClearBtn(true)

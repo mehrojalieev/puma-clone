@@ -1,88 +1,77 @@
+
 [
     {
         "title": "Women",
-        "categories":[
-            "Launch Calendar",
-            "New Arrivals",
-            "Best Sellers",
-            "FENTY x PUMA",
-            "New Year, New You",
-            "Cold Water Shop",
-            "Longwear",
-            "Pelermo"
-        ]
-    },
-    {
-        "title": "Men",
-        "categories":[
-            "Launch Calendar",
-            "New Arrivals",
-            "Best Sellers",
-            "FENTY x PUMA",
-            "New Year, New You",
-            "Cold Water Shop",
-            "Longwear",
-            "Pelermo"
-        ]
-    },
-    {
-        "title": "Kids",
-        "categories":[
-            "New Arrivals",
-            "Best Sellers",
-            "FENTY x PUMA",
-            "Cold Water Shop",
-            "Longwear",
-            "Matching Sets",
-            "Pelermo Collection"
-        ]
-    },
-    {
-        "title": "FENTY x PUMA"
-    },
-    {
-        "title": "Classics",
-        "categories":[
-            "New Arrivals",
-            "Best Sellers",
-            "Special Suedes",
-            "Pelermo Collection"
-        ]
-    },
-    {
-        "title": "Collaborations",
-        "categories":[
-            "PUMA x RHUIGI",
-            "FENTY x PUMA",
-            "PUMA x PLEASURES",
-            "PUMA x MMQ",
-            "PUMA x LIBERTY",
-            "PUMA x DAPPER DAN",
-            "PUMA x PERKS AND MINI"
-        ]
-    },
-    {
-        "title": "Sport",
-        "categories":[
-            "Shop All Basketball",
-            "PUMA x BLACK FIVES",
-            "PUMA x MELO",
-            "PUMA x CHILDHOOD DREAMS",
-            "PUMA x SKYLAR DIGGINS-SMITH",
-            "PUMA x SCOTT HENDERSON",
-            "PUMA x STEWIE",
-            "Performance",
-            "Streetwear"
-        ]
-    },
-    {
-        "title": "Sale",
-        "categories":[
-            "New To Sale",
-            "Best Sellers",
-            "Longwear $70 & Under",
-            "Tees $40 & Under",
-            "Slides & Sandals"
+        "subcategory":[
+        {
+            "title": "Shoes",
+            "link": "/shoes", 
+            "category": [
+                {  "name": "Classic",  "link": "/shoes/classic"},
+                { "name": "Suede", "link": "/shoes/suede"},
+                { "name": "LifeStyle", "link": "/shoes/lifestyle"},
+                { "name": "RS Collection", "link": "/shoes/collection"},
+                { "name": "Cali", "link": "/shoes/cali"},
+                { "name": "Mayze", "link": "/shoes/mayze"},
+                { "name": "Triple White", "link": "/shoes/triple_white"},
+                { "name": "Rider Pack", "link": "/shoes/rider_pack"},
+                { "name": "Boots & Mids", "link": "/shoes/boots_mide"},
+                { "name": "Slides + Sandals", "link": "/shoes/slides_sandals"},
+                { "name": "Training + Gym", "link": "/shoes/training"},
+                { "name": "Running", "link": "/shoes/training"},
+                { "name": "Bassketball + Gym", "link": "/shoes/training"},
+                { "name": "Motorsport", "link": "/shoes/motorsport"}
+                
+            ]
+        },
+        {
+            "title": "Clothing",
+            "link": "/clothing", 
+            "category": [
+                {  "name": "Classic",  "link": "/clothing/classic"},
+                { "name": "Hoodies + Sweatshirts", "link": "/clothing/hood"},
+                { "name": "Jacket + Outwear", "link": "/clothing/jacket"},
+                { "name": "T-Shirts + Tops", "link": "/clothing/shirt"},
+                { "name": "Pants", "link": "/clothing/pants"},
+                { "name": "Leggings", "link": "/clothing/legging"},
+                { "name": "Matching Sets", "link": "/clothing/matching_sets"},
+                { "name": "Loungewear", "link": "/clothing/loungewear"},
+                { "name": "Dresses + Skirts", "link": "/clothing/dresses"},
+                { "name": "Tracksuit", "link": "/clothing/tracksuit"},
+                { "name": "Bras", "link": "/clothing/bras"},
+                { "name": "Shorts", "link": "/clothing/shorts"}
+             
+                
+            ]
+        },
+        {
+            "title": "Accessories",
+            "link": "/accessory", 
+            "category": [
+                {  "name": "Bag + Backpacks",  "link": "/clothing/bag"},
+                { "name": "Hats", "link": "/clothing/hat"},
+                { "name": "Socks", "link": "/clothing/sock"} 
+            ]
+        },
+        {
+            "title": "Sports",
+            "link": "/sport", 
+            "category": [
+                {  "name": "Running",  "link": "/sport/running"},
+                { "name": "Training + Gym", "link": "/sport/hat"},
+                { "name": "Soccer", "link": "/sport/sock"},
+                { "name": "Yoga", "link": "/sport/Yoga"},
+                { "name": "Bassketball", "link": "/sport/bassketball"},
+                { "name": "Motorsport", "link": "/sport/motorsport"},
+                { "name": "Racket Sports", "link": "/sport/racket_sport"}
+              
+             
+                
+            ]
+        }
+
         ]
     }
+
+  
 ]
