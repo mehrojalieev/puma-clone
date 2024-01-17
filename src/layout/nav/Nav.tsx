@@ -3,7 +3,7 @@ import { Container } from "../../styled-component/Styled"
 import { Link, NavLink } from 'react-router-dom'
 import { useEffect, useState } from "react"
 import { IoIosSearch, IoMdClose  } from "react-icons/io";
-import { ProductData } from "../../db/data.json"
+import  Data  from "../../db/data.json"
 import { FaRegHeart, FaRegUser } from "react-icons/fa";
 import { PiShoppingCartSimpleBold } from "react-icons/pi"
 import { SiPuma } from "react-icons/si";
@@ -27,9 +27,14 @@ const Nav = () => {
       link: "LEARN MORE"
     }
   ]
-  // setInterval(() => {
-  //   setDd(!dd)
-  // }, 3000)
+  
+  useEffect(() => {
+    let f = setInterval(() => {
+      setDd(!dd)
+    }, 3000)
+
+    return () => clearInterval(f)
+  }, [dd])
 
 
 
@@ -62,7 +67,7 @@ const Nav = () => {
             <ul className="nav__menu">
               <li><Link className="nav-logo" to={"/"}><SiPuma/></Link></li>
               {
-                ProductData[0].category.map(link =>
+                Data.map(link =>
                   <li><NavLink className={({ isActive }) => isActive ? "nav-link nav-link--active" : "nav-link"} to={"/"}>{link.title}</NavLink></li>
                 )
               }
@@ -81,7 +86,7 @@ const Nav = () => {
             </div>
           </div>
         </Container>
-        <div style={searchDronDown ? {display: "block" } : {display: "none"}} className="search__content-wrapper">
+        <div style={searchDronDown ? { transform: "scaleY(1)", transition: "0.3s" } : {transform: "scaleY(0)"}} className="search__content-wrapper">
                 <div className="dropdown__search-navigation">
               <Container>
                 <div className="form-wrapper">
@@ -110,14 +115,14 @@ const Nav = () => {
                         <h3>SUGGESTED PRODUCTS</h3>
                         <div className="card-container">
                           <div className="card">
-                            <img width={100} height={100} src="https://images.puma.com/image/upload/f_auto,q_auto,b_rgb:fafafa,w_2000,h_2000/global/379330/01/sv01/fnd/PNA/fmt/png/MELO-x-DEXTER'S-LAB-MB.03-Men's-Basketball-Shoes" alt="" />
+                            <img width={100} height={100} src="https://images.puma.com/image/upload/f_auto,q_auto,b_rgb:fafafa,w_2000,h_2000/global/378916/01/sv01/fnd/PNA/fmt/png/PUMA-x-LAMELO-BALL-MB.03-Toxic-Men's-Basketball-Shoes" alt="" />
                             <div className="content">
                               <p>MELO x DEXTER'S LAB MB.03 Men's Basketball Shoes</p>
                               <strong>$ 135.00</strong>
                             </div>
                           </div>
                           <div className="card">
-                            <img width={100} height={100} src="https://images.puma.com/image/upload/f_auto,q_auto,b_rgb:fafafa,w_2000,h_2000/global/379330/01/sv01/fnd/PNA/fmt/png/MELO-x-DEXTER'S-LAB-MB.03-Men's-Basketball-Shoes" alt="" />
+                            <img width={100} height={100} src="https://images.puma.com/image/upload/f_auto,q_auto,b_rgb:fafafa,w_2000,h_2000/global/379331/01/sv01/fnd/PNA/fmt/png/MELO-x-DEXTER'S-LAB-MB.03-Big-Kids'-Basketball-Shoes" alt="" />
                             <div className="content">
                               <p>MELO x DEXTER'S LAB MB.03 Men's Basketball Shoes</p>
                               <strong>$ 135.00</strong>
