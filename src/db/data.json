@@ -1,32 +1,88 @@
-{
-    "ProductData": [
-        {
-            "category": [
-                {
-                    "title": "Women"
-                },
-                {
-                    "title": "Men"
-                },
-                {
-                    "title": "Kids"
-                },
-                {
-                    "title": "FENTY x PUMA"
-                },
-                {
-                    "title": "Classics"
-                },
-                {
-                    "title": "Collaborations"
-                },
-                {
-                    "title": "Sport"
-                },
-                {
-                    "title": "Sale"
-                }
-            ]
-        }
-    ]
-}
+[
+    {
+        "title": "Women",
+        "categories":[
+            "Launch Calendar",
+            "New Arrivals",
+            "Best Sellers",
+            "FENTY x PUMA",
+            "New Year, New You",
+            "Cold Water Shop",
+            "Longwear",
+            "Pelermo"
+        ]
+    },
+    {
+        "title": "Men",
+        "categories":[
+            "Launch Calendar",
+            "New Arrivals",
+            "Best Sellers",
+            "FENTY x PUMA",
+            "New Year, New You",
+            "Cold Water Shop",
+            "Longwear",
+            "Pelermo"
+        ]
+    },
+    {
+        "title": "Kids",
+        "categories":[
+            "New Arrivals",
+            "Best Sellers",
+            "FENTY x PUMA",
+            "Cold Water Shop",
+            "Longwear",
+            "Matching Sets",
+            "Pelermo Collection"
+        ]
+    },
+    {
+        "title": "FENTY x PUMA"
+    },
+    {
+        "title": "Classics",
+        "categories":[
+            "New Arrivals",
+            "Best Sellers",
+            "Special Suedes",
+            "Pelermo Collection"
+        ]
+    },
+    {
+        "title": "Collaborations",
+        "categories":[
+            "PUMA x RHUIGI",
+            "FENTY x PUMA",
+            "PUMA x PLEASURES",
+            "PUMA x MMQ",
+            "PUMA x LIBERTY",
+            "PUMA x DAPPER DAN",
+            "PUMA x PERKS AND MINI"
+        ]
+    },
+    {
+        "title": "Sport",
+        "categories":[
+            "Shop All Basketball",
+            "PUMA x BLACK FIVES",
+            "PUMA x MELO",
+            "PUMA x CHILDHOOD DREAMS",
+            "PUMA x SKYLAR DIGGINS-SMITH",
+            "PUMA x SCOTT HENDERSON",
+            "PUMA x STEWIE",
+            "Performance",
+            "Streetwear"
+        ]
+    },
+    {
+        "title": "Sale",
+        "categories":[
+            "New To Sale",
+            "Best Sellers",
+            "Longwear $70 & Under",
+            "Tees $40 & Under",
+            "Slides & Sandals"
+        ]
+    }
+]
