@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import  { useEffect, useState } from 'react'
 import "./Shoes.scss"
 import ApiInstance from '../../api'
 import { Container } from '../../styled-component/Styled'
@@ -6,8 +6,10 @@ import Rating from '@mui/material/Rating';
 import  Stack  from '@mui/material/Stack';
 import Divider from '@mui/material/Divider'
 import { Link } from 'react-router-dom';
+import { ProductTypes } from '../../types';
 const Shoes = () => {
     const [shoesData, setShoesData] = useState([])
+        
     useEffect(() => {
         async function loadData() {
             const response = await ApiInstance("/product/all")
@@ -26,13 +28,13 @@ const Shoes = () => {
                 <Divider/>
                 <div className="shoes__product-wrapper">
                     {
-                        shoesData.map(shoes =>
-                            <div key={shoes._id} className="shoes-card">
+                        shoesData.map((shoes: ProductTypes, index) =>
+                            <div key={index} className="shoes-card">
                                 <Link className='shoes__image-link' to={`/shoes/${shoes._id}`}>
                                 <img src={shoes.product_images[0]} className='shoes-image' />
                                 </Link>
                                 <div className="shoes-info">
-                                    <h5>{shoes?.product_name}</h5>
+                                    <h5>{shoes.product_name}</h5>
                                     <strong>${shoes.variants[0].variant_original_price}</strong>
                                 </div>
                                 <button>BEST SELLER</button>
