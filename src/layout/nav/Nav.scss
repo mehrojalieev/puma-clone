@@ -45,6 +45,7 @@ nav{
     @include f-style(30px, var(--light-color), 600);
 }
 .nav__menu{
+    
     height: 100%;
     display: flex;
     align-items: center;

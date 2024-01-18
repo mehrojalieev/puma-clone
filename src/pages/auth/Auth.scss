@@ -1,11 +1,11 @@
 .auth{
     width: 512px;
-    height: 470px;
-    margin: 30px auto 0;
+    height: fit-content;
+    margin: 30px auto ;
 }
 .auth__account-title{
     font-size: 46px;
-    font-family:  FFDINforPuma, Inter, -apple-system, system-ui, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    font-family:  var(--helvaty-font);
     margin-top: 25px;
     margin-left: 157px;
 }
@@ -25,7 +25,7 @@
         color: #000 !important;
         opacity: 0.8;
         font-weight: 600;
-        font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
         text-decoration: none;
+        font-family: var(--helvaty-font);
     }
 }

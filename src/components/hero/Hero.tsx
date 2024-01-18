@@ -5,7 +5,7 @@ import { useLocation } from "react-router-dom"
 
 const Hero = () => {
   const {pathname} = useLocation()
-  return pathname.includes('/auth') ? null : (
+  return (
     <div className="hero" >
         <img className="banner__image" src={HeroBanner} alt="Banner" />
         <div className="hero-content">

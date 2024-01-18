@@ -1,6 +1,17 @@
-import Checkbox from '@mui/material/Checkbox';
 import "./Register.scss"
+import { useState } from 'react';
+import { MdOutlineRemoveRedEye } from "react-icons/md";
+import { FaRegEyeSlash } from "react-icons/fa";
+import Checkbox from '@mui/material/Checkbox';
 const Register = () => {
+  const [showPassword, setShowPassword] = useState(false)
+  const [passwordInputType, setPasswordInputType] = useState("password")
+
+    const toggleInputType = () => {
+      setShowPassword(!showPassword)
+      const changeType = passwordInputType === "text" ? "password" : "text"
+      setPasswordInputType(changeType)
+    }
   const label = { inputProps: { 'aria-label': 'Checkbox demo' } };
   return (
     <div>
@@ -19,7 +30,10 @@ const Register = () => {
         </div>
         <div className="label-item">
           <label htmlFor="password">PASSWORD <code>*</code></label>
-          <input type="password" id='password' placeholder='Password' />
+          <div className="password-input">
+          <input  type={passwordInputType} id='password' placeholder='Password' />
+          <i onClick={toggleInputType}>{showPassword ? <FaRegEyeSlash/> : <MdOutlineRemoveRedEye/>}</i>
+          </div>
           <div className="checkbox-item">
             <Checkbox {...label} />
             Add me to the PUMA mailing list

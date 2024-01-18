@@ -35,6 +35,23 @@
     display: flex;
     align-items: center;
 }
+.password-input{
+    display: flex;
+    align-items: center;
+    border-radius: 4px;
+    border: 1px solid #3B4047;
+    padding-right: 10px;
+    input{
+        flex: 1;
+        border: none;
+        &:focus{
+            box-shadow: none;
+        }
+    }
+    i{
+        font-size: 19px;
+    }
+}
 .login-btn{
     margin-top: 7px;
 
@@ -61,8 +78,6 @@
     font-weight: 600;
     border: none;
     width: 230px;
-    padding-bottom: 4px;
-    padding-bottom: 40px;
     font-weight: 600;
     border-bottom: 2px solid #BDC1C5;
     &:hover{

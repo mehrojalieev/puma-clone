@@ -36,6 +36,7 @@ const Nav = () => {
   
 
   const [dd, setDd] = useState<boolean>(false)
+
   const ChangingText: any = [
     {
       title: "FREE AND EASY RETURNS ",
@@ -99,9 +100,17 @@ const Nav = () => {
             <ul className="nav__menu">
               <li><Link className="nav-logo" to={"/"}><SiPuma/></Link></li>
               {
-                Data.map((link, index) =>
-                  <li onMouseOver={() => setItemMenuCategory(true)} key={index} ><NavLink className={({ isActive }) => isActive ? "nav-link nav-link--active" : "nav-link"} to={"/"}>{link.title}</NavLink></li>
-                )
+                Data.map(link =>
+                <>
+                <li onMouseOver={() => setItemMenuCategory(true)}  ><NavLink className={({ isActive }) => isActive ? "nav-link nav-link--active" : "nav-link"} to={"/"}>{link.title}</NavLink></li>
+                  {
+                    link.subcategory.map(categoryItem =>
+                        <p>{categoryItem.title}</p>
+                      )
+                  }
+                </>
+                  )
+               
               }
             </ul>
 
@@ -185,18 +194,7 @@ const Nav = () => {
               </div>
             </div>
           </div>
-          <Container>
-          <div style={itemMenuCategory ? {display: "block"} : {display: "none"} }className="navmenu__category-wrapper">
-            {
-              Data.map(items =>{
-                return <h3>{items.title}</h3>
-              
-
-              }
-                )
-            }
-          </div>
-          </Container>
+         
         </Container>
         <div style={searchDronDown ? { transform: "scaleY(1)", transition: "0.3s" } : {transform: "scaleY(0)"}} className="search__content-wrapper">
                 <div className="dropdown__search-navigation">
