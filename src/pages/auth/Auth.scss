@@ -1,0 +1,31 @@
+.auth{
+    width: 512px;
+    height: fit-content;
+    margin: 30px auto ;
+}
+.auth__account-title{
+    font-size: 46px;
+    font-family:  var(--helvaty-font);
+    margin-top: 25px;
+    margin-left: 157px;
+}
+.auth__form-wrapper{
+    width: 100%;
+    height: 100%;
+}
+
+.form__header{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    padding: 10px 20px;
+    .item-link{
+        font-size: 20px;
+        color: #000 !important;
+        opacity: 0.8;
+        font-weight: 600;
+        text-decoration: none;
+        font-family: var(--helvaty-font);
+    }
+}

@@ -1,0 +1,87 @@
+.login-form{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    padding-top: 25px;
+}
+.label-item{
+    display: flex;
+    flex-direction: column;
+    row-gap: 10px;
+    label{
+        margin-left: 4px;
+        font-size: 13px;
+        font-weight: 600;
+        code{color: red !important; font-size: 15px;}
+    }
+    input{
+        outline: none;
+        width: 510px;
+        height: 56px;
+        transition: 0.1s;
+        border-radius: 4px;
+        border: 1px solid #484747;
+        text-indent: 10px;
+        font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+        font-size: 17px;
+        &:focus{
+            box-shadow: 0 0 3px 2px gray;
+        }
+    }
+}
+.checkbox-item{
+    margin-top: 7px;
+    display: flex;
+    align-items: center;
+}
+.password-input{
+    display: flex;
+    align-items: center;
+    border-radius: 4px;
+    border: 1px solid #3B4047;
+    padding-right: 10px;
+    input{
+        flex: 1;
+        border: none;
+        &:focus{
+            box-shadow: none;
+        }
+    }
+    i{
+        font-size: 19px;
+    }
+}
+.login-btn{
+    margin-top: 7px;
+
+    width: 100%;
+    padding: 16px 0;
+    background-color: #BDC1C5;
+    color: #3B4047;
+    border: none;
+    font-size: 18px;
+    font-weight: 600;
+    letter-spacing: .3px;
+}
+.privacy-text{
+    margin-top: 7px;
+    font-size: 12px;
+    font-weight: 500;
+    line-height: 18px;
+}
+.forget-btn{
+    margin-top: 20px;
+    background: transparent;
+    text-align: left;
+    font-size: 14px ;
+    font-weight: 600;
+    border: none;
+    width: 230px;
+    font-weight: 600;
+    border-bottom: 2px solid #BDC1C5;
+    &:hover{
+        border-bottom: 2px solid #000;
+        cursor: pointer;
+    }
+}

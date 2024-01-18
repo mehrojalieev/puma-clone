@@ -26,16 +26,26 @@ nav{
     background-color: var(--dark-color);
 }
 .nav-wrapper{
+    position: relative;
     width: 100%;
     height: 80px;
     display: flex;
     align-items: center;
     justify-content: space-between;
 }
+
+.navmenu__category-wrapper{
+    background-color: red;
+    width: 100%;
+    height: 400px;
+    z-index: 10 !important;
+    // transform: scaleY(0);
+}
 .nav-logo{
     @include f-style(30px, var(--light-color), 600);
 }
 .nav__menu{
+    
     height: 100%;
     display: flex;
     align-items: center;
