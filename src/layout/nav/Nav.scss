@@ -21,6 +21,7 @@
 }
 
 nav{
+    position: relative;
     width: 100%;
     height: 80px;
     background-color: var(--dark-color);
@@ -32,20 +33,15 @@ nav{
     display: flex;
     align-items: center;
     justify-content: space-between;
+    
 }
 
-.navmenu__category-wrapper{
-    background-color: red;
-    width: 100%;
-    height: 400px;
-    z-index: 10 !important;
-    // transform: scaleY(0);
-}
+
 .nav-logo{
     @include f-style(30px, var(--light-color), 600);
 }
 .nav__menu{
-    
+    // position: relative;
     height: 100%;
     display: flex;
     align-items: center;
@@ -60,6 +56,31 @@ nav{
             cursor: pointer;
             opacity: 0.7;
         }
+    }
+}
+.navmenu__dropdown-wrapper{
+    display: none;
+    z-index: 2;
+    position: absolute;
+    width: 100%;
+    top: 100%;
+    height: 500px;
+    background-color: rgb(255, 255, 255);
+  
+ 
+}
+.dropdown__category-container{
+    width: 100%;
+    height: 500px;
+    background-color: gray;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    ul{
+        list-style-type: none;
+        display: flex;
+        flex-direction: column !important;
+        background-color: red;
     }
 }
 
