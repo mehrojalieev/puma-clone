@@ -28,7 +28,7 @@ const Shoes = () => {
     }, [])  
 
     const handleAddCart: any = (shoes: ProductTypes) => {
-        dispatch(shoesFetch(shoes))
+        (shoesFetch(shoes))
     }
 
     return (
