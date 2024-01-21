@@ -14,8 +14,8 @@ const RouteController = () => {
         <Route path='register' element={<Register />} />
         <Route path='login' element={<Login />} />
       </Route>
-      <Route path='shoes' element={<Shoes/>}/>
-      <Route path='shoes/:id' element={<SingleShoes/>}/>
+      <Route path='shoes' element={<Shoes />} />
+      <Route path='shoes/:id' element={<SingleShoes />} />
     </Routes>
   )
 }

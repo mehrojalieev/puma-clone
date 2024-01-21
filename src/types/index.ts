@@ -25,5 +25,5 @@ export interface ProductTypes {
     variants: VariantType[],
     visible_in_store: boolean,
     _v: number,
-    _id: string | number 
+    _id: string | number
 }

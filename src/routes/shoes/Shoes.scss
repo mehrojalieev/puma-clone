@@ -12,10 +12,13 @@
     margin: 0 0 20px 0;
 }
 .shoes-card{
+    display: grid;
+    overflow: hidden;
+    resize: both;
     width: 260px;
     height: 420px;
     .shoes__image-link{
-        display: flex;
+        display: flex ;
         align-items: center;
         justify-content: center;
         overflow: hidden !important;

@@ -76,23 +76,21 @@
         "title": "Men",
         "subcategory":[
         {
-            "title": "Men",
+            "title": "Shoes",
             "link": "/shoes", 
             "category": [
                 {  "name": "Classic",  "link": "/shoes/classic"},
                 { "name": "Suede", "link": "/shoes/suede"},
-                { "name": "LifeStyle", "link": "/shoes/lifestyle"},
-                { "name": "RS Collection", "link": "/shoes/collection"},
-                { "name": "Cali", "link": "/shoes/cali"},
-                { "name": "Mayze", "link": "/shoes/mayze"},
                 { "name": "Triple White", "link": "/shoes/triple_white"},
-                { "name": "Rider Pack", "link": "/shoes/rider_pack"},
-                { "name": "Boots & Mids", "link": "/shoes/boots_mide"},
-                { "name": "Slides + Sandals", "link": "/shoes/slides_sandals"},
+                { "name": "RS Collection", "link": "/shoes/collection"},
+                { "name": "LifeStyle", "link": "/shoes/lifestyle"},
                 { "name": "Training + Gym", "link": "/shoes/training"},
+                { "name": "Boots & Mids", "link": "/shoes/boots_mide"},
                 { "name": "Running", "link": "/shoes/training"},
-                { "name": "Bassketball + Gym", "link": "/shoes/training"},
-                { "name": "Motorsport", "link": "/shoes/motorsport"}
+                { "name": "Basketball + Gym", "link": "/shoes/training"},
+                { "name": "Motorsport", "link": "/shoes/motorsport"},
+                { "name": "Soccer", "link": "/shoes/soccer"},
+                { "name": "Slides + Sandals", "link": "/shoes/slides_sandals"}
                 
             ]
         },
@@ -100,18 +98,14 @@
             "title": "Clothing",
             "link": "/clothing", 
             "category": [
-                {  "name": "Classic",  "link": "/clothing/classic"},
                 { "name": "Hoodies + Sweatshirts", "link": "/clothing/hood"},
-                { "name": "Jacket + Outwear", "link": "/clothing/jacket"},
                 { "name": "T-Shirts + Tops", "link": "/clothing/shirt"},
-                { "name": "Pants", "link": "/clothing/pants"},
-                { "name": "Leggings", "link": "/clothing/legging"},
-                { "name": "Matching Sets", "link": "/clothing/matching_sets"},
-                { "name": "Loungewear", "link": "/clothing/loungewear"},
-                { "name": "Dresses + Skirts", "link": "/clothing/dresses"},
+                { "name": "Polos", "link": "/clothing/polos"},
+                { "name": "Shorts", "link": "/clothing/shorts"},
                 { "name": "Tracksuit", "link": "/clothing/tracksuit"},
-                { "name": "Bras", "link": "/clothing/bras"},
-                { "name": "Shorts", "link": "/clothing/shorts"}
+                { "name": "Pants", "link": "/clothing/pants"},
+                { "name": "Jacket + Outwear", "link": "/clothing/jacket"},
+                { "name": "Team Jerseys", "link": "/clothing/team"}
              
                 
             ]
@@ -120,25 +114,87 @@
             "title": "Accessories",
             "link": "/accessory", 
             "category": [
-                {  "name": "Bag + Backpacks",  "link": "/clothing/bag"},
-                { "name": "Hats", "link": "/clothing/hat"},
-                { "name": "Socks", "link": "/clothing/sock"} 
+                {"name": "Hats", "link": "/accessory/hats"},
+                { "name": "Socks + Underwear", "link": "/accessory/socks"}, 
+                {  "name": "Bag + Backpacks",  "link": "/accessory/bag"},
+                { "name": "Sports Equepment", "link": "/accessory/sport"}, 
+                { "name": "Soccer Balls", "link": "/accessory/soccer"}
             ]
         },
         {
             "title": "Sports",
             "link": "/sport", 
             "category": [
+                { "name": "Bassketball", "link": "/sport/bassketball"},
                 {  "name": "Running",  "link": "/sport/running"},
                 { "name": "Training + Gym", "link": "/sport/hat"},
                 { "name": "Soccer", "link": "/sport/sock"},
-                { "name": "Yoga", "link": "/sport/Yoga"},
-                { "name": "Bassketball", "link": "/sport/bassketball"},
                 { "name": "Motorsport", "link": "/sport/motorsport"},
                 { "name": "Racket Sports", "link": "/sport/racket_sport"}
-              
+            ]
+        }
+
+        ]
+    },
+    {
+        "title": "Kids",
+        "subcategory":[
+        {
+            "title": "Boys",
+            "link": "/boys", 
+            "category": [
+                {  "name": "Classic",  "link": "/shoes/classic"},
+                { "name": "Suede", "link": "/shoes/suede"},
+                { "name": "Triple White", "link": "/shoes/triple_white"},
+                { "name": "RS Collection", "link": "/shoes/collection"},
+                { "name": "LifeStyle", "link": "/shoes/lifestyle"},
+                { "name": "Training + Gym", "link": "/shoes/training"},
+                { "name": "Boots & Mids", "link": "/shoes/boots_mide"},
+                { "name": "Running", "link": "/shoes/training"},
+                { "name": "Basketball + Gym", "link": "/shoes/training"},
+                { "name": "Motorsport", "link": "/shoes/motorsport"},
+                { "name": "Soccer", "link": "/shoes/soccer"},
+                { "name": "Slides + Sandals", "link": "/shoes/slides_sandals"}
+                
+            ]
+        },
+        {
+            "title": "Clothing",
+            "link": "/clothing", 
+            "category": [
+                { "name": "Hoodies + Sweatshirts", "link": "/clothing/hood"},
+                { "name": "T-Shirts + Tops", "link": "/clothing/shirt"},
+                { "name": "Polos", "link": "/clothing/polos"},
+                { "name": "Shorts", "link": "/clothing/shorts"},
+                { "name": "Tracksuit", "link": "/clothing/tracksuit"},
+                { "name": "Pants", "link": "/clothing/pants"},
+                { "name": "Jacket + Outwear", "link": "/clothing/jacket"},
+                { "name": "Team Jerseys", "link": "/clothing/team"}
              
                 
+            ]
+        },
+        {
+            "title": "Accessories",
+            "link": "/accessory", 
+            "category": [
+                {"name": "Hats", "link": "/accessory/hats"},
+                { "name": "Socks + Underwear", "link": "/accessory/socks"}, 
+                {  "name": "Bag + Backpacks",  "link": "/accessory/bag"},
+                { "name": "Sports Equepment", "link": "/accessory/sport"}, 
+                { "name": "Soccer Balls", "link": "/accessory/soccer"}
+            ]
+        },
+        {
+            "title": "Sports",
+            "link": "/sport", 
+            "category": [
+                { "name": "Bassketball", "link": "/sport/bassketball"},
+                {  "name": "Running",  "link": "/sport/running"},
+                { "name": "Training + Gym", "link": "/sport/hat"},
+                { "name": "Soccer", "link": "/sport/sock"},
+                { "name": "Motorsport", "link": "/sport/motorsport"},
+                { "name": "Racket Sports", "link": "/sport/racket_sport"}
             ]
         }
 
