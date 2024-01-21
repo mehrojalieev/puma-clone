@@ -31,6 +31,8 @@ const productSlice = createSlice({
             state.isLoading = true
         }),
         builder.addCase(loadProduct.fulfilled, (state, action) => {
+            console.log(action.payload);
+            
             state.data = action.payload,
             state.isSuccess = true,
             state.isError = false,

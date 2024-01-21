@@ -8,7 +8,7 @@ import Stack from '@mui/material/Stack';
 import Divider from '@mui/material/Divider'
 import { Link } from 'react-router-dom';
 import { ProductTypes } from '../../types';
-import shoesFetch from "../../redux/features/product-slice"
+import { loadProduct } from '../../redux/features/product-slice'
 const Shoes = () => {
     const dispatch = useDispatch()
     const data = useSelector(state => state)
@@ -28,7 +28,8 @@ const Shoes = () => {
     }, [])  
 
     const handleAddCart: any = (shoes: ProductTypes) => {
-        (shoesFetch(shoes))
+        dispatch(loadProduct(shoes))
+        
     }
 
     return (
