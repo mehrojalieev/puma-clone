@@ -3,6 +3,8 @@ import { useState } from 'react';
 import { MdOutlineRemoveRedEye } from "react-icons/md";
 import { FaRegEyeSlash } from "react-icons/fa";
 import Checkbox from '@mui/material/Checkbox';
+import { GoogleLogin } from '@react-oauth/google';
+import { GoogleOAuthProvider } from '@react-oauth/google';
 const Register = () => {
   const [showPassword, setShowPassword] = useState(false)
   const [passwordInputType, setPasswordInputType] = useState("password")
@@ -43,8 +45,22 @@ const Register = () => {
           <button className='forget-btn' type='button'>FORGOTTEN YOUR PASSWORD?</button>
         </div>
       </form>
+
+      <GoogleOAuthProvider  clientId="617896106948-fncnrakj6bigf7u0kig605jifcfll205.apps.googleusercontent.com">
+      <GoogleLogin
+        onSuccess={credentialResponse => {
+          console.log(credentialResponse)
+        }}
+        onError={() => {
+          console.log('Login Failed')
+      }}
+    />
+    </GoogleOAuthProvider>
+
     </div>
   )
 }
 
 export default Register
+
+// 617896106948-fncnrakj6bigf7u0kig605jifcfll205.apps.googleusercontent.com

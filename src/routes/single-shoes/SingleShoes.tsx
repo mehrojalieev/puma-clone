@@ -36,7 +36,7 @@ const SingleShoes = () => {
       <Container>
         {
           singleData.map((data: ProductTypes) =>
-            <div className="single__data-container">
+            <div key={data._id} className="single__data-container">
               <div className="product__grid-image">
                 <img src={data.product_images[0]} alt={data.product_name} />
                 <img src={data.product_images[1]} alt={data.product_name} />
