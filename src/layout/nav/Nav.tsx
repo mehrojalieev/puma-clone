@@ -116,7 +116,7 @@ const Nav = () => {
               </div>
               <div className="action-card">
                 <Link to={"/"} className="action-link"><FaRegHeart /></Link>
-                <Link to={"/"} className="action-link"><PiShoppingCartSimpleBold /></Link>
+                <Link to={"/cart"}  className="action-link"><PiShoppingCartSimpleBold /></Link>
                 <Box sx={{ display: 'flex', alignItems: 'center', textAlign: 'center' }}>
 
                   <Tooltip title="Account settings">
@@ -183,8 +183,6 @@ const Nav = () => {
                   <MenuItem className="menu__item-list">  Language</MenuItem>
                   <MenuItem className="login-item"><Link to={"/auth/login"} className="profile__menu-login">LOGIN</Link></MenuItem>
                   <MenuItem className="login__item"><Link to={"/auth/register"} className=" profile__menu-register">REGISTER HERE</Link></MenuItem>
-
-
                 </Menu>
               </div>
             </div>

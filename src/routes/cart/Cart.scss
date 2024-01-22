@@ -1,0 +1,116 @@
+.cart{
+    margin-top: 50px;
+}
+.cart-container{
+    display: flex;
+    column-gap: 20px;
+}
+.notcard-container{
+    margin: 130px 0;
+    width: 100%;
+    text-align: center;
+    h2{
+        font-size: 140px;
+        color: rgb(160, 159, 159);
+    }
+    h3{
+        font-size: 30px;
+    }
+    p{
+        margin-top: 14px;
+        font-size: 15px;
+        font-weight: 400;
+        a{
+            font-size: 14px;
+            color: #000;
+            font-weight: 600;
+        }
+    }
+}
+.cart-box{
+    display: flex;
+    // align-items: center;
+    justify-content: space-between;
+    padding: 10px 14px;
+    width: 716px;
+    height: 200px;
+    border: 1px solid #6c6c6ca1;
+    border-radius: 4px;
+    img{
+        width: 192px;
+        aspect-ratio: 1/1;
+        border-radius: 5px;
+    }
+}
+.cart-info{
+    display: flex;
+    flex-direction: column;
+    h3{
+        font-size: 20px;
+        margin-top: 10px;
+        margin-bottom: 10px;
+    }
+    p{
+        font-size: 16px;
+        width: 300px;
+        margin-top: 8px;
+        color: #191919;
+        span{
+            color: #6c6c6c;
+            font-size: 16px;
+        }
+    }
+}
+.manage-action{
+    margin-top: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    row-gap: 40px;
+    .cart-price{
+        font-size: 18px;
+        font-weight: 600;
+        letter-spacing: 0.6px;
+    }
+}
+.control-action{
+    
+    display: flex;
+    column-gap: 15px;
+    button{
+        font-size: 20px;
+        border: none;
+        background: transparent;
+    }
+}
+
+
+.cart__info-wrapper{
+    .delivery-text{
+        margin: 0 0 10px 0;
+        min-width: 480px;
+        height: 40px;
+        border: 1px solid #6c6c6ca1;
+        border-radius: 5px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        column-gap: 6px;
+        font-size: 17px;
+        color: green;
+        i{margin-top: 4px; font-size: 20px;}
+    }
+    .return-text{
+        min-width: 480px;
+        height: 40px;
+        border: 1px solid #6c6c6ca1;
+        border-radius: 5px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        column-gap: 6px;
+        font-size: 16px;
+        color: gray;
+        i{margin-top: 4px; font-size: 20px;}
+    }
+}
