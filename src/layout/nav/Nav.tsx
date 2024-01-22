@@ -18,12 +18,12 @@ import Tooltip from '@mui/material/Tooltip';
 
 
 const Nav = () => {
-  console.log(Data);
+  // console.log(Data);
 
   const [searchDronDown, setSearchDropDown] = useState<boolean>(false)
   const [clearBtn, setClearBtn] = useState<boolean>(false)
   const [inputValue, setInputValue] = useState("")
-  console.log(inputValue);
+  // console.log(inputValue);
 
   const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);
   const open = Boolean(anchorEl);
@@ -35,7 +35,7 @@ const Nav = () => {
   };
 
 
-  const [dd, setDd] = useState<boolean>(false)
+  const [dd, setDd] = useState<boolean>(false)  
 
   const ChangingText: any = [
     {
@@ -67,17 +67,16 @@ const Nav = () => {
   const FormBox: any = useRef()
   const [formFocus, setFormFocus] = useState<boolean>(false)
 
-  // useEffect(() =>{
-  //   if(formFocus){
-  //     FormBox.current.style = "box-shadow: 0 0 3px 3px gray"
-  //   } else{
-  //     FormBox.current.style = "box-shadow: 0 0 0px #fff"
+  useEffect(() =>{
+    if(formFocus){
+      FormBox.current.style = "box-shadow: 0 0 3px 3px gray"
+    } else{
+      FormBox.current.style = "box-shadow: 0 0 0px #fff"
 
 
-  //   }
-  // }, [formFocus])
+    }
+  }, [formFocus]) 
 
-  const [itemMenuCategory, setItemMenuCategory] = useState(false)
 
 
   return (

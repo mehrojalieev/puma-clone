@@ -3,6 +3,8 @@ import './Login.scss'
 import { MdOutlineRemoveRedEye } from "react-icons/md";
 import { FaRegEyeSlash } from "react-icons/fa";
 import { useState } from 'react';
+import { GoogleLogin } from '@react-oauth/google';
+import { GoogleOAuthProvider } from '@react-oauth/google';
 
 const Login = () => {
   const [showPassword, setShowPassword] = useState(false)
@@ -36,6 +38,16 @@ const Login = () => {
           <p className='privacy-text'>By continuing, I confirm that I have read and accept the Terms and Conditions. and the Privacy Policy.</p>
           <button className='forget-btn' type='button'>FORGOTTEN YOUR PASSWORD?</button>
         </div>
+        <GoogleOAuthProvider  clientId="617896106948-fncnrakj6bigf7u0kig605jifcfll205.apps.googleusercontent.com">
+      <GoogleLogin
+        onSuccess={credentialResponse => {
+          console.log(credentialResponse)
+        }}
+        onError={() => {
+          console.log('Login Failed')
+      }}
+    />
+    </GoogleOAuthProvider>
       </form>
     </div>
   )

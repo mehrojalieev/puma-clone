@@ -1,6 +1,5 @@
 import { useEffect, useState } from 'react'
 import "./Shoes.scss"
-import { useDispatch, useSelector } from 'react-redux'
 import ApiInstance from '../../api'
 import { Container } from '../../styled-component/Styled'
 import Rating from '@mui/material/Rating';
@@ -8,11 +7,9 @@ import Stack from '@mui/material/Stack';
 import Divider from '@mui/material/Divider'
 import { Link } from 'react-router-dom';
 import { ProductTypes } from '../../types';
-import { loadProduct } from '../../redux/features/product-slice'
 const Shoes = () => {
-    const dispatch = useDispatch()
-    const data = useSelector(state => state)
-    console.log(data);
+  
+ 
 
 
 
@@ -21,16 +18,12 @@ const Shoes = () => {
     useEffect(() => {
         async function loadData() {
             const response = await ApiInstance("/product/all")
-            console.log(response.data.payload.products);
+            // console.log(response.data.payload.products);
             setShoesData(response.data.payload.products)
         }
         loadData()
     }, [])  
 
-    const handleAddCart: any = (shoes: ProductTypes) => {
-        dispatch(loadProduct(shoes))
-        
-    }
 
     return (
         <div className='shoes'>
@@ -54,7 +47,7 @@ const Shoes = () => {
                                 <Stack spacing={1}>
                                     <Rating className='rating-star' name="half-rating-read" defaultValue={4} precision={0.5} readOnly />
                                 </Stack>
-                                <button onClick={() => handleAddCart(shoes)}>Add to Cart</button>
+                                <button>Add to Cart</button>
                             </div>
                         )
                     }
