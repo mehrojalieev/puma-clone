@@ -1,4 +1,5 @@
 import Hero from "../../components/hero/Hero"
+import SoccerPage from "../../components/soccer-page/SoccerPage"
 import "./Home.scss"
 
 const Home = () => {
@@ -6,6 +7,7 @@ const Home = () => {
     <div>
       
         <Hero/>
+        <SoccerPage/>
     </div>
   )
 }
