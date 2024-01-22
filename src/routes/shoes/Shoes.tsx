@@ -47,7 +47,6 @@ const Shoes = () => {
                                 <Stack spacing={1}>
                                     <Rating className='rating-star' name="half-rating-read" defaultValue={4} precision={0.5} readOnly />
                                 </Stack>
-                                <button onClick={() => handleAddToCart(shoes)}>Add to Cart</button>
                             </div>
                         )
                     }
