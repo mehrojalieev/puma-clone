@@ -7,9 +7,9 @@ import Stack from '@mui/material/Stack';
 import Divider from '@mui/material/Divider'
 import { Link } from 'react-router-dom';
 import { ProductTypes } from '../../types';
+
 const Shoes = () => {
-  
- 
+
 
 
 
@@ -47,7 +47,7 @@ const Shoes = () => {
                                 <Stack spacing={1}>
                                     <Rating className='rating-star' name="half-rating-read" defaultValue={4} precision={0.5} readOnly />
                                 </Stack>
-                                <button>Add to Cart</button>
+                                <button onClick={() => handleAddToCart(shoes)}>Add to Cart</button>
                             </div>
                         )
                     }

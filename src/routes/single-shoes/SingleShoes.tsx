@@ -5,15 +5,26 @@ import ApiInstance from '../../api';
 import { ProductTypes } from '../../types';
 import Rating from '@mui/material/Rating';
 import Stack from '@mui/material/Stack';
+import { addToCart } from '../../redux/slices/cart-slice';
+import {useDispatch} from 'react-redux'
+import { AppDispatch } from '../../redux/store/store';
 import "./SingleShoes.scss"
 import { TbTruckDelivery } from "react-icons/tb";
 import { IoReloadOutline } from "react-icons/io5";
 import { Divider } from '@mui/material';
 import { FaRegHeart } from "react-icons/fa";
 
+
 const SingleShoes = () => {
   const { id } = useParams()
   const [singleData, setSingleData] = useState([])
+  const dispatch = useDispatch<AppDispatch>()
+  
+  const handleAddToCart = (product: ProductTypes): void => {
+     console.log(product);
+     
+     dispatch(addToCart(product))
+  }
 
   useEffect(() => {
     async function loadData() {
@@ -55,7 +66,7 @@ const SingleShoes = () => {
                 <p className='reload-text'><i><IoReloadOutline/></i> Free returns on all qualifying orders.</p>
                 <Divider/>
                 <div className="card__btn-actions">
-                  <button className='addcart-btn'>ADD TO CART</button>
+                  <button onClick={() => handleAddToCart(data)} className='addcart-btn'>ADD TO CART</button>
                   <button className='addwishlist-btn'>
                     <i><FaRegHeart/></i>
                     ADD TO WISHLIST
