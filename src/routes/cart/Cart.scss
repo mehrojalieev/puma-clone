@@ -215,3 +215,69 @@
 .divider{
     padding-top: 20px;
 }
+.mySwiper{
+
+    margin-top: 70px;
+}
+.swiper-wrapper{
+    width: 100%;
+    height: 400px;
+    display: flex;
+    overflow: hidden;
+}
+  
+.tranding-slide{
+    width: 400px;
+    height: 500px;
+    padding: 1rem;
+    img{
+        border-radius: 5px;
+      width: 260px;
+      height: 280px;
+    }
+}
+.tranding-info{
+    margin-top: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    h3{
+        font-size: 16px;
+    }
+    strong{
+        font-size: 16px;
+        color: red;
+    }
+}
+
+.cart-features{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+}
+.feature{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 322px;
+    height: 173px;
+    border: 1px solid #BDC1C5;
+    border-radius: 5px;
+    i{
+        font-size: 50px;
+    }
+    h3{
+        margin-top: 10px;
+        font-size: 18px;
+        font-weight: 700;
+    }
+    p{
+        margin-top: 5px;
+        font-size: 12px;
+        letter-spacing: 0.5px;
+        font-weight: 400;
+    }
+}
+
