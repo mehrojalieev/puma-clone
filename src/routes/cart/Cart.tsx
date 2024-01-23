@@ -5,29 +5,61 @@ import { RootState } from '../../redux/store/store'
 import { Container } from "../../styled-component/Styled"
 import { IoCartOutline } from "react-icons/io5";
 import { Link } from "react-router-dom";
-import { TbTruckDelivery } from "react-icons/tb";
 import { BiEditAlt } from "react-icons/bi";
 import { IoReloadOutline } from "react-icons/io5";
 import { GoTrash } from "react-icons/go";
 import { FaArrowDown, FaArrowUp } from "react-icons/fa";
 import { Divider } from "@mui/material"
+import { Swiper, SwiperSlide } from 'swiper/react';
+import 'swiper/css/pagination';
+import 'swiper/css/navigation';
+import { Pagination, Navigation } from 'swiper/modules';
+import ApiInstance from "../../api"
+import { ProductTypes } from "../../types"
+import { MdOutlineLock } from "react-icons/md";
+import { TbTruckDelivery } from "react-icons/tb";
+import {  TbMessage } from "react-icons/tb";
 const Cart = () => {
     const [arrowOpen, setArrowOpen] = useState<boolean>(true)
+    const [productPrice, setProductPrice] = useState("")
 
     const [inputCode, setInputCode] = useState<string>("")
     const [getCartData, setGetCartData] = useState<boolean>(false)
-    console.log(getCartData);
+    // console.log(getCartData);
 
     const data = useSelector((state: RootState) => state.productCart)
-    console.log(data);
+    // console.log(data);
 
     useEffect(() => {
         if (data.cart.length > 0) {
+            setProductPrice(data.total)
             setGetCartData(true)
         } else {
+            setProductPrice("")
             setGetCartData(false)
         }
     }, [getCartData])
+
+
+    const [trandingProduct, setTrandingProduct] = useState([])
+    console.log(trandingProduct);
+
+
+    useEffect(() => {
+        async function loadTranding() {
+            try {
+                const response = await ApiInstance("/product/reel")
+                setTrandingProduct(response.data.payload)
+                // console.log(response.data);
+            }
+            catch (error) {
+                console.log(error);
+            }
+        }
+        loadTranding()
+    }, [])
+
+
 
     return (
         <Container>
@@ -80,7 +112,7 @@ const Cart = () => {
                         <div className="product-count">
                             <div className="count-item">
                                 <p>SUBTOTAL</p>
-                                {/* <strong>${i.variants[0].variant_sale_price}</strong> */}
+                                <strong>${productPrice}</strong>
                             </div>
                             <div className="count-item">
                                 <p>SHIPPING COSTS</p>
@@ -96,13 +128,63 @@ const Cart = () => {
                             <h4>ESTIMATED TOTAL</h4>
                             {/* <strong>${i.variants[0].variant_sale_price}</strong> */}
                         </div>
-                            <button className="checkout-btn">CHECKOUT</button>
+                        <button className="checkout-btn">CHECKOUT</button>
                     </div>
 
                 }
 
             </div>
 
+            {
+                getCartData &&
+                <div className="cart__featured-wrapper">
+
+                    <Swiper
+                        slidesPerView={4}
+                        loop={true}
+                        spaceBetween={30}
+                        pagination={{
+                            type: 'progressbar',
+                        }}
+                        // navigation={true}
+                        modules={[Pagination, Navigation]}
+                        className="mySwiper"
+                    >
+
+                        {
+                            trandingProduct.map((tranding: ProductTypes) =>
+
+                                <SwiperSlide className="tranding-slide" key={tranding._id}>
+                                    <Link to={`/shoes/${tranding._id}`}><img src={tranding.product_images[0]} alt={tranding.description} /></Link>
+                                    <div className="tranding-info">
+                                        <h3>{tranding.product_name}</h3>
+                                        <strong>${tranding.variants[0].variant_sale_price}</strong>
+                                    </div>
+                                </SwiperSlide>
+                            )
+                        }
+
+
+                    </Swiper>
+                    <div className="cart-features">
+                        <div className="feature">
+                            <i><MdOutlineLock /></i>
+                            <h3>SECURE PAYMENTS</h3>
+                            <p>SSL ENCRYPTION ON ALL TRANSACTIONS</p>
+                        </div>
+                        <div className="feature">
+                            <i><TbTruckDelivery /></i>
+                            <h3>FREE & FAST RETURNS</h3>
+                            <p>FREE RETURN ON ALL QUALIFYING ORDERS</p>
+                        </div>
+                        <div className="feature">
+                            <i><TbMessage /></i>
+                            <h3>ACTIVE SUPPORT</h3>
+                            <p>GET IN TOUCH IF YOU HAVE A PROBLEM</p>
+                        </div>
+                    </div>
+                </div>
+            }
 
             {/* NOT CART PAGE */}
             {
