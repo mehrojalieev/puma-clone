@@ -19,21 +19,17 @@ const SingleShoes = () => {
   const { id } = useParams()
   const [singleData, setSingleData] = useState([])
   const dispatch = useDispatch<AppDispatch>()
-
   const [addCartLoading, setAddCartLoading] = useState<boolean>(false)
   const handleAddToCart = (product: ProductTypes): void => {
     setAddCartLoading(true)
     console.log(product);
-
     dispatch(addToCart(product))
   }
-
   useEffect(() => {
     async function loadData() {
       try {
         const response = await ApiInstance(`/product/${id}`)
         setSingleData(response.data.payload)
-        console.log(response.data.payload);
       }
       catch (error) {
         console.log(error);
@@ -44,7 +40,7 @@ const SingleShoes = () => {
 
 
   useEffect(() => {
-     setTimeout(() => {
+    setTimeout(() => {
       setAddCartLoading(false)
     }, 3500)
   }, [])
@@ -73,8 +69,8 @@ const SingleShoes = () => {
                 <p className='reload-text'><i><IoReloadOutline /></i> Free returns on all qualifying orders.</p>
                 <Divider />
                 <div className="card__btn-actions">
-                  
-                  <button onClick={() => handleAddToCart(data)} style={addCartLoading ? {background: "#9a9c9e", cursor: "not-allowed"} : {background: "#000", cursor: "auto"}} className='addcart-btn'>
+
+                  <button onClick={() => handleAddToCart(data)} style={addCartLoading ? { background: "#9a9c9e", cursor: "not-allowed" } : { background: "#000", cursor: "auto" }} className='addcart-btn'>
                     {
                       !addCartLoading ? "Add To Cart" : <div className="loader"></div>
 

@@ -17,9 +17,11 @@ export const cartSlice = createSlice({
     initialState,
     reducers: {
         addToCart: (state, action: PayloadAction<ProductTypes>) => {
-            console.log(action.payload);
+            const productExist = state.cart.findIndex((product) => product._id === action.payload._id && product.variants === action)
+            if(productExist === -1){
                 state.cart = [...state.cart, action.payload]
-                // state.total += action.payload.selectedVariant.variant_sale_price
+                state.total += action.payload.variants.variant_sale_price
+            }
         }
     }
 })

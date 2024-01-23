@@ -18,10 +18,10 @@ import ApiInstance from "../../api"
 import { ProductTypes } from "../../types"
 import { MdOutlineLock } from "react-icons/md";
 import { TbTruckDelivery } from "react-icons/tb";
-import {  TbMessage } from "react-icons/tb";
+import { TbMessage } from "react-icons/tb";
 const Cart = () => {
     const [arrowOpen, setArrowOpen] = useState<boolean>(true)
-    const [productPrice, setProductPrice] = useState("")
+    const [productPrice, setProductPrice] = useState<string | number>("")
 
     const [inputCode, setInputCode] = useState<string>("")
     const [getCartData, setGetCartData] = useState<boolean>(false)
@@ -50,7 +50,6 @@ const Cart = () => {
             try {
                 const response = await ApiInstance("/product/reel")
                 setTrandingProduct(response.data.payload)
-                // console.log(response.data);
             }
             catch (error) {
                 console.log(error);

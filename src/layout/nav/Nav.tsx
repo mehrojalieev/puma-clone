@@ -14,6 +14,7 @@ import MenuItem from '@mui/material/MenuItem';
 import Divider from '@mui/material/Divider';
 import IconButton from '@mui/material/IconButton';
 import Tooltip from '@mui/material/Tooltip';
+import { Route } from "../../types"
 
 
 
@@ -35,7 +36,7 @@ const Nav = () => {
   };
 
 
-  const [dd, setDd] = useState<boolean>(false)  
+  const [dd, setDd] = useState<boolean>(false)
 
   const ChangingText: any = [
     {
@@ -67,18 +68,20 @@ const Nav = () => {
   const FormBox: any = useRef()
   const [formFocus, setFormFocus] = useState<boolean>(false)
 
-  useEffect(() =>{
-    if(formFocus){
+  useEffect(() => {
+    if (formFocus) {
       FormBox.current.style = "box-shadow: 0 0 3px 3px gray"
-    } else{
+    } else {
       FormBox.current.style = "box-shadow: 0 0 0px #fff"
 
 
     }
-  }, [formFocus]) 
+  }, [formFocus])
 
-
-
+  const [categoryData, setCategoryData] = useState<Route[]>([])
+  console.log(categoryData);
+  const [showDropdown, setShowDropDown] = useState(false)
+  
   return (
     <>
       <div className="nav__navigation">
@@ -100,9 +103,29 @@ const Nav = () => {
               <li><Link className="nav-logo" to={"/"}><SiPuma /></Link></li>
               {
                 Data.map((link, index) =>
-                  <li key={index}>
-                    <NavLink className={({ isActive }) => isActive ? "nav-link nav-link--active" : "nav-link"} to={"/"}>{link.title}</NavLink>
-                  </li>
+                  <div key={index}>
+                    <li onMouseLeave={() => setShowDropDown(false)} onMouseEnter={() =>{ setCategoryData(link.subcategory), setShowDropDown(true)}}>
+                      <NavLink className={({ isActive }) => isActive ? "nav-link nav-link--active" : "nav-link"} to={"/"}>{link.title}</NavLink>
+                    </li>
+                    <div style={showDropdown ? {display: "block"} :{display: "none"}} className="dropdown-wrapper">
+                     <div className="dropdown-content">
+                      {
+                        categoryData.map((title, index) =>
+                            <h2 key={index}>{title.title}</h2>
+                          )
+                      }
+                     </div>
+                     <div className="menu-content">
+                      {/* {
+                        categoryData.subcategory.map(item => 
+                          item.category.map(items =>
+                            <span>{items.title}</span>
+                            )
+                          )
+                      } */}
+                     </div>
+                    </div>
+                  </div>
                 )
 
               }
@@ -116,7 +139,7 @@ const Nav = () => {
               </div>
               <div className="action-card">
                 <Link to={"/"} className="action-link"><FaRegHeart /></Link>
-                <Link to={"/cart"}  className="action-link"><PiShoppingCartSimpleBold /></Link>
+                <Link to={"/cart"} className="action-link"><PiShoppingCartSimpleBold /></Link>
                 <Box sx={{ display: 'flex', alignItems: 'center', textAlign: 'center' }}>
 
                   <Tooltip title="Account settings">
@@ -186,6 +209,9 @@ const Nav = () => {
                 </Menu>
               </div>
             </div>
+            {/*HOVER NAV CATERGORY  */}
+
+
           </div>
 
         </Container>
@@ -279,32 +305,7 @@ const Nav = () => {
           </Container>
 
         </div>
-        <div className="navmenu__dropdown-wrapper">
-          <Container>
-            <div className="dropdown__category-container">
-              {
-                Data.map((data, index) =>
-                  <div key={index}>
-                    {
-                      data.subcategory.map((subCategory, index) =>
-                        <React.Fragment key={index}>
-                          <ul key={index} >
-                            <li>{subCategory.title}</li>
-                            {
-                              subCategory.category.map((category, index) =>
-                                <li key={index}>{category.name}</li>
-                              )
-                            }
-                          </ul>
-                        </React.Fragment>
-                      )
-                    }
-                  </div>
-                )
-              }
-            </div>
-          </Container>
-        </div>
+
       </nav>
     </>
   )
