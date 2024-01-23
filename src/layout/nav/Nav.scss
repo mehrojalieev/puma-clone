@@ -58,8 +58,9 @@ nav{
         }
     }
 }
+
 .navmenu__dropdown-wrapper{
-    display: none;
+    // display: none;
     z-index: 2;
     position: absolute;
     width: 100%;
@@ -69,20 +70,7 @@ nav{
   
  
 }
-.dropdown__category-container{
-    width: 100%;
-    height: 500px;
-    background-color: gray;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    ul{
-        list-style-type: none;
-        display: flex;
-        flex-direction: column !important;
-        background-color: red;
-    }
-}
+
 
 .nav__action-container{
     display: flex;
@@ -304,5 +292,27 @@ nav{
             @include f-style(17px, #000, 600);
         }
 
+    }
+}
+
+.dropdown-wrapper{
+    display: none;
+    z-index: 3;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    background-color: #fff;
+    height: 500px;
+    position: absolute;
+}
+.dropdown-content{
+    align-items: center;
+    justify-content: space-evenly;
+    display: flex;
+    h2{
+        font-size: 22px;
+        width: 200px;
+        padding-bottom: 10px;
+        border-bottom: 2px solid black;
     }
 }

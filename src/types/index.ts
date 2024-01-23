@@ -27,3 +27,15 @@ export interface ProductTypes {
     _v: number,
     _id: string | number
 }
+
+
+
+export type SubLink = {
+    name: string;
+    link: string;
+  };
+
+  export type Route = {
+    title: string;
+    subcategory: SubLink[];
+  };

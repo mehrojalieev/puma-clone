@@ -1,0 +1,7 @@
+# MONGODB_URI = mongodb+srv://mehrojbek:iTGYm9H7XunIcJBE@cluster0.7ox7av7.mongodb.net/?retryWrites=true&w=majority
+# PORT = 2000
+# TOKEN_SECRET_KEY = pumaadmin
+# CLOUD_NAME = dw1vrdx6g
+# CLOUDINARY_API_KEY = 446893341658762
+# CLOUDINARY_API_SECRET = W3R9DdTkaTQsj_dry3Q3szbtJ4o
+# PROJECT_ADMIN = aliyevmehrojbek8006@gmail.com
