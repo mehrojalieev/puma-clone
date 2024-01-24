@@ -81,7 +81,12 @@ const Nav = () => {
   const [categoryData, setCategoryData] = useState<Route[]>([])
   console.log(categoryData);
   const [showDropdown, setShowDropDown] = useState(false)
-  
+
+
+
+
+
+
   return (
     <>
       <div className="nav__navigation">
@@ -104,26 +109,35 @@ const Nav = () => {
               {
                 Data.map((link, index) =>
                   <div key={index}>
-                    <li onMouseLeave={() => setShowDropDown(false)} onMouseEnter={() =>{ setCategoryData(link.subcategory), setShowDropDown(true)}}>
+                    <li onMouseLeave={() => setShowDropDown(false)} onMouseEnter={() => { setCategoryData(link.subcategory), setShowDropDown(true) }}>
                       <NavLink className={({ isActive }) => isActive ? "nav-link nav-link--active" : "nav-link"} to={"/"}>{link.title}</NavLink>
                     </li>
-                    <div style={showDropdown ? {display: "block"} :{display: "none"}} className="dropdown-wrapper">
-                     <div className="dropdown-content">
-                      {
-                        categoryData.map((title, index) =>
-                            <h2 key={index}>{title.title}</h2>
+                    <div style={showDropdown ? { display: "block" } : { display: "none" }} className="dropdown-wrapper">
+                      <div className="dropdown__content-container">
+                        {
+                          categoryData.map((title, index) =>
+                            <div className="dropdown-content">
+                              <h2 key={index}>{title.title}</h2>
+                              <ul >
+                                {
+                                  title.subcategory.map(names =>
+                                    <li><Link className="subcategory__item-link" to={names.link}>{names.name}</Link></li>
+                                  )
+                                }
+                              </ul>
+                            </div>
                           )
-                      }
-                     </div>
-                     <div className="menu-content">
-                      {/* {
+                        }
+                      </div>
+                      <div className="menu-content">
+                        {/* {
                         categoryData.subcategory.map(item => 
                           item.category.map(items =>
                             <span>{items.title}</span>
                             )
                           )
                       } */}
-                     </div>
+                      </div>
                     </div>
                   </div>
                 )
