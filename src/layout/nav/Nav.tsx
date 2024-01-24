@@ -2,7 +2,7 @@ import "./Nav.scss"
 import React, { useEffect, useRef, useState } from "react"
 import { Container } from "../../styled-component/Styled"
 import Data from "../../db/data.json"
-import { Link, NavLink } from 'react-router-dom'
+import { Link, NavLink, useLocation } from 'react-router-dom'
 import { IoIosSearch, IoMdClose } from "react-icons/io";
 import { FaRegHeart, FaRegUser } from "react-icons/fa";
 import { PiShoppingCartSimpleBold } from "react-icons/pi"
@@ -82,12 +82,10 @@ const Nav = () => {
   console.log(categoryData);
   const [showDropdown, setShowDropDown] = useState(false)
 
+const {pathname} = useLocation()
 
 
-
-
-
-  return (
+  return pathname.includes("/dashboard") ? null : (
     <>
       <div className="nav__navigation">
         {
@@ -104,6 +102,7 @@ const Nav = () => {
       <nav>
         <Container>
           <div className="nav-wrapper">
+            <Link to={'/dashboard'}>Dashboard</Link>
             <ul className="nav__menu">
               <li><Link className="nav-logo" to={"/"}><SiPuma /></Link></li>
               {

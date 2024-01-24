@@ -1,17 +1,18 @@
 import "./Footer.scss"
-import { useState } from "react";
 
 import { SiPuma } from "react-icons/si";
 import { Container } from '../../styled-component/Styled'
 
-
 // Icons 
 import { FaYoutube, FaInstagram } from "react-icons/fa6";
 import { FaTwitter, FaPinterest, FaFacebook } from "react-icons/fa";
+import { useLocation } from "react-router-dom";
+
+
 const Footer = () => {
+    const {pathname} = useLocation()
 
-
-    return (
+    return pathname.includes("/dashboard") ? null : (
         <footer>
             <Container>
                 <div className="footer__content-wrapper">
