@@ -9,6 +9,7 @@
     display: flex;
     flex-direction: column;
     row-gap: 10px;
+    position: relative;
     label{
         margin-left: 4px;
         font-size: 13px;
@@ -28,6 +29,18 @@
         &:focus{
             box-shadow: 0 0 3px 2px gray;
         }
+    }
+    .email__warn-icon, .password__warn-icon {
+        color: #b62906;
+        font-size: 25px;
+        position: absolute;
+    }
+    .password__warn-icon{
+        right: 40px;
+    }
+    .email__warn-icon{
+        right: 20px;
+        top: 50%;
     }
 }
 .checkbox-item{
@@ -49,7 +62,7 @@
         }
     }
     i{
-        font-size: 19px;
+        font-size: 20px;
     }
 }
 .login-btn{
@@ -84,4 +97,14 @@
         border-bottom: 2px solid #000;
         cursor: pointer;
     }
+}
+
+
+.regex-text{
+    color: #b62906;
+    font-size: 14px;
+    font-weight: 400;
+}
+.error-border{
+    border: 2px solid #b62906;
 }

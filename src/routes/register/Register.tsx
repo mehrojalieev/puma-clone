@@ -9,12 +9,35 @@ const Register = () => {
   const [showPassword, setShowPassword] = useState(false)
   const [passwordInputType, setPasswordInputType] = useState("password")
 
-    const toggleInputType = () => {
-      setShowPassword(!showPassword)
-      const changeType = passwordInputType === "text" ? "password" : "text"
-      setPasswordInputType(changeType)
-    }
+  const toggleInputType = () => {
+    setShowPassword(!showPassword)
+    const changeType = passwordInputType === "text" ? "password" : "text"
+    setPasswordInputType(changeType)
+  }
   const label = { inputProps: { 'aria-label': 'Checkbox demo' } };
+
+  // Validation Functions
+
+  const [email, setEmail] = useState("")
+  const [password, setPassword] = useState("")
+  const [isEmailError, setIsEmailError] = useState<string | null>(null)
+  const [isPasswordError, setIsPasswordError] = useState<string | null>(null)
+
+
+  function isValidPassword(password: string){
+    return /^[a-zA-Z0-9!@#\$%\^\&*_=+-]{8,12}$/.test(password)
+  }
+
+  const handlePasswordChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    if(!isValidPassword(e.target.value)){
+      setIsPasswordError("Password is invalid")
+    } 
+    else{
+      setIsPasswordError(null)
+    }
+    setPassword(e.target.value)
+  }
+
   return (
     <div>
       <form action="" className="register-form">
@@ -28,13 +51,13 @@ const Register = () => {
         </div>
         <div className="label-item">
           <label htmlFor="email">EMAIL <code>*</code></label>
-          <input autoComplete='off' type="text" id='email' placeholder='Email' />
+          <input value={email}  autoComplete='off' type="text" id='email' placeholder='Email' />
         </div>
         <div className="label-item">
           <label htmlFor="password">PASSWORD <code>*</code></label>
           <div className="password-input">
-          <input  type={passwordInputType} id='password' placeholder='Password' />
-          <i onClick={toggleInputType}>{showPassword ? <FaRegEyeSlash/> : <MdOutlineRemoveRedEye/>}</i>
+            <input value={password} onChange={(e) => handlePasswordChange(e)} type={passwordInputType} id='password' placeholder='Password' />
+            <i onClick={toggleInputType}>{showPassword ? <FaRegEyeSlash /> : <MdOutlineRemoveRedEye />}</i>
           </div>
           <div className="checkbox-item">
             <Checkbox {...label} />
@@ -46,16 +69,16 @@ const Register = () => {
         </div>
       </form>
 
-      <GoogleOAuthProvider  clientId="617896106948-fncnrakj6bigf7u0kig605jifcfll205.apps.googleusercontent.com">
-      <GoogleLogin
-        onSuccess={credentialResponse => {
-          console.log(credentialResponse)
-        }}
-        onError={() => {
-          console.log('Login Failed')
-      }}
-    />
-    </GoogleOAuthProvider>
+      <GoogleOAuthProvider clientId="617896106948-fncnrakj6bigf7u0kig605jifcfll205.apps.googleusercontent.com">
+        <GoogleLogin
+          onSuccess={credentialResponse => {
+            console.log(credentialResponse)
+          }}
+          onError={() => {
+            console.log('Login Failed')
+          }}
+        />
+      </GoogleOAuthProvider>
 
     </div>
   )
