@@ -207,34 +207,34 @@
                 "title": "Boys",
                 "link": "boys",
                 "subcategory": [
-                    { "title": "Classics" },
-                    { "title": "Suede" },
-                    { "title": "Lifestyle" },
-                    { "title": "Lifestyle" },
-                    { "title": "Lifestyle" }
+                    { "name": "Classics" },
+                    { "name": "Suede" },
+                    { "name": "Lifestyle" },
+                    { "name": "Lifestyle" },
+                    { "name": "Lifestyle" }
                 ]
             },
             {
                 "title": "Girls",
                 "link": "girls",
                 "subcategory": [
-                    { "title": "Classics" },
-                    { "title": "Suede" },
-                    { "title": "Triple White" },
-                    { "title": "RS Collection" },
-                    { "title": "Lifestyle" },
-                    { "title": "Training + Gym" }
+                    { "name": "Classics" },
+                    { "name": "Suede" },
+                    { "name": "Triple White" },
+                    { "name": "RS Collection" },
+                    { "name": "Lifestyle" },
+                    { "name": "Training + Gym" }
                 ]
             },
             {
                 "title": "Shop By Size",
                 "link": "accessories",
                 "subcategory": [
-                    { "title": "Hats" },
-                    { "title": "Socks + Underwear" },
-                    { "title": "Bags + Backpacks" },
-                    { "title": "Sports Equipment" },
-                    { "title": "Soccer Balls" }
+                    { "name": "Hats" },
+                    { "name": "Socks + Underwear" },
+                    { "name": "Bags + Backpacks" },
+                    { "name": "Sports Equipment" },
+                    { "name": "Soccer Balls" }
 
                 ]
             },
@@ -242,9 +242,9 @@
                 "title": "Sports",
                 "link": "sports",
                 "subcategory": [
-                    { "title": "Basketball" },
-                    { "title": "Running" },
-                    { "title": "Training + Gym" }
+                    { "name": "Basketball" },
+                    { "name": "Running" },
+                    { "name": "Training + Gym" }
                 ]
             }
         ]
@@ -256,47 +256,47 @@
                 "title": "Shoes",
                 "link": "classics/shoes",
                 "subcategory": [
-                    { "title": "Suede" },
-                    { "title": "Basket" },
-                    { "title": "Clyude" },
-                    { "title": "Cali" },
-                    { "title": "Mayze" },
-                    { "title": "Roma" },
-                    { "title": "Speedcat" },
-                    { "title": "CA Pro" }
+                    { "name": "Suede" },
+                    { "name": "Basket" },
+                    { "name": "Clyude" },
+                    { "name": "Cali" },
+                    { "name": "Mayze" },
+                    { "name": "Roma" },
+                    { "name": "Speedcat" },
+                    { "name": "CA Pro" }
                 ]
             },
             {
                 "title": "Clothing",
                 "link": "classics/clothing",
                 "subcategory": [
-                    { "title": "T7 Tracksuits" },
-                    { "title": "T-Shirts" },
-                    { "title": "Hoodies & Sweatshirts" },
-                    { "title": "Tops" },
-                    { "title": "Bottoms" },
-                    { "title": "Accessories" }
+                    { "name": "T7 Tracksuits" },
+                    { "name": "T-Shirts" },
+                    { "name": "Hoodies & Sweatshirts" },
+                    { "name": "Tops" },
+                    { "name": "Bottoms" },
+                    { "name": "Accessories" }
                 ]
             },
             {
                 "title": "Shop By Gender",
                 "link": "classics/shop",
                 "subcategory": [
-                    { "title": "Women", "link": "classics/shop/women" },
-                    { "title": "Men", "link": "classics/shop/men" },
-                    { "title": "Kids", "link": "classics/shop/kids" }
+                    { "name": "Women", "link": "classics/shop/women" },
+                    { "name": "Men", "link": "classics/shop/men" },
+                    { "name": "Kids", "link": "classics/shop/kids" }
                 ]
             },
             {
                 "title": "Sports",
                 "link": "sports",
                 "subcategory": [
-                    { "title": "Basketball" },
-                    { "title": "Running" },
-                    { "title": "Training + Gym" },
-                    { "title": "Motorsport" },
-                    { "title": "Soccer" },
-                    { "title": "Racket Sports" }
+                    { "name": "Basketball" },
+                    { "name": "Running" },
+                    { "name": "Training + Gym" },
+                    { "name": "Motorsport" },
+                    { "name": "Soccer" },
+                    { "name": "Racket Sports" }
                 ]
             }
         ]
@@ -308,106 +308,94 @@
                 "title": "Select",
                 "link": "collaborations/select",
                 "subcategory": [
-                    { "title": "PUMA x RHUIGI" },
-                    { "title": "FENTY x PUMA" },
-                    { "title": "PUMA x PLEASURES" },
-                    {
-                        "title": "PUMA x MMQ"
-                    }, { "title": "RS Collection" },
-                    { "title": "Cali" },
-                    { "title": "Mayze" },
-                    { "title": "Triple White" },
-                    { "title": "Rider Pack" },
-                    { "title": "Boots & Mids" },
-                    { "title": "Slides + Sandals" },
-                    { "title": "Training + Gym" },
-                    { "title": "Running" },
-                    { "title": "Basketball" },
-                    { "title": "Motorsport" }
+                    { "name": "PUMA x RHUIGI" },
+                    { "name": "FENTY x PUMA" },
+                    { "name": "PUMA x PLEASURES" },
+                    { "name": "PUMA x MMQ"},
+                    { "name": "RS Collection" },
+                    { "name": "Cali" },
+                    { "name": "Mayze" },
+                    { "name": "Triple White" },
+                    { "name": "Rider Pack" },
+                    { "name": "Boots & Mids" }
+                  
                 ]
             },
             {
                 "title": "Partnerships",
                 "link": "collaborations/partnerships",
                 "subcategory": [
-                    { "title": "MELO x DEXTER’S LABORATORY", "link": "collaborations/partnerships/labaratory" },
-                    { "title": "PUMA x GREMLINS", "link": "collaborations/partnerships/gremlins" },
-                    { "title": "PUMA x MELO", "link": "collaborations/partnerships/melo" },
-                    { "title": "PUMA x WE ARE LEGENDS", "link": "collaborations/partnerships/legends" },
-                    { "title": "PUMA x LAFRANCÉ", "link": "collaborations/partnerships/lafrance" },
-                    { "title": "PUMA x F1®", "link": "collaborations/partnerships/f1" },
-                    { "title": "PUMA x STEWIE", "link": "collaborations/partnerships/stewie" },
-                    { "title": "PUMA x BLACK FIVES", "link": "collaborations/partnerships/fives" },
-                    { "title": "PUMA x LAUREN LONDON", "link": "collaborations/partnerships/london" },
-                    { "title": "PUMA x TMC", "link": "collaborations/partnerships/tmc" },
-                    { "title": "JOSHUA VIDES FOR SCUDERIA FERRARI", "link": "collaborations/partnerships/ferrari" },
-                    { "title": "PUMA x L.O.L. SURPRISE!", "link": "collaborations/partnerships/surprise" },
-                    { "title": "PUMA X CHILDHOOD DREAMS", "link": "collaborations/partnerships/dreams" },
-                    { "title": "PUMA x LEMLEM", "link": "collaborations/partnerships/lemlem" },
-                    { "title": "PUMA x THE SMURFS", "link": "collaborations/partnerships/smurfs" },
-                    { "title": "PUMA x PAW PATROL", "link": "collaborations/partnerships/patrol" },
-                    { "title": "PUMA x SPONGEBOB", "link": "collaborations/partnerships/spongebob" },
-                    { "title": "PUMA x F1® x A$AP ROCKY", "link": "collaborations/partnerships/rocky" }
-                ]
+                    { "name": "MELO x DEXTER’S LABORATORY", "link": "collaborations/partnerships/labaratory" },
+                    { "name": "PUMA x GREMLINS", "link": "collaborations/partnerships/gremlins" },
+                    { "name": "PUMA x MELO", "link": "collaborations/partnerships/melo" },
+                    { "name": "PUMA x WE ARE LEGENDS", "link": "collaborations/partnerships/legends" },
+                    { "name": "PUMA x LAFRANCÉ", "link": "collaborations/partnerships/lafrance" },
+                    { "name": "PUMA x F1®", "link": "collaborations/partnerships/f1" },
+                    { "name": "PUMA x STEWIE", "link": "collaborations/partnerships/stewie" },
+                    { "name": "PUMA x BLACK FIVES", "link": "collaborations/partnerships/fives" },
+                    { "name": "PUMA x LAUREN LONDON", "link": "collaborations/partnerships/london" },
+                    { "name": "PUMA x TMC", "link": "collaborations/partnerships/tmc" },
+                    { "name": "JOSHUA VIDES FOR SCUDERIA FERRARI", "link": "collaborations/partnerships/ferrari" }                ]
             }
         ]
     },
     {
         "title": "Sport",
         "link": "collaborations",
-        "subcategory": [{
+        "subcategory": [
+            {
                 "title": "Basketball",
                 "link": "sport/basketball",
                 "subcategory": [
-                    { "title": "Shop All basketball", "link": "sport/basketball" },
-                    { "title": "PUMA x BLACK FIVES", "link": "sport/basketball/fives" },
-                    { "title": "PUMA x MELO", "link": "sport/basketball/melo" },
-                    { "title": "PUMA x CHILDHOOD DREAMS", "link": "sport/basketball/dreams" },
-                    { "title": "PUMA x SKYLAR DIGGINS-SMITH", "link": "sport/basketball/smith" },
-                    { "title": "PUMA x SCOOT HENDERSON", "link": "sport/basketball/genderson" },
-                    { "title": "PUMA x STEWIE", "link": "sport/basketball/stewie" },
-                    { "title": "Performance", "link": "sport/basketball/performance" },
-                    { "title": "Streetwear", "link": "sport/basketball/streetwear" }
+                    { "name": "Shop All basketball", "link": "sport/basketball" },
+                    { "name": "PUMA x BLACK FIVES", "link": "sport/basketball/fives" },
+                    { "name": "PUMA x MELO", "link": "sport/basketball/melo" },
+                    { "name": "PUMA x CHILDHOOD DREAMS", "link": "sport/basketball/dreams" },
+                    { "name": "PUMA x SKYLAR DIGGINS-SMITH", "link": "sport/basketball/smith" },
+                    { "name": "PUMA x SCOOT HENDERSON", "link": "sport/basketball/genderson" },
+                    { "name": "PUMA x STEWIE", "link": "sport/basketball/stewie" },
+                    { "name": "Performance", "link": "sport/basketball/performance" },
+                    { "name": "Streetwear", "link": "sport/basketball/streetwear" }
                 ]
             },
             {
                 "title": "Running",
                 "link": "sport/running",
                 "subcategory": [
-                    { "title": "Shop All Running", "link": "sport/running" },
-                    { "title": "New in Running", "link": "sport/running/new" },
-                    { "title": "Everyday", "link": "sport/running/everyday" },
-                    { "title": "Competive", "link": "sport/running/competive" },
-                    { "title": "Trail", "link": "sport/running/trail" },
-                    { "title": "Track and Field", "link": "sport/running/track" },
-                    { "title": "Running Clothing", "link": "sport/running/clothing" },
-                    { "title": "NITRO Running Technology", "link": "sport/running/nitro" }
+                    { "name": "Shop All Running", "link": "sport/running" },
+                    { "name": "New in Running", "link": "sport/running/new" },
+                    { "name": "Everyday", "link": "sport/running/everyday" },
+                    { "name": "Competive", "link": "sport/running/competive" },
+                    { "name": "Trail", "link": "sport/running/trail" },
+                    { "name": "Track and Field", "link": "sport/running/track" },
+                    { "name": "Running Clothing", "link": "sport/running/clothing" },
+                    { "name": "NITRO Running Technology", "link": "sport/running/nitro" }
                 ]
             },
             {
                 "title": "Training",
                 "link": "sport/training",
                 "subcategory": [
-                    { "title": "Shop All Training", "link": "sport/training" },
-                    { "title": "Racket Sports", "link": "sport/training/racket" },
-                    { "title": "Yoga", "link": "sport/training/yoga" },
-                    { "title": "FUSE", "link": "sport/training/fuse" }
+                    { "name": "Shop All Training", "link": "sport/training" },
+                    { "name": "Racket Sports", "link": "sport/training/racket" },
+                    { "name": "Yoga", "link": "sport/training/yoga" },
+                    { "name": "FUSE", "link": "sport/training/fuse" }
                 ]
             },
             {
                 "title": "Motorsport",
                 "link": "sport/motorsport",
                 "subcategory": [
-                    { "title": "Shop All Motorsport", "link": "sport/motorsport/shop" },
-                    { "title": "PUMA x F1® x A$AP ROCKY", "link": "sport/motorsport/puma" },
-                    { "title": "PUMA x F1®", "link": "sport/motorsport/puma" },
-                    { "title": "Joshua Vides for Scuderia Ferrari", "link": "sport/motorsport/joshua" },
-                    { "title": "Scuderia Ferrari", "link": "sport/motorsport/scuderia" },
-                    { "title": "Speedcat", "link": "sport/motorsport/speedcat" },
-                    { "title": "BMW M Motorsport", "link": "sport/motorsport/bmw" },
-                    { "title": "Mercedes-AMG Petronas", "link": "sport/motorsport/mercedes" },
-                    { "title": "Porsche Design", "link": "sport/motorsport/porsche" },
-                    { "title": "Porsche Legacy", "link": "sport/motorsport/legacy" }
+                    { "name": "Shop All Motorsport", "link": "sport/motorsport/shop" },
+                    { "name": "PUMA x F1® x A$AP ROCKY", "link": "sport/motorsport/puma" },
+                    { "name": "PUMA x F1®", "link": "sport/motorsport/puma" },
+                    { "name": "Joshua Vides for Scuderia Ferrari", "link": "sport/motorsport/joshua" },
+                    { "name": "Scuderia Ferrari", "link": "sport/motorsport/scuderia" },
+                    { "name": "Speedcat", "link": "sport/motorsport/speedcat" },
+                    { "name": "BMW M Motorsport", "link": "sport/motorsport/bmw" },
+                    { "name": "Mercedes-AMG Petronas", "link": "sport/motorsport/mercedes" },
+                    { "name": "Porsche Design", "link": "sport/motorsport/porsche" },
+                    { "name": "Porsche Legacy", "link": "sport/motorsport/legacy" }
 
                 ]
             },
@@ -415,17 +403,17 @@
                 "title": "Soccer",
                 "link": "sport/soccer",
                 "subcategory": [
-                    { "title": "Shop All Soccer", "link": "sport/soccer/shop" },
-                    { "title": "New in Soccer", "link": "sport/soccer/new" },
-                    { "title": "Neymar Jr. Collection", "link": "sport/soccer/neymar" },
-                    { "title": "PUMA x CHRISTIAN PULISIC", "link": "sport/soccer/puma" },
-                    { "title": "FUTURE", "link": "sport/soccer/future" },
-                    { "title": "ULTRA", "link": "sport/soccer/ultra" },
-                    { "title": "King", "link": "sport/soccer/king" },
-                    { "title": "Manchester City", "link": "sport/soccer/manchester" },
-                    { "title": "AC Milan", "link": "sport/soccer/ac" },
-                    { "title": "Chivas", "link": "sport/soccer/chivas" },
-                    { "title": "BVB", "link": "sport/soccer/bvb" }
+                    { "name": "Shop All Soccer", "link": "sport/soccer/shop" },
+                    { "name": "New in Soccer", "link": "sport/soccer/new" },
+                    { "name": "Neymar Jr. Collection", "link": "sport/soccer/neymar" },
+                    { "name": "PUMA x CHRISTIAN PULISIC", "link": "sport/soccer/puma" },
+                    { "name": "FUTURE", "link": "sport/soccer/future" },
+                    { "name": "ULTRA", "link": "sport/soccer/ultra" },
+                    { "name": "King", "link": "sport/soccer/king" },
+                    { "name": "Manchester City", "link": "sport/soccer/manchester" },
+                    { "name": "AC Milan", "link": "sport/soccer/ac" },
+                    { "name": "Chivas", "link": "sport/soccer/chivas" },
+                    { "name": "BVB", "link": "sport/soccer/bvb" }
                 ]
             }
         ]
@@ -439,18 +427,18 @@
                 "title": "Women",
                 "link": "sale/women",
                 "subcategory": [
-                    { "title": "Shoes", "link": "sale/women/shoes" },
-                    { "title": "Clothing", "link": "sale/women/clothing" },
-                    { "title": "Accessories", "link": "sale/women/accessories" }
+                    { "name": "Shoes", "link": "sale/women/shoes" },
+                    { "name": "Clothing", "link": "sale/women/clothing" },
+                    { "name": "Accessories", "link": "sale/women/accessories" }
                 ]
             },
             {
                 "title": "Men",
                 "link": "sale/men",
                 "subcategory": [
-                    { "title": "Shoes", "link": "sale/men/shoes" },
-                    { "title": "Clothing", "link": "sale/men/clothing" },
-                    { "title": "Accessories", "link": "sale/men/accessories" }
+                    { "name": "Shoes", "link": "sale/men/shoes" },
+                    { "name": "Clothing", "link": "sale/men/clothing" },
+                    { "name": "Accessories", "link": "sale/men/accessories" }
 
                 ]
             },
@@ -458,19 +446,19 @@
                 "title": "Kids",
                 "link": "sale/kids",
                 "subcategory": [
-                    { "title": "Shoes", "link": "sale/kids/shoes" },
-                    { "title": "Clothing", "link": "sale/kids/clothing" },
-                    { "title": "Accessories", "link": "sale/kids/accessories" }
+                    { "name": "Shoes", "link": "sale/kids/shoes" },
+                    { "name": "Clothing", "link": "sale/kids/clothing" },
+                    { "name": "Accessories", "link": "sale/kids/accessories" }
                 ]
             },
             {
                 "title": "Sports",
                 "link": "sports",
                 "subcategory": [
-                    { "title": "Motorsport", "link": "motorsport" },
-                    { "title": "Basketball", "link": "basketball" },
-                    { "title": "Running + Training", "link": "running" },
-                    { "title": "Soccer", "link": "soccer" }
+                    { "name": "Motorsport", "link": "motorsport" },
+                    { "name": "Basketball", "link": "basketball" },
+                    { "name": "Running + Training", "link": "running" },
+                    { "name": "Soccer", "link": "soccer" }
                 ]
             }
         ]

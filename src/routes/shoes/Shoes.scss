@@ -12,10 +12,10 @@
     margin: 0 0 20px 0;
 }
 .shoes-card{
-    display: grid;
-    overflow: hidden;
-    resize: both;
-    width: 260px;
+    // display: grid;
+    // overflow: hidden;
+    // resize: both;
+    width: 300px;
     height: 420px;
     .shoes__image-link{
         display: flex ;
@@ -30,6 +30,7 @@
         transition: 0.3s;
         &:hover{
             transform: scale(1.12);
+            opacity: 0.8;
         }
     }
     .shoes-info{
