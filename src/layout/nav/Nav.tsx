@@ -102,7 +102,6 @@ const {pathname} = useLocation()
       <nav>
         <Container>
           <div className="nav-wrapper">
-            <Link to={'/dashboard'}>Dashboard</Link>
             <ul className="nav__menu">
               <li><Link className="nav-logo" to={"/"}><SiPuma /></Link></li>
               {
@@ -206,7 +205,7 @@ const {pathname} = useLocation()
                   anchorOrigin={{ horizontal: 'right', vertical: 'bottom' }}
                 >
 
-                  <MenuItem style={{ marginTop: "10px" }}>  My Account</MenuItem>
+                  <MenuItem className="menu__item-list" style={{ marginTop: "10px" }}> <Link className="menu__item-list" to="/dashboard"> My Account</Link></MenuItem>
                   <Divider />
                   <MenuItem className="menu__item-list">  Initiate Return</MenuItem>
                   <Divider />

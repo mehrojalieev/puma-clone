@@ -7,7 +7,9 @@ import Shoes from './shoes/Shoes'
 import SingleShoes from './single-shoes/SingleShoes'
 import Cart from './cart/Cart'
 import Dashboard from './dashboard/Dashboard'
-import UserAccount from './dashboard/user-account/UserAccount'
+import Profile from './dashboard/profile/Profile'
+import Orders from './dashboard/orders/Orders'
+import Settings from './dashboard/settings/settings'
 
 const RouteController = () => {
   return (
@@ -19,7 +21,9 @@ const RouteController = () => {
         <Route path='login' element={<Login />} />
       </Route>
       <Route path='dashboard' element={<Dashboard />}>
-        <Route index path='account' element={<UserAccount />} />
+        <Route index path='profile' element={<Profile />} />
+        <Route  path='orders' element={<Orders />} />
+        <Route  path='settings' element={<Settings />} />
       </Route>
       <Route path='shoes' element={<Shoes />} />
       <Route path='shoes/:id' element={<SingleShoes />} />
