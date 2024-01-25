@@ -81,12 +81,11 @@ const Nav = () => {
 
 const {pathname} = useLocation()
 
-
   return pathname.includes("/dashboard") ? null : (
     <>
       <div className="nav__navigation">
         {
-          dd ? <>
+          dd ? <>v 
             <h3>{ChangingText[0].title}</h3>
             <Link className="navigation-link" to={"/"}>{ChangingText[0].link}</Link>
           </>
