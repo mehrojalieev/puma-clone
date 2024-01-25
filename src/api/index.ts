@@ -2,7 +2,7 @@ import axios, { AxiosInstance } from 'axios'
 
 
 const ApiInstance: AxiosInstance = axios.create({
-    baseURL: "http://localhost:2000/api",
+    baseURL: "https://successful-peplum-lamb.cyclic.app/api",
     headers: {
         "Accept" : "application/json",
         "Content-Type" : "application/json"

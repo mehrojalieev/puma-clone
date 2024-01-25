@@ -39,3 +39,21 @@ export type SubLink = {
     title: string;
     subcategory: SubLink[];
   };
+
+
+    type SingleSubcategory = {
+        name: string,
+        link: string
+    }
+
+    type MainSubCategory = {
+        title: string,
+        link: string,
+        subcategory:SingleSubcategory
+    }
+
+
+  export interface CategoryMenuTypes {
+        title: string,
+        subcategory: MainSubCategory,
+  }

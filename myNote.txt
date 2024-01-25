@@ -5,3 +5,10 @@
 # CLOUDINARY_API_KEY = 446893341658762
 # CLOUDINARY_API_SECRET = W3R9DdTkaTQsj_dry3Q3szbtJ4o
 # PROJECT_ADMIN = aliyevmehrojbek8006@gmail.com
+
+
+interface - Nomi bir xil bo'lsa bir-birini merge qiladi. Obyekt uchun ishladi
+type - bu universal holda ishlatiladi.
+
+RealDOM - Reactdagi html ni / 
+VirtualDOM -
