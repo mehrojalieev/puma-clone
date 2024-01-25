@@ -14,12 +14,12 @@ import MenuItem from '@mui/material/MenuItem';
 import Divider from '@mui/material/Divider';
 import IconButton from '@mui/material/IconButton';
 import Tooltip from '@mui/material/Tooltip';
-import { Route } from "../../types"
+import { CategoryMenuTypes, Route } from "../../types"
 
 
 
 const Nav = () => {
-  // console.log(Data);
+  
 
   const [searchDronDown, setSearchDropDown] = useState<boolean>(false)
   const [clearBtn, setClearBtn] = useState<boolean>(false)
@@ -71,11 +71,8 @@ const Nav = () => {
   useEffect(() => {
     if (formFocus) {
       FormBox.current.style = "box-shadow: 0 0 3px 3px gray"
-    } else {
-      FormBox.current.style = "box-shadow: 0 0 0px #fff"
-
-
     }
+ 
   }, [formFocus])
 
   const [categoryData, setCategoryData] = useState<Route[]>([])

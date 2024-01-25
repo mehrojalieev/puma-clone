@@ -1,12 +1,21 @@
 import "./Register.scss"
 import { useState } from 'react';
-import ApiInstance from "../../api";
 import { MdOutlineRemoveRedEye } from "react-icons/md";
 import { FaRegEyeSlash } from "react-icons/fa";
 import Checkbox from '@mui/material/Checkbox';
 import { GoogleLogin } from '@react-oauth/google';
 import { GoogleOAuthProvider } from '@react-oauth/google';
+import { createUser } from "../../redux/slices/auth-slice";
+import { useDispatch, useSelector } from 'react-redux'
+import { AppDispatch, RootState } from "../../redux/store/store";
+
+
 const Register = () => {
+
+  const dispatch = useDispatch<AppDispatch>()
+  const auth = useSelector((state: RootState) => state.auth)
+  console.log(auth);
+
   const [firstname, setFirstname] = useState<string>("")
   const [lastname, setFLastName] = useState<string>("")
   const [email, setEmail] = useState<string>("")
@@ -44,23 +53,26 @@ const Register = () => {
     setPassword(e.target.value)
   }
 
-  
+  interface UserDataType {
+    first_name: string | null,
+    photo_url: string,
+    email: string,
+  }
+  const userData: UserDataType = {
+    first_name: firstname,
+    photo_url: userPhoto,
+    email: email,
+  }
 
-  const handleRegisterUser = async (event: React.FormEvent<HTMLFormElement>) => {
+  const handleRegisterUser = async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault()
-    const userData = {
-      first_name: firstname,
-      photo_url: userPhoto,
-      email: email,
-    }
-    try {
-      const response = await ApiInstance.post("/auth/register", userData)
-      console.log(response);
-
-    }
-    catch (error) {
-      console.log(error);
-
+    dispatch(createUser(userData))
+    if (auth.token) {
+      // console.log(auth.token);
+      localStorage.setItem("user-token", auth.token)
+      setTimeout(() => {
+        window.location.pathname = "/auth/login"
+      }, 3500)
     }
 
   }
