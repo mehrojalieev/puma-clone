@@ -2,7 +2,6 @@ import { useEffect, useState } from "react"
 import ApiInstance from "../../api"
 import { AxiosResponse } from "axios"
 
-
 const useFetch = (url: string) => {
     const [data, setData] = useState([])
     const [loading, setLoading] = useState<boolean>(false)

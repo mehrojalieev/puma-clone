@@ -14,7 +14,6 @@ const Register = () => {
 
   const dispatch = useDispatch<AppDispatch>()
   const auth = useSelector((state: RootState) => state.auth)
-  console.log(auth);
 
   const [firstname, setFirstname] = useState<string>("")
   const [lastname, setFLastName] = useState<string>("")
@@ -33,11 +32,9 @@ const Register = () => {
   }
   const label = { inputProps: { 'aria-label': 'Checkbox demo' } };
 
+
+
   // Validation Functions
-
-
-
-
 
   function isValidPassword(password: string) {
     return /^[a-zA-Z0-9!@#\$%\^\&*_=+-]{8,12}$/.test(password)
@@ -68,8 +65,6 @@ const Register = () => {
     event.preventDefault()
     dispatch(createUser(userData))
     if (auth.token) {
-      // console.log(auth.token);
-      localStorage.setItem("user-token", auth.token)
       setTimeout(() => {
         window.location.pathname = "/auth/login"
       }, 3500)
