@@ -26,7 +26,7 @@ const Shoes = () => {
     
 
 
-    return (
+    return (   
         <div className='shoes'>
 
             <Container>

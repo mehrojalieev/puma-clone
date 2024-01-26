@@ -9,9 +9,16 @@ import Cart from './cart/Cart'
 import Dashboard from './dashboard/Dashboard'
 import Profile from './dashboard/profile/Profile'
 import Orders from './dashboard/orders/Orders'
-import Settings from './dashboard/settings/settings'
+// import Settings from './dashboard/settings/settings'
+import validateToken from '../helpers/validation/validation'
+import { useSelector } from 'react-redux'
+import { RootState } from '../redux/store/store'
+import ManageProducts from './dashboard/manage-products/ManageProducts'
+import ManageAdmins from './dashboard/manage-admins/ManageAdmins'
 
 const RouteController = () => {
+  const auth = useSelector((state:RootState) => state.auth)
+  const validation = validateToken(auth.token)
   return (
     <Routes>
       <Route path='/' element={<Home />} />
@@ -21,9 +28,10 @@ const RouteController = () => {
         <Route path='login' element={<Login />} />
       </Route>
       <Route path='dashboard' element={<Dashboard />}>
-        <Route index path='profile' element={<Profile />} />
+        <Route index  element={validation.decoded && validation.decoded.user.role === "admin" ? <ManageProducts/> : <Profile />} />
+        <Route path='manage-admin' element={validation.decoded && validation.decoded.user.role === "admin" && <ManageAdmins/>}/>
         <Route  path='orders' element={<Orders />} />
-        <Route  path='settings' element={<Settings />} />
+        {/* <Route  path='settings' element={<Settings />} /> */}
       </Route>
       <Route path='shoes' element={<Shoes />} />
       <Route path='shoes/:id' element={<SingleShoes />} />
