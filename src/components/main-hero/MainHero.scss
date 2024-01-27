@@ -1,0 +1,46 @@
+@mixin f-style($fSize, $color, $fWeight) {
+    font-size: $fSize;
+    color: $color;
+    font-weight: $fWeight;
+}
+
+.main-hero {
+    position: relative;
+    width: 100%;
+}
+
+.main__hero-banner {
+    width: 100%;
+    min-height: 470px;
+}
+
+.main__hero-content {
+    top: calc(25%);
+    left: calc(5%);
+    position: absolute;
+
+    h2 {
+        @include f-style(33px, var(--light-color), 600);
+        line-height: 40px;
+        width: 480px;
+    }
+
+    p {
+        margin-top: 15px;
+        @include f-style(14px, var(--light-color), 400);
+        line-height: 26px;
+        width: 460px;
+
+    }
+
+    .shop-btn {
+        margin-top: 15px;
+        padding: 10px 25px;
+        background-color: var(--light-color);
+        color: var(--dark-color);
+        border: none;
+        font-size: 17px;
+        left: 0.4px;
+    }
+}
+
