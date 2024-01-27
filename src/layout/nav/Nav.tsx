@@ -103,10 +103,10 @@ const {pathname} = useLocation()
               {
                 Data.map((link, index) =>
                   <div key={index}>
-                    <li onMouseLeave={() => setShowDropDown(false)} onMouseEnter={() => { setCategoryData(link.subcategory), setShowDropDown(true) }}>
+                    <li  onMouseEnter={() => { setCategoryData(link.subcategory), setShowDropDown(true) }}>
                       <NavLink className={({ isActive }) => isActive ? "nav-link nav-link--active" : "nav-link"} to={"/"}>{link.title}</NavLink>
                     </li>
-                    <div style={showDropdown ? { display: "block" } : { display: "none" }} className="dropdown-wrapper">
+                    <div onMouseLeave={() => setShowDropDown(false)} style={showDropdown ? { display: "block" } : { display: "none" }} className="dropdown-wrapper">
                       <div className="dropdown__content-container">
                         {
                           categoryData.map((title, index) =>
@@ -122,15 +122,6 @@ const {pathname} = useLocation()
                             </div>
                           )
                         }
-                      </div>
-                      <div className="menu-content">
-                        {/* {
-                        categoryData.subcategory.map(item => 
-                          item.category.map(items =>
-                            <span>{items.title}</span>
-                            )
-                          )
-                      } */}
                       </div>
                     </div>
                   </div>
