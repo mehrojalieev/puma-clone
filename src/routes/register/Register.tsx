@@ -112,7 +112,7 @@ const Register = () => {
               <Checkbox {...label} />
               Add me to the PUMA mailing list
             </div>
-            <button disabled={!isValidForm ? false : true} type="submit" className={isValidBtn ? "valid-btn register-btn" : "register-btn"}>REGISTER</button>
+            <button disabled={isValidForm ? false : true} type="submit" className={isValidBtn ? "valid-btn register-btn" : "register-btn"}>REGISTER</button>
             <p className='privacy-text'>By continuing, I confirm that I have read and accept the Terms and Conditions. and the Privacy Policy.</p>
             <button className="forget-btn" type='button'>FORGOTTEN YOUR PASSWORD?</button>
           </div>

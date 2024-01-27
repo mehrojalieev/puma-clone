@@ -4,6 +4,7 @@ import { RxDashboard } from "react-icons/rx";
 import { CgProfile } from "react-icons/cg";
 import { IoMdSettings } from "react-icons/io";
 import { FaBorderNone } from "react-icons/fa";
+import { FiShoppingBag } from "react-icons/fi";
 import validateToken from '../../helpers/validation/validation';
 import { useSelector } from 'react-redux';
 import { RootState } from '../../redux/store/store';
@@ -26,6 +27,9 @@ const Sidebar = () => {
             <>
               <li>
                 <i><CgProfile /></i><Link className='item-link' to={"/dashboard/profile"}>Profile</Link>
+              </li>
+              <li>
+                <i><FiShoppingBag /></i><Link className='item-link' to={"/dashboard/products"}>Products</Link>
               </li>
               <li>
                 <i><FaBorderNone /></i><Link className='item-link' to={"/dashboard/orders"}>Orders</Link>

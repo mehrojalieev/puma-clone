@@ -47,11 +47,12 @@ const authSlice = createSlice({
     reducers: {},
     extraReducers: (builder) => {
         builder.addCase(createUser.fulfilled, (state, action) => {
-            console.log(action.payload.user._id);
+            console.log(action.payload.user);
             localStorage.setItem("user-token", action.payload.user._id)
             state.user = action.payload.user,
                 state.token = action.payload.token,
                 state._id = action.payload.user._id;
+                window.location.pathname = "/auth/login"
         }),
         builder.addCase(loginUser.fulfilled, (state, action) => {
                 state.token = action.payload.token,
