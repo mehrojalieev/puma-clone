@@ -1,10 +1,10 @@
 import "./Register.scss"
-import { FormEvent, useState } from 'react';
+import { FormEvent, useEffect, useState } from 'react';
 import { MdOutlineRemoveRedEye } from "react-icons/md";
 import { FaRegEyeSlash } from "react-icons/fa";
 import Checkbox from '@mui/material/Checkbox';
 import { GoogleOAuthProvider, GoogleLogin } from '@react-oauth/google';
-import { createUser } from "../../redux/slices/auth-slice";
+import  { createUser } from "../../redux/slices/auth-slice";
 import { useDispatch, useSelector } from 'react-redux'
 import { AppDispatch, RootState } from "../../redux/store/store";
 
@@ -70,12 +70,20 @@ const Register = () => {
 
   }
 
+  const [isValidForm, setIsValidForm] = useState<boolean>(false)
 
-  function ValidRegisterForm(params:type) {
-    
-  }
+  useEffect(() => {
+    function validationForm() {
+      if (!isPasswordError && !isEmailError) {
+        setIsValidForm(true)
+      }
+      else {
+        console.log(false);
 
-
+      }
+    }
+    validationForm()
+  }, [])
   return (
     <GoogleOAuthProvider clientId={import.meta.env.BASE_URL}>
 
@@ -93,7 +101,7 @@ const Register = () => {
             <label htmlFor="email">EMAIL <code>*</code></label>
             <input value={email} onChange={(e) => setEmail(e.target.value)} autoComplete='off' type="text" id='email' placeholder='Email' />
           </div>
-          <div  className="label-item">
+          <div className="label-item">
             <label htmlFor="password">PASSWORD <code>*</code></label>
             <div style={isPasswordError ? { border: "2px solid #b62906" } : {}} className="password-input">
               <input value={password} onChange={(e) => handlePasswordChange(e)} type={passwordInputType} id='password' placeholder='Password' />
@@ -104,9 +112,9 @@ const Register = () => {
               <Checkbox {...label} />
               Add me to the PUMA mailing list
             </div>
-            <button type="submit" className={isValidBtn ? "valid-btn register-btn" : "register-btn"}>REGISTER</button>
+            <button disabled={!isValidForm ? false : true} type="submit" className={isValidBtn ? "valid-btn register-btn" : "register-btn"}>REGISTER</button>
             <p className='privacy-text'>By continuing, I confirm that I have read and accept the Terms and Conditions. and the Privacy Policy.</p>
-            <button disabled={false} className="forget-btn" type='button'>FORGOTTEN YOUR PASSWORD?</button>
+            <button className="forget-btn" type='button'>FORGOTTEN YOUR PASSWORD?</button>
           </div>
         </form>
 
