@@ -19,14 +19,20 @@ import { CategoryMenuTypes, Route } from "../../types"
 
 
 const Nav = () => {
-  
-
   const [searchDronDown, setSearchDropDown] = useState<boolean>(false)
+  const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);
+  const [categoryData, setCategoryData] = useState<Route[]>([])
+  const [formFocus, setFormFocus] = useState<boolean>(false)
   const [clearBtn, setClearBtn] = useState<boolean>(false)
   const [inputValue, setInputValue] = useState("")
-  // console.log(inputValue);
+  const [showDropdown, setShowDropDown] = useState(false)
 
-  const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);
+  const token = localStorage.getItem("user-token")
+  const { pathname } = useLocation()
+
+
+
+
   const open = Boolean(anchorEl);
   const handleClick = (event: React.MouseEvent<HTMLElement>) => {
     setAnchorEl(event.currentTarget);
@@ -36,26 +42,11 @@ const Nav = () => {
   };
 
 
-  const [dd, setDd] = useState<boolean>(false)
 
   const ChangingText: any = [
-    {
-      title: "FREE AND EASY RETURNS ",
-      link: "SEE DETAILS"
-    },
-    {
-      title: "FREE SHIPPING ON ORDERS OVER $60",
-      link: "LEARN MORE"
-    }
+    { title: "FREE AND EASY RETURNS ", link: "SEE DETAILS" },
+    { title: "FREE SHIPPING ON ORDERS OVER $60", link: "LEARN MORE" }
   ]
-
-  // useEffect(() => {
-  //   let f = setInterval(() => {
-  //     setDd(!dd)
-  //   }, 3000)
-
-  //   return () => clearInterval(f)
-  // }, [dd])
 
   useEffect(() => {
     if (inputValue) {
@@ -66,33 +57,28 @@ const Nav = () => {
   }, [inputValue])
 
   const FormBox: any = useRef()
-  const [formFocus, setFormFocus] = useState<boolean>(false)
 
   useEffect(() => {
     if (formFocus) {
       FormBox.current.style = "box-shadow: 0 0 3px 3px gray"
     }
- 
   }, [formFocus])
 
-  const [categoryData, setCategoryData] = useState<Route[]>([])
-  console.log(categoryData);
-  const [showDropdown, setShowDropDown] = useState(false)
 
-const {pathname} = useLocation()
+  const handleLogoutUser = () => {
+    localStorage.removeItem("user-token")
+    window.location.reload()
+  }
 
   return pathname.includes("/dashboard") ? null : (
     <>
       <div className="nav__navigation">
         {
-          dd ? <>v 
+           <>
             <h3>{ChangingText[0].title}</h3>
-            <Link className="navigation-link" to={"/"}>{ChangingText[0].link}</Link>
+            <Link  className="navigation-link" to={"/"}>{ChangingText[0].link}</Link>
           </>
-            : <>
-              <h3>{ChangingText[1].title}</h3>
-              <Link className="navigation-link" to={"/"}>{ChangingText[1].link}</Link>
-            </>
+           
         }
       </div>
       <nav>
@@ -103,7 +89,7 @@ const {pathname} = useLocation()
               {
                 Data.map((link, index) =>
                   <div key={index}>
-                    <li  onMouseEnter={() => { setCategoryData(link.subcategory), setShowDropDown(true) }}>
+                    <li onMouseEnter={() => { setCategoryData(link.subcategory), setShowDropDown(true) }}>
                       <NavLink className={({ isActive }) => isActive ? "nav-link nav-link--active" : "nav-link"} to={"/"}>{link.title}</NavLink>
                     </li>
                     <div onMouseLeave={() => setShowDropDown(false)} style={showDropdown ? { display: "block" } : { display: "none" }} className="dropdown-wrapper">
@@ -167,13 +153,7 @@ const {pathname} = useLocation()
                       filter: 'drop-shadow(0px 2px 8px rgba(0,0,0,0.32))',
                       mt: 2,
                       width: "300px",
-                      '& .MuiAvatar-root': {
-                        width: 32,
-                        height: 2,
-                        overflowY: "auto",
-                        ml: -0.5,
-                        mr: 1,
-                      },
+                      '& .MuiAvatar-root': {  width: 32,  height: 2,  overflowY: "auto",  ml: -0.5,  mr: 1,},
                       '&::before': {
                         content: '""',
                         display: 'block',
@@ -203,8 +183,14 @@ const {pathname} = useLocation()
                   <MenuItem className="menu__item-list">  Wishlist</MenuItem>
                   <Divider />
                   <MenuItem className="menu__item-list">  Language</MenuItem>
-                  <MenuItem className="login-item"><Link to={"/auth/login"} className="profile__menu-login">LOGIN</Link></MenuItem>
-                  <MenuItem className="login__item"><Link to={"/auth/register"} className=" profile__menu-register">REGISTER HERE</Link></MenuItem>
+                  {
+                    token ? <MenuItem><button onClick={handleLogoutUser} className="profile__menu-login logout-btn">LOG OUT</button></MenuItem>
+                      :
+                      <>
+                        <MenuItem className="login-item"><Link to={"/auth/login"} className="profile__menu-login">LOGIN</Link></MenuItem>
+                        <MenuItem className="login__item"><Link to={"/auth/register"} className=" profile__menu-register">REGISTER HERE</Link></MenuItem>
+                      </>
+                  }
                 </Menu>
               </div>
             </div>
