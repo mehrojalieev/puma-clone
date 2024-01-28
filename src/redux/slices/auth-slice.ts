@@ -28,16 +28,16 @@ const createUser = createAsyncThunk('create-user', async (data) => {
 })
 
 
-const loginUser = createAsyncThunk('login-user', async(data ,{rejectWithValue}) => {
+const loginUser = createAsyncThunk('login-user', async (data, { rejectWithValue }) => {
     console.log(data);
     try {
-            const response: AxiosResponse = await ApiInstance.post("/auth/login", data)
-            return response.data.payload
-    } 
+        const response: AxiosResponse = await ApiInstance.post("/auth/login", data)
+        return response.data.payload
+    }
     catch (error) {
         console.log(error);
         return rejectWithValue(error)
-            
+
     }
 })
 
@@ -52,13 +52,14 @@ const authSlice = createSlice({
             state.user = action.payload.user,
                 state.token = action.payload.token,
                 state._id = action.payload.user._id;
-                window.location.pathname = "/auth/login"
+            window.location.pathname = "/auth/login"
         }),
-        builder.addCase(loginUser.fulfilled, (state, action) => {
+            builder.addCase(loginUser.fulfilled, (state, action) => {
                 state.token = action.payload.token,
-                state._id = action.payload._id
-            // window.location.pathname = "/dashboard"
-        })
+                    state._id = action.payload._id
+                localStorage.setItem("user-token", action.payload.token)
+                window.location.pathname = "/dashboard"
+            })
     }
 })
 
