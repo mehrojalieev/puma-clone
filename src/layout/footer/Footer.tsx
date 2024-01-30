@@ -12,7 +12,7 @@ import { useLocation } from "react-router-dom";
 const Footer = () => {
     const {pathname} = useLocation()
 
-    return pathname.includes("/dashboard") ? null : (
+    return pathname.includes("/dashboard") || pathname.includes("/auth") ? null : (
         <footer>
             <Container>
                 <div className="footer__content-wrapper">

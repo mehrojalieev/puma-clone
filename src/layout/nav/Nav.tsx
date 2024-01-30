@@ -14,7 +14,7 @@ import MenuItem from '@mui/material/MenuItem';
 import Divider from '@mui/material/Divider';
 import IconButton from '@mui/material/IconButton';
 import Tooltip from '@mui/material/Tooltip';
-import { CategoryMenuTypes, Route } from "../../types"
+import { Route } from "../../types"
 
 
 
@@ -69,28 +69,31 @@ const Nav = () => {
     localStorage.removeItem("user-token")
     window.location.reload()
   }
-
-  return pathname.includes("/dashboard") ? null : (
+  
+  return  (
     <>
-      <div className="nav__navigation">
-        {
-           <>
-            <h3>{ChangingText[0].title}</h3>
-            <Link  className="navigation-link" to={"/"}>{ChangingText[0].link}</Link>
-          </>
-           
-        }
-      </div>
+  {
+    !pathname.includes ("/auth") && 
+    <div className="nav__navigation">
+    {
+      <>
+        <h3>{ChangingText[0].title}</h3>
+        <Link className="navigation-link" to={"/"}>{ChangingText[0].link}</Link>
+      </>
+
+    }
+  </div>
+  }
       <nav>
         <Container>
           <div className="nav-wrapper">
-            <ul className="nav__menu">
+            <ul onMouseLeave={() => setShowDropDown(false)} className="nav__menu">
               <li><Link className="nav-logo" to={"/"}><SiPuma /></Link></li>
               {
                 Data.map((link, index) =>
                   <div key={index}>
                     <li onMouseEnter={() => { setCategoryData(link.subcategory), setShowDropDown(true) }}>
-                      <NavLink className={({ isActive }) => isActive ? "nav-link nav-link--active" : "nav-link"} to={"/"}>{link.title}</NavLink>
+                      <NavLink onClick={() => setShowDropDown(false)} className={({ isActive }) => isActive ? "nav-link nav-link--active" : "nav-link"} to={link.link}>{link.title}</NavLink>
                     </li>
                     <div onMouseLeave={() => setShowDropDown(false)} style={showDropdown ? { display: "block" } : { display: "none" }} className="dropdown-wrapper">
                       <div className="dropdown__content-container">
@@ -153,7 +156,7 @@ const Nav = () => {
                       filter: 'drop-shadow(0px 2px 8px rgba(0,0,0,0.32))',
                       mt: 2,
                       width: "300px",
-                      '& .MuiAvatar-root': {  width: 32,  height: 2,  overflowY: "auto",  ml: -0.5,  mr: 1,},
+                      '& .MuiAvatar-root': { width: 32, height: 2, overflowY: "auto", ml: -0.5, mr: 1, },
                       '&::before': {
                         content: '""',
                         display: 'block',
