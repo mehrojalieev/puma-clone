@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react'
-import "./Shoes.scss"
+import "./AllProducts.scss"
 import ApiInstance from '../../api'
 import { Container } from '../../styled-component/Styled'
 import Rating from '@mui/material/Rating';
@@ -9,13 +9,12 @@ import { Link } from 'react-router-dom';
 import { ProductTypes } from '../../types';
 import useFetch from '../../helpers/hooks/useFetch';
 
-const Shoes = () => {
+const AllProducts = () => {
     const [shoesData, setShoesData] = useState([])
 
     useEffect(() => {
         async function loadData() {
             const response = await ApiInstance("/product/all")
-            // console.log(response.data.payload.products);
             setShoesData(response.data.payload.products)
         }
         loadData()
@@ -58,4 +57,4 @@ const Shoes = () => {
     )
 }
 
-export default Shoes
+export default AllProducts

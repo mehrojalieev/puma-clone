@@ -29,7 +29,7 @@ const Sidebar = () => {
               <li>
                 <i><CgProfile /></i><Link className='item-link' to={"/dashboard"}>Profile</Link>
               </li>
-              {/* <li>
+              <li>
                 <i><FiShoppingBag /></i><Link className='item-link' to={"/dashboard/products"}>Products</Link>
               </li>
               <li>
@@ -40,7 +40,7 @@ const Sidebar = () => {
               </li>
               <li>
                 <i><IoMdSettings /></i><Link className='item-link' to={"/dashboard/settings"}>Settings</Link>
-              </li> */}
+              </li>
             </>
         }
       </ul>
