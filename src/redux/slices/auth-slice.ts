@@ -33,6 +33,7 @@ const loginUser = createAsyncThunk('login-user', async (data, { rejectWithValue 
     try {
         const response: AxiosResponse = await ApiInstance.post("/auth/login", data)
         return response.data.payload
+        
     }
     catch (error) {
         console.log(error);
@@ -47,18 +48,20 @@ const authSlice = createSlice({
     reducers: {},
     extraReducers: (builder) => {
         builder.addCase(createUser.fulfilled, (state, action) => {
-            console.log(action.payload.user);
-            localStorage.setItem("user-token", action.payload.user._id)
-            state.user = action.payload.user,
+            if(action.payload?.token){
+                localStorage.setItem("user-token", action.payload.token)
                 state.token = action.payload.token,
+                state.user = action.payload.user,
                 state._id = action.payload.user._id;
-            window.location.pathname = "/auth/login"
+            }
+            window.location.pathname = "/dashboard"
         }),
             builder.addCase(loginUser.fulfilled, (state, action) => {
-                state.token = action.payload.token,
+                if(action.payload?.token){
+                    localStorage.setItem("user-token", action.payload.token)
                     state._id = action.payload._id
-                localStorage.setItem("user-token", action.payload.token)
-                window.location.pathname = "/dashboard"
+                    window.location.pathname = "/dashboard"
+                }
             })
     }
 })

@@ -44,3 +44,36 @@
     }
 }
 
+.main__hero-bottom__content{
+    display: flex;
+    align-items: center;
+    margin-top: 40px;
+    width: 100%;
+    height: 400px;
+    background: url(../../assets/images/mainBottomBg.svg) center;
+}
+
+.bottom__content{
+    width: 100%;
+    text-align:  center;
+    h2{
+        @include f-style(36px, var(--light-color), 700);
+    }
+    p{
+        margin: 10px 0;
+        @include f-style(21px, var(--light-color), 400);
+    }
+    span{
+        // margin-top: 10px;
+        @include f-style(14px, var(--light-color), 400);
+    }
+    button{
+        display: block;
+        margin: 24px auto 0;
+        @include f-style(15px, var(--dark-color), 700);
+        letter-spacing: 0.4px;
+        padding: 13px 18px;
+        border: none;
+        background-color: var(--light-color);
+    }
+}

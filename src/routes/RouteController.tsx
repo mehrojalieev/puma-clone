@@ -1,4 +1,4 @@
-import { Routes, Route } from 'react-router-dom'
+import { Routes, Route, useLocation } from 'react-router-dom'
 import Home from '../pages/home/Home'
 import Auth from '../pages/auth/Auth'
 import Register from './register/Register'
@@ -16,28 +16,47 @@ import { RootState } from '../redux/store/store'
 import ManageProducts from './dashboard/manage-products/ManageProducts'
 import ManageAdmins from './dashboard/manage-admins/ManageAdmins'
 import Products from './dashboard/products/Products'
+import ManageUsers from './dashboard/manage-users/ManageUsers'
+import Nav from '../layout/nav/Nav'
+import Private from '../pages/private/Private'
 
 const RouteController = () => {
-  const auth = useSelector((state:RootState) => state.auth)
+  const auth = useSelector((state: RootState) => state.auth)
   const validation = validateToken(auth.token)
+  const { pathname } = useLocation()
   return (
-    <Routes>
-      <Route path='/' element={<Home />} />
-      <Route path='cart' element={<Cart />} />
-      <Route path='auth' element={<Auth />}>
-        <Route path='register' element={<Register />} />
-        <Route path='login' element={<Login />} />
-      </Route>
-      <Route path='dashboard' element={<Dashboard />}>
-        <Route index  element={validation.decoded && validation.decoded.user.role === "admin" ? <ManageProducts/> : <Profile />} />
-        <Route path='products' element={<Products/>}/>
-        <Route path='manage-admin' element={validation.decoded && validation.decoded.user.role === "admin" && <ManageAdmins/>}/>
-        <Route  path='orders' element={<Orders />} />
-        <Route  path='settings' element={<Settings />} />
-      </Route>
-      <Route path='shoes' element={<Shoes />} />
-      <Route path='shoes/:id' element={<SingleShoes />} />
-    </Routes>
+
+    <>
+      {
+        pathname.includes('/dashboard') || pathname.includes("/profile") ? null : (
+          <Nav />
+        )
+      }
+      <Routes>
+        <Route path='/' element={<Home />} />
+        <Route path='cart' element={<Cart />} />
+        <Route path='auth' element={<Auth />}>
+          <Route path='register' element={<Register />} />
+          <Route path='login' element={<Login />} />
+        </Route>
+        <Route path='shoes' element={<Shoes />} />
+        <Route path='shoes/:id' element={<SingleShoes />} />
+        {
+          validation.decoded && validation.decoded.user.role === "admin" &&
+          <Route path='/dashboard' element={<Private />}>
+            <Route index element={<ManageProducts />} />
+            <Route path='manage-admin' element={<ManageAdmins />} />
+          </Route>
+        }
+        {
+          validation.decoded && validation.decoded.user.role === "user" &&
+          <Route path='/profile' element={<Private />}>
+            <Route index element={<Profile />} />
+          </Route>
+        }
+
+      </Routes>
+    </>
   )
 }
 

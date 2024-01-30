@@ -5,6 +5,7 @@ import { CgProfile } from "react-icons/cg";
 import { IoMdSettings } from "react-icons/io";
 import { FaBorderNone } from "react-icons/fa";
 import { FiShoppingBag } from "react-icons/fi";
+import { FaUsers } from "react-icons/fa6";
 import validateToken from '../../helpers/validation/validation';
 import { useSelector } from 'react-redux';
 import { RootState } from '../../redux/store/store';
@@ -20,23 +21,26 @@ const Sidebar = () => {
         {
           validation.decoded && validation.decoded.user.role === "admin" ?
             <>
-              <li><Link to={"/dashboard"}>Manage Producta</Link></li>
+              <li><Link to={"/dashboard"}>Manage Products</Link></li>
               <li><Link to={"/dashboard/manage-admin"}>Manage Admins</Link></li>
             </>
             :
             <>
               <li>
-                <i><CgProfile /></i><Link className='item-link' to={"/dashboard/profile"}>Profile</Link>
+                <i><CgProfile /></i><Link className='item-link' to={"/dashboard"}>Profile</Link>
+              </li>
+              {/* <li>
+                <i><FiShoppingBag /></i><Link className='item-link' to={"/dashboard/products"}>Products</Link>
               </li>
               <li>
-                <i><FiShoppingBag /></i><Link className='item-link' to={"/dashboard/products"}>Products</Link>
+                <i><FaUsers /></i><Link className='item-link' to={"/dashboard/manage-users"}>Manage-user</Link>
               </li>
               <li>
                 <i><FaBorderNone /></i><Link className='item-link' to={"/dashboard/orders"}>Orders</Link>
               </li>
               <li>
                 <i><IoMdSettings /></i><Link className='item-link' to={"/dashboard/settings"}>Settings</Link>
-              </li>
+              </li> */}
             </>
         }
       </ul>
