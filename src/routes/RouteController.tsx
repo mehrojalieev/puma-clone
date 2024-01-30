@@ -3,7 +3,6 @@ import Home from '../pages/home/Home'
 import Auth from '../pages/auth/Auth'
 import Register from './register/Register'
 import Login from './login/Login'
-import Shoes from './shoes/Shoes'
 import SingleShoes from './single-shoes/SingleShoes'
 import Cart from './cart/Cart'
 import Dashboard from './dashboard/Dashboard'
@@ -19,6 +18,7 @@ import Products from './dashboard/products/Products'
 import ManageUsers from './dashboard/manage-users/ManageUsers'
 import Nav from '../layout/nav/Nav'
 import Private from '../pages/private/Private'
+import AllProducts from './all-products/AllProducts'
 
 const RouteController = () => {
   const auth = useSelector((state: RootState) => state.auth)
@@ -39,8 +39,17 @@ const RouteController = () => {
           <Route path='register' element={<Register />} />
           <Route path='login' element={<Login />} />
         </Route>
-        <Route path='shoes' element={<Shoes />} />
+        <Route path='allproducts' element={<AllProducts />} />
+
         <Route path='shoes/:id' element={<SingleShoes />} />
+
+        <Route path='/dashboard' element={<Dashboard/>}>
+          <Route path='products' element={<Products/>}/>
+          
+          <Route path='manage-users' element={<ManageUsers/>}/>
+          <Route path='/dashboard/manage-admin' element={<ManageAdmins/>}/>
+          <Route path='manage-products' element={<ManageProducts/>}/>
+          </Route>
         {
           validation.decoded && validation.decoded.user.role === "admin" &&
           <Route path='/dashboard' element={<Private />}>

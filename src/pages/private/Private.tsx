@@ -4,6 +4,7 @@ import { AppDispatch, RootState } from '../../redux/store/store'
 import Sidebar from '../../components/sidebar/Sidebar'
 import {useDispatch} from 'react-redux'
 import { Navigate, Outlet } from 'react-router-dom'
+import { getUser } from '../../redux/slices/auth-slice'
 
 const Private = () => {
     const dispatch = useDispatch<AppDispatch>()
@@ -11,8 +12,7 @@ const Private = () => {
 
     useEffect(() => {
         console.log(true);
-        
-        // dispatch()
+        dispatch(getUser())
     }, [])
 
   return (

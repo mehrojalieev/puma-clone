@@ -8,17 +8,21 @@ import TableContainer from '@mui/material/TableContainer';
 import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
+import { useParams } from "react-router-dom";
+import { Modal } from "../../../utils/Utils";
+import { useState } from "react";
 
 
 
 
 const Products = () => {
-    const data = useFetch("/product/all")
-  
+  const [isOpenModal, setIsOpenModal] = useState<boolean>(false)
+      const data = useFetch("/product/all")  
   return (
     <div className='product'>
         <div className="content__header">
             <h2>PRODUCTS</h2>
+            <button onClick={() => setIsOpenModal(true)} className="add__product-btn">Add Product</button>
         </div>
     <div className="table-wrapper">
     <TableContainer className='table' component={Paper}>
@@ -51,6 +55,7 @@ const Products = () => {
       </Table>
     </TableContainer>
     </div>
+            <Modal isOpenModal={isOpenModal} setIsOpenModal={setIsOpenModal}/>
     </div>
   )
 }

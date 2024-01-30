@@ -42,6 +42,23 @@ const loginUser = createAsyncThunk('login-user', async (data, { rejectWithValue 
     }
 })
 
+const getUser = createAsyncThunk(
+    "auth/getUser",
+    async (value, {rejectWithValue}) => {
+        try {
+            const response:AxiosResponse = await ApiInstance.get("/auth/profile")
+            if(response.status === 401 || response.status === 403){
+                throw new Error("Auth failed")
+            }
+            return response.data.payload
+        } 
+        catch (error: any) {
+            return rejectWithValue(error)
+                
+        }
+    }
+)
+
 const authSlice = createSlice({
     name: "auth",
     initialState,
@@ -66,7 +83,7 @@ const authSlice = createSlice({
     }
 })
 
-export { createUser, loginUser }
+export { createUser, loginUser, getUser }
 
 
 export default authSlice.reducer
