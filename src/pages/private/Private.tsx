@@ -11,9 +11,10 @@ const Private = () => {
     const auth = useSelector((state: RootState) => state.auth)
 
     useEffect(() => {
-        console.log(true);
         dispatch(getUser())
     }, [])
+
+    console.log(auth)
 
   return (
     <div className='dashboard'>

@@ -79,6 +79,16 @@ const authSlice = createSlice({
                     state._id = action.payload._id
                     window.location.pathname = "/dashboard"
                 }
+            }),
+            builder.addCase(getUser.fulfilled, (state, action) => {
+                state.user = action.payload
+            }),
+            builder.addCase(getUser.rejected, (state) => {
+                state._id = null,
+                state.token = "",
+                state.user = null
+                localStorage.removeItem("user-token")
+                window.location.href = window.location.origin + '/auth/login'
             })
     }
 })
