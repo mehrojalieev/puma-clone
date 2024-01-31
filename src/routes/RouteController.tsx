@@ -50,7 +50,7 @@ const RouteController = () => {
           <Route path='/dashboard/manage-admin' element={<ManageAdmins/>}/>
           <Route path='manage-products' element={<ManageProducts/>}/>
           </Route>
-        {
+        {/* {
           validation.decoded && validation.decoded.user.role === "admin" &&
           <Route path='/dashboard' element={<Private />}>
             <Route index element={<ManageProducts />} />
@@ -62,7 +62,7 @@ const RouteController = () => {
           <Route path='/profile' element={<Private />}>
             <Route index element={<Profile />} />
           </Route>
-        }
+        } */}
 
       </Routes>
     </>
