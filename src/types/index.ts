@@ -57,3 +57,17 @@ export type SubLink = {
         title: string,
         subcategory: MainSubCategory,
   }
+
+
+  export interface UserTypes {
+    first_name: string,
+    email: string,
+    role: string,
+    _id: string,
+    photo_url: string,
+    registered_at: number,
+    createdAt: string,
+    __v: number,
+    purchased: [],
+    liked: [],
+  }
