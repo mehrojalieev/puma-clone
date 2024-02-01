@@ -1,5 +1,5 @@
 import './Sidebar.scss'
-import { Link } from 'react-router-dom'
+import { Link, NavLink } from 'react-router-dom'
 import { RxDashboard } from "react-icons/rx";
 import { CgProfile } from "react-icons/cg";
 import { IoMdSettings } from "react-icons/io";
@@ -9,37 +9,44 @@ import { FaUsers } from "react-icons/fa6";
 import validateToken from '../../helpers/validation/validation';
 import { useSelector } from 'react-redux';
 import { RootState } from '../../redux/store/store';
+import useFetch from '../../helpers/hooks/useFetch';
+
 
 const Sidebar = () => {
   const validation = validateToken(useSelector((state: RootState) => state.auth.token))
-  console.log(validation);
+  // console.log(validation);
+  const {data} = useFetch("/auth/profile")
+  // console.log(data);
+  
 
   return (
     <div className='sidebar'>
-      <h1> <i><RxDashboard /></i>Dashboard</h1>
+      <Link to={"/"} className="sidebar-logo">
+       <img width={120} height={50} src="https://upload.wikimedia.org/wikipedia/ru/thumb/b/b4/Puma_logo.svg/2560px-Puma_logo.svg.png" alt="Puma Logo" />
+      </Link>
       <ul className='sidebar-menu'>
         {
           validation.decoded && validation.decoded.user.role === "admin" ?
             <>
-              <li><Link to={"/dashboard"}>Manage Products</Link></li>
-              <li><Link to={"/dashboard/manage-admin"}>Manage Admins</Link></li>
+              <li><NavLink end className={({isActive}) => isActive ? "item-link item-link--active" : "item-link" } to={"/dashboard"}>Manage Products</NavLink></li>
+              <li><NavLink className={({isActive}) => isActive ? "item-link item-link--active" : "item-link" } to={"/dashboard/manage-admin"}>Manage Admins</NavLink></li>
             </>
             :
             <>
-              <li>
-                <i><CgProfile /></i><Link className='item-link' to={"/dashboard"}>Profile</Link>
+              <li className='menu-item'>
+                <NavLink end className={({ isActive }) => isActive ? "item-link item-link--active" : "item-link"} to={"/dashboard"}>  <i><CgProfile /></i >Profile</NavLink>
               </li>
-              <li>
-                <i><FiShoppingBag /></i><Link className='item-link' to={"/dashboard/products"}>Products</Link>
+              <li className='menu-item'>
+                <NavLink className={({ isActive }) => isActive ? "item-link item-link--active" : "item-link"} to={"/dashboard/products"}><i><FiShoppingBag /></i> Manage Products</NavLink>
               </li>
-              <li>
-                <i><FaUsers /></i><Link className='item-link' to={"/dashboard/manage-users"}>Manage-user</Link>
+              <li className='menu-item'>
+                <NavLink className={({ isActive }) => isActive ? "item-link item-link--active" : "item-link"} to={"/dashboard/manage-users"}><i><FaUsers /></i> Manage-user</NavLink>
               </li>
-              <li>
-                <i><FaBorderNone /></i><Link className='item-link' to={"/dashboard/orders"}>Orders</Link>
+              <li className='menu-item'>
+                <NavLink className={({ isActive }) => isActive ? "item-link item-link--active" : "item-link"} to={"/dashboard/orders"}> <i><FaBorderNone /></i> Orders</NavLink>
               </li>
-              <li>
-                <i><IoMdSettings /></i><Link className='item-link' to={"/dashboard/settings"}>Settings</Link>
+              <li className='menu-item'>
+                <NavLink className={({ isActive }) => isActive ? "item-link item-link--active" : "item-link"} to={"/dashboard/settings"}> <i><IoMdSettings /></i> Settings</NavLink>
               </li>
             </>
         }

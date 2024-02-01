@@ -20,13 +20,13 @@ const Modal = ({ isOpenModal, setIsOpenModal }: any) => {
     console.log(productType);
 
 
-    useEffect(() => {
-        if (isOpenModal) {
-            document.body.style.overflow = "hidden"
-        }
-    }, [isOpenModal])
+    // useEffect(() => {
+    // //     if (isOpenModal) {
+    // //         document.body.style.overflow = "hidden"
+    // //     }
+    // // }, [isOpenModal])
     return (
-        <div style={isOpenModal ? { display: "flex" } : { display: "none " }} className="modal-overlay">
+        <div   style={isOpenModal ? { display: "flex" } : { display: "none " }} className="modal-overlay">
             <div className="modal">
                 <button onClick={() => setIsOpenModal(false)} className='close__modal-btn'><IoCloseSharp /></button>
                 <h2 className='create__form-title'>CREATE PRODUCT</h2>
