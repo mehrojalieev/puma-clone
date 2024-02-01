@@ -106,6 +106,30 @@
 
 
 }
+.product-action{
+    display: flex !important;
+    align-items: center !important;
+    column-gap: 10px;
+    button{
+        padding: 5px 10px;
+        border-radius: 5px ;
+        border: 1px solid var(--dark-color);
+        color: var(--dark-color);
+        background: transparent;
+        transition: 0.2s;
+        font-size: 14px;
+        font-family: var(--apple-font);
+        cursor: pointer;
+     
+    }
+    .delete-btn{
+        border: none;
+        color: var(--light-color);
+        background-color: red ;
+        &:hover{opacity: 0.7;}
+    }
+ 
+}
 .variants{
     display: flex;
     align-items: center; 
