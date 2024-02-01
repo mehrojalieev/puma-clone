@@ -1,14 +1,13 @@
-import { useSelector } from "react-redux"
 import { Container } from "../../styled-component/Styled"
 import "./FeatureCategory.scss"
-import { RootState } from "../../redux/store/store"
 import useFetch from "../../helpers/hooks/useFetch"
 import { ProductTypes } from "../../types"
+
+
 const FeatureCategory = () => {
    const {data} = useFetch("/product/reel")
    console.log(data);
    
-    
   return (
     <Container>
        <div className="feature-category">

@@ -13,6 +13,7 @@ import FormControl from '@mui/material/FormControl';
 import Select from '@mui/material/Select';
 import { Modal } from "../../../utils/Utils";
 import { useState } from "react";
+import ApiInstance from "../../../api";
 
 
 
@@ -20,6 +21,21 @@ import { useState } from "react";
 const Products = () => {
   const [isOpenModal, setIsOpenModal] = useState<boolean>(false)
       const {data} = useFetch("/product/all")
+
+      const handleDeleteProduct = (id: string) => {
+      async function deleteProduct(){
+        try {
+          const response = await  ApiInstance.delete(`/product/${id}`)
+          console.log(response);
+          
+        } 
+        catch (error) {
+            console.log(error);
+            
+        }
+      }
+      deleteProduct()
+      }
       
         
   return (
@@ -68,7 +84,10 @@ const Products = () => {
               <TableCell className='table__product-item variants' align="center">{product.variants.map((variant) => <span>{variant.variant_value}</span>)}</TableCell>
               <TableCell className='table__product-item' align="center">$ {product.variants[0].variant_sale_price}</TableCell>
               <TableCell className='table__product-item' align="center"><img className='item-image' src={product.product_images[0]} alt={product.product_name} /></TableCell>
-              <TableCell className='table__product-item' align="center"><button className='more__info-btn'>More Info</button></TableCell>
+              <TableCell className='table__product-item product-action' align="center">
+                  <button className="edit-btn">Edit</button>
+                  <button onClick={() => handleDeleteProduct(product._id)} className="delete-btn">Delete</button>
+              </TableCell>
             </TableRow>
           ))}
         </TableBody>
