@@ -43,3 +43,32 @@
         }
     }
 }
+
+.feature-swiper{
+    width: 100%;
+    height: 500px !important;
+}
+.swiper {
+  width: 100%;
+  height: 100%;
+}
+
+
+.swiper-slide img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+
+.feature__product-slide{
+    height: 500px;
+    border-radius: 10px;
+    overflow: hidden;
+    img{
+        width: 100% !important;
+        height: 100%;
+        object-fit: cover;
+    }
+}
