@@ -2,27 +2,49 @@ import { Container } from "../../styled-component/Styled"
 import "./FeatureCategory.scss"
 import useFetch from "../../helpers/hooks/useFetch"
 import { ProductTypes } from "../../types"
+import { Swiper, SwiperSlide } from 'swiper/react';
 
+// Import Swiper styles
+import 'swiper/css/pagination';
+import 'swiper/css/navigation';
+
+
+// import required modules
+import { Pagination, Navigation } from 'swiper/modules';
 
 const FeatureCategory = () => {
-   const {data} = useFetch("/product/reel")
+   const {data} = useFetch("/product/all")
    console.log(data);
    
   return (
     <Container>
-       <div className="feature-category">
+        <div className="feature-category">
        <h2>FEATURED STYLES</h2>
        <div className="feature__category-container">
+       <Swiper
+        pagination={{
+          type: 'fraction',
+        }}
+        loop={true}
+        spaceBetween={40}
+        centeredSlides={true}
+        // slidesPerView={3.50}
+        navigation={true}
+        modules={[Pagination, Navigation]}
+        className="feature-swiper mySwiper"
+      >
         {
-            data.slice(0,4).map((i: ProductTypes) => 
-                <div key={i._id} className="feature-card">
-                    <img src={i.product_images[0]} alt={i.description} />
-                    <div className="feature-title"><h2>{i.product_name}</h2></div>
-                </div>
-                )
+          data?.products?.map((feature: ProductTypes) =>
+              <SwiperSlide className="feature__product-slide" key={feature._id}>
+                  <img  src={feature?.product_images[1]} alt={feature.product_name} />
+              </SwiperSlide>
+            )
         }
-       </div>
-       </div>
+    
+      
+      </Swiper>
+        </div>
+        </div>
     </Container>
   )
 }

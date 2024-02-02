@@ -1,6 +1,7 @@
 import "./ManageUser.scss"
 import useFetch from '../../../helpers/hooks/useFetch'
 import { UserTypes } from "../../../types";
+import Table from "../../../components/table/Table";
 
 const ManageUsers = () => {
   const {data} = useFetch("/admin/registered-users")
@@ -8,7 +9,8 @@ const ManageUsers = () => {
   
   return (
     <div>
-        <table className="user-table">
+      <Table type="user" data={data}/>
+        {/* <table className="user-table">
           <thead>
             <tr>
               <th>Username</th>
@@ -29,7 +31,7 @@ const ManageUsers = () => {
                 )
             }
           </tbody>
-        </table>
+        </table> */}
     </div>
   )
 }

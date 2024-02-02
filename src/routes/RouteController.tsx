@@ -12,9 +12,8 @@ import Settings from './dashboard/settings/Settings'
 import validateToken from '../helpers/validation/validation'
 import { useSelector } from 'react-redux'
 import { RootState } from '../redux/store/store'
-import ManageProducts from './dashboard/manage-products/ManageProducts'
 import ManageAdmins from './dashboard/manage-admins/ManageAdmins'
-import Products from './dashboard/products/Products'
+import ManageProducts from './dashboard/manage-products/ManageProducts'
 import ManageUsers from './dashboard/manage-users/ManageUsers'
 import Nav from '../layout/nav/Nav'
 import Private from '../pages/private/Private'
@@ -44,13 +43,13 @@ const RouteController = () => {
         <Route path='shoes/:id' element={<SingleShoes />} />
 
         <Route path='/dashboard' element={<Dashboard/>}>
-          <Route path='products' element={<Products/>}/>
+          <Route path='products' element={<ManageProducts/>}/>
           
           <Route path='manage-users' element={<ManageUsers/>}/>
           <Route path='/dashboard/manage-admin' element={<ManageAdmins/>}/>
           <Route path='manage-products' element={<ManageProducts/>}/>
           </Route>
-        {/* {
+        {
           validation.decoded && validation.decoded.user.role === "admin" &&
           <Route path='/dashboard' element={<Private />}>
             <Route index element={<ManageProducts />} />
@@ -62,7 +61,7 @@ const RouteController = () => {
           <Route path='/profile' element={<Private />}>
             <Route index element={<Profile />} />
           </Route>
-        } */}
+        }
 
       </Routes>
     </>
