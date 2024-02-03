@@ -75,7 +75,7 @@
     },
     {
         "title": "Men",
-        "link": "/link",
+        "link": "/allproducts",
         "subcategory":[
         {
             "title": "Shoes",
@@ -140,7 +140,7 @@
     },
     {
         "title": "Kids",
-        "link": "/link",
+        "link": "/allproducts",
         "subcategory":[
         {
             "title": "Boys",

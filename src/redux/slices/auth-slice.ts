@@ -17,7 +17,7 @@ const initialState: initialAuthType = {
 
 
 
-const createUser = createAsyncThunk('create-user', async (data) => {
+const createUser = createAsyncThunk('create-user', async (data: any) => {
     try {
         const response: AxiosResponse = await ApiInstance.post("/auth/register", data)
         return response.data.payload

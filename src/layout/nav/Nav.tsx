@@ -14,8 +14,7 @@ import MenuItem from '@mui/material/MenuItem';
 import Divider from '@mui/material/Divider';
 import IconButton from '@mui/material/IconButton';
 import Tooltip from '@mui/material/Tooltip';
-import { Route } from "../../types"
-
+import {  Route } from "../../types"
 
 
 const Nav = () => {
@@ -92,7 +91,7 @@ const Nav = () => {
               {
                 Data.map((link, index) =>
                   <div key={index}>
-                    <li onMouseEnter={() => { setCategoryData(link.subcategory), setShowDropDown(true) }}>
+                    <li onMouseEnter={() => { setCategoryData(link.subcategory as any), setShowDropDown(true) }}>
                       <NavLink onClick={() => setShowDropDown(false)} className={({ isActive }) => isActive ? "nav-link nav-link--active" : "nav-link"} to={link.link}>{link.title}</NavLink>
                     </li>
                     <div onMouseLeave={() => setShowDropDown(false)} style={showDropdown ? { display: "block" } : { display: "none" }} className="dropdown-wrapper">
