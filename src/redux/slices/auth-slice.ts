@@ -44,7 +44,7 @@ const loginUser = createAsyncThunk('login-user', async (data, { rejectWithValue 
 
 const getUser = createAsyncThunk(
     "auth/getUser",
-    async (value, {rejectWithValue}) => {
+    async (_, {rejectWithValue}) => {
         try {
             const response:AxiosResponse = await ApiInstance.get("/auth/profile")
             if(response.status === 401 || response.status === 403){
