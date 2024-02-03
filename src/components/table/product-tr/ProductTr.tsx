@@ -1,4 +1,3 @@
-import React from 'react'
 import { ProductTypes } from '../../../types'
 import ApiInstance from '../../../api'
 import { AxiosResponse } from 'axios'

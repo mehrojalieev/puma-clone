@@ -17,13 +17,20 @@ const Register = () => {
   const [firstname, setFirstname] = useState<string>("")
   const [lastname, setFLastName] = useState<string>("")
   const [email, setEmail] = useState<string>("")
-  const [userPhoto, setUserPhoto] = useState("https://w7.pngwing.com/pngs/340/946/png-transparent-avatar-user-computer-icons-software-developer-avatar-child-face-heroes-thumbnail.png")
+  const [userPhoto, setUserPhoto] = useState<string>("")
   const [password, setPassword] = useState("")
   const [showPassword, setShowPassword] = useState(false)
   const [passwordInputType, setPasswordInputType] = useState("password")
   const [isEmailError, setIsEmailError] = useState<string | null>(null)
   const [isPasswordError, setIsPasswordError] = useState<string | null>(null)
   const [isValidBtn, setIsValidBtn] = useState<boolean>(false)
+
+  useEffect(() => {
+    setIsEmailError(null)
+    setIsValidBtn(false)
+    setUserPhoto("https://w7.pngwing.com/pngs/340/946/png-transparent-avatar-user-computer-icons-software-developer-avatar-child-face-heroes-thumbnail.png")
+  }, [])
+
   const toggleInputType = () => {
     setShowPassword(!showPassword)
     const changeType = passwordInputType === "text" ? "password" : "text"

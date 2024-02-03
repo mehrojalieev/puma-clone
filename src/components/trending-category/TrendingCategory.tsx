@@ -1,4 +1,3 @@
-import React from 'react'
 import "./TrendingCategory.scss"
 import { Container } from '../../styled-component/Styled'
 const TrendingCategory = () => {
