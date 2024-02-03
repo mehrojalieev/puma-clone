@@ -48,7 +48,7 @@ const Register = () => {
     setPassword(e.target.value)
   }
 
-  interface UserDataType {
+  type UserDataType = {
     first_name: string | null,
     photo_url: string,
     email: string,

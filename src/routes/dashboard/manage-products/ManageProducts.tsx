@@ -8,7 +8,6 @@ import type { InputRef } from 'antd';
 import FormControl from '@mui/material/FormControl';
 import { Modal } from "../../../utils/Utils";
 import InputLabel from '@mui/material/InputLabel';
-import ApiInstance from "../../../api";
 
 
 
@@ -17,7 +16,7 @@ const ManageProducts = () => {
   const [visibleInStore, setVisibleInStore] = useState<boolean>(false);
   const [loading, setLoading] = useState<boolean>(false);
   const [productVariants, setProductVariants] = useState<any[]>([]);
-  const productTypes = useFetch("/product/product-type");
+  const productTypes = useFetch("/product/product-type") as any;
   const [items, setItems] = useState<string[]>([]);
   const [productName, setProductName] = useState<string>("");
   const [productCategory, setProductCategory] = useState<string>("");
@@ -25,7 +24,7 @@ const ManageProducts = () => {
   const inputRef = useRef<InputRef>(null);
   const [productType, setProductType] = useState('');
   const [selectedProductType, setSelectedProductType] = useState<string>('');
-  const [productFiles, setProductFiles] = useState<any[]>([]);
+  const [productFiles, setProductFiles] = useState<any[] >([]);
   const [productPreviewFiles, setProductPreviewFiles] = useState<string[]>([]);
   const [isOpenModal, setIsOpenModal] = useState<boolean>(false)
       const {data} = useFetch("/product/all")
@@ -113,7 +112,6 @@ const ManageProducts = () => {
             .then((response) => {
               if(response.status === 201){
                 alert("Product created successfully")
-                setIsModalOpen(false)
                 setProductName("")
                 setProductDescription("")
                 setProductCategory("")
@@ -154,16 +152,16 @@ const ManageProducts = () => {
         </form>
         <FormControl sx={{ m: 2, minWidth: 120 }}>
         <InputLabel  htmlFor="grouped-native-select">Cateogry</InputLabel>
-        <Select className="choose__category-select" native defaultValue="" id="grouped-native-select" label="Category">
+        <Select className="choose__category-select"  defaultValue="" id="grouped-native-select">
           <option aria-label="None" value="" />
             <option value="men">Men</option>
             <option value="women">Women</option>
         
         </Select>
-      </FormControl>
+      </FormControl>  
        </div>
         </div>
-    <Table type="product" data={data?.products}/>
+    <Table type="product" data={data}/>
     <Modal isOpenModal={isOpenModal} setIsOpenModal={setIsOpenModal}>
           <form className="manage-product-form" onSubmit={handleCreateNewProduct}>
             <h2>Create new product</h2>
@@ -218,7 +216,7 @@ const ManageProducts = () => {
                             }} required key={index} type="text" placeholder={item.split("_").join(" ")[0].toUpperCase() + item.split("_").join(" ").slice(1)}/>  
                           )
                         }
-                        <button className="link" type="button" onClick={() => setProductVariants(productVariants.filter((variant, i) => i !== variantIndex))}><FiTrash2/></button>
+                        <button className="link" type="button" onClick={() => setProductVariants(productVariants.filter((_, i) => i !== variantIndex))}><FiTrash2/></button>
                       </div>  
                     )
                   }
@@ -231,13 +229,13 @@ const ManageProducts = () => {
                         if(e.target.files && e.target.files?.length > 5 ){
                           alert("Max files count is 5")
                         }
-                        setProductFiles([...productFiles, ...e.target.files].slice(0, 5))
+                        setProductFiles([...productFiles, ...e.target.files as any].slice(0, 5))
                       }} accept=".mp4,.mov,.png,.jpg,.webp" type="file" multiple />
                       <p className="image-select__text"><FiImage/> Add new image</p>
                 </div>
                   {
                     productPreviewFiles.map((img, index) => <div key={index} className="preview-image">
-                      <FiX onClick={() => setProductFiles(productFiles.filter((file, i) => i !== index))}/>
+                      <FiX onClick={() => setProductFiles(productFiles.filter((_, i) => i !== index))}/>
                       {
                         img.endsWith("mp4") && img.startsWith("blob") ?
                         <video width={50} height={50} src={img.replace("mp4", "")} autoPlay muted></video>

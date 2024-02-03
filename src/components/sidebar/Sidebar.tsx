@@ -1,6 +1,5 @@
 import './Sidebar.scss'
 import { Link, NavLink } from 'react-router-dom'
-import { RxDashboard } from "react-icons/rx";
 import { CgProfile } from "react-icons/cg";
 import { IoMdSettings } from "react-icons/io";
 import { FaBorderNone } from "react-icons/fa";
@@ -9,15 +8,10 @@ import { FaUsers } from "react-icons/fa6";
 import validateToken from '../../helpers/validation/validation';
 import { useSelector } from 'react-redux';
 import { RootState } from '../../redux/store/store';
-import useFetch from '../../helpers/hooks/useFetch';
 
 
 const Sidebar = () => {
   const validation = validateToken(useSelector((state: RootState) => state.auth.token))
-  // console.log(validation);
-  const {data} = useFetch("/auth/profile")
-  // console.log(data);
-  
 
   return (
     <div className='sidebar'>

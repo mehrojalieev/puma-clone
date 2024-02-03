@@ -48,6 +48,8 @@ const RouteController = () => {
           <Route path='manage-users' element={<ManageUsers/>}/>
           <Route path='/dashboard/manage-admin' element={<ManageAdmins/>}/>
           <Route path='manage-products' element={<ManageProducts/>}/>
+            <Route path='orders' element={<Orders/>}/>
+            <Route path='settings' element={<Settings/>}/>
           </Route>
         {
           validation.decoded && validation.decoded.user.role === "admin" &&

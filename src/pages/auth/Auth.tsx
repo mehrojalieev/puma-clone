@@ -1,4 +1,3 @@
-import React from 'react'
 import "./Auth.scss"
 import { Link, Outlet } from 'react-router-dom'
 import { Container } from '../../styled-component/Styled'
