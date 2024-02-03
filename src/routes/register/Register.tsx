@@ -53,7 +53,7 @@ const Register = () => {
     photo_url: string,
     email: string,
   }
-  const userData: UserDataType = {
+  const userData: UserDataType   = {
     first_name: firstname,
     photo_url: userPhoto,
     email: email,
