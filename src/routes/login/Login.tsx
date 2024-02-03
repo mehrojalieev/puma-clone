@@ -62,17 +62,17 @@ const Login = () => {
 
 
   interface UserTypes {
-    email: string | null
+    email: string |any
   }
 
   const UserData: UserTypes = {
-    email: email
+    email: email 
   }
 
   const handleLoginUser = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault()
     console.log(UserData);    
-    dispatch(loginUser(UserData))
+    dispatch(loginUser())
   }
 
 

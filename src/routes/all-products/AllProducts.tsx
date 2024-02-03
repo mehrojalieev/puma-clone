@@ -7,7 +7,6 @@ import Stack from '@mui/material/Stack';
 import Divider from '@mui/material/Divider'
 import { Link } from 'react-router-dom';
 import { ProductTypes } from '../../types';
-import useFetch from '../../helpers/hooks/useFetch';
 
 const AllProducts = () => {
     const [shoesData, setShoesData] = useState([])
@@ -19,11 +18,6 @@ const AllProducts = () => {
         }
         loadData()
     }, [])  
-
-    const data = useFetch("/product/all")
-    console.log(data.data.products);
-    
-
 
     return (   
         <div className='shoes'>

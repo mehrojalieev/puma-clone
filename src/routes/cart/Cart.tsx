@@ -28,7 +28,6 @@ const Cart = () => {
     // console.log(getCartData);
 
     const data = useSelector((state: RootState) => state.productCart)
-    // console.log(data);
 
     useEffect(() => {
         if (data.cart.length > 0) {

@@ -5,28 +5,31 @@ export type Children = {
 }
 
 
-type VariantType = {
-    variant_type: string,
-    variant_value: string | number,
-    variant_original_price: number,
-    variant_sale_price: number
-}
+export type ProductVariant = {
+  variant_type: string;
+  variant_value: string;
+  variant_original_price: number;
+  variant_sale_price: number;
+};
 
-export interface ProductTypes {
-    category: string,
-    created_at: number,
-    description: string,
-    featured: boolean,
-    likedby: string[],
-    likes: number,
-    product_images: string[],
-    product_name: string,
-    product_type: string,
-    variants: VariantType[],
-    visible_in_store: boolean,
-    _v: number,
-    _id: string | number
-}
+export type ProductTypes = {
+  _id: string;
+  product_name: string;
+  product_images: string[];
+  likedby: string[];
+  likes: number;
+  category: string;
+  product_type: string;
+  description: string;
+  featured: boolean;
+  visible_in_store: boolean;
+  variants: ProductVariant[];
+  created_at: number;
+  count: number;
+  selectedVariant: ProductVariant;
+  __v: number;
+};
+
 
 
 

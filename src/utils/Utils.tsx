@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, {  useState } from 'react'
 import { IoCloseSharp } from "react-icons/io5";
 import "./Utils.scss"
 import Box from '@mui/material/Box';
@@ -16,7 +16,7 @@ const Modal = ({ isOpenModal, setIsOpenModal }: any) => {
     // const [typeOutput, setTypeOutput] = React.useState('');
     const [value, setValue] = React.useState<string | null>("");
     const [inputValue, setInputValue] = React.useState('');
-    const [productType, setProductType] = useState<string>("")
+    const [productType, _] = useState<string>("")
     console.log(productType);
 
 
@@ -40,7 +40,7 @@ const Modal = ({ isOpenModal, setIsOpenModal }: any) => {
                         value={value}
                         onChange={() => { setValue(""); }}
                         inputValue={inputValue}
-                        onInputChange={(event, newInputValue) => {
+                        onInputChange={(_, newInputValue) => {
                             setInputValue(newInputValue);
                         }}
                         id="controllable-states-demo"
