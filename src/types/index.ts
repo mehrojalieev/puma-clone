@@ -17,7 +17,7 @@ export interface ProductTypes {
     created_at: number,
     description: string,
     featured: boolean,
-    likedby: [],
+    likedby: string[],
     likes: number,
     product_images: string[],
     product_name: string,

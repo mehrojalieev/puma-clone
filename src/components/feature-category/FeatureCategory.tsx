@@ -1,47 +1,45 @@
 import { Container } from "../../styled-component/Styled"
+import { Link } from "react-router-dom"
 import "./FeatureCategory.scss"
 import useFetch from "../../helpers/hooks/useFetch"
 import { ProductTypes } from "../../types"
 import { Swiper, SwiperSlide } from 'swiper/react';
-
-// Import Swiper styles
+import { Navigation } from 'swiper/modules';
 import 'swiper/css/pagination';
 import 'swiper/css/navigation';
 
-
-// import required modules
-import { Pagination, Navigation } from 'swiper/modules';
-
 const FeatureCategory = () => {
-   const {data} = useFetch("/product/all")
-   console.log(data);
+   const {data} = useFetch("/product/most-popular")
+   const productCarouselData: ProductTypes[] = data;
+   console.log(productCarouselData);
+   
    
   return (
-    <Container>
+    <Container> 
         <div className="feature-category">
        <h2>FEATURED STYLES</h2>
        <div className="feature__category-container">
        <Swiper
-        pagination={{
-          type: 'fraction',
-        }}
-        loop={true}
-        spaceBetween={40}
-        centeredSlides={true}
-        // slidesPerView={3.50}
-        navigation={true}
-        modules={[Pagination, Navigation]}
-        className="feature-swiper mySwiper"
-      >
+            pagination={{
+            type: 'fraction',
+            }}
+            loop={true}
+            spaceBetween={25}
+            centeredSlides={true}
+            slidesPerView={3}
+            modules={[ Navigation]}
+            className="mySwiper"
+        >
         {
-          data?.products?.map((feature: ProductTypes) =>
-              <SwiperSlide className="feature__product-slide" key={feature._id}>
-                  <img  src={feature?.product_images[1]} alt={feature.product_name} />
-              </SwiperSlide>
+          productCarouselData &&  productCarouselData.map((product, index) => 
+                <SwiperSlide key={product._id}>
+                    <div className='current-slide-index'>{index + 1 + "/" + data.length}</div>
+                    <Link to={`/product/${product._id}`}>
+                      <img src={product.product_images[0]} alt="" />
+                    </Link>
+                </SwiperSlide>    
             )
         }
-    
-      
       </Swiper>
         </div>
         </div>
