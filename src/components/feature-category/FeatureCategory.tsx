@@ -31,10 +31,10 @@ const FeatureCategory = () => {
             className="mySwiper"
         >
         {
-          productCarouselData &&  productCarouselData.map((product, index) => 
+          productCarouselData &&  productCarouselData.slice(2, 6).map((product, index) => 
                 <SwiperSlide key={product._id}>
                     <div className='current-slide-index'>{index + 1 + "/" + data.length}</div>
-                    <Link to={`/product/${product._id}`}>
+                    <Link to={`/single-product/${product._id}`}>
                       <img src={product.product_images[0]} alt="" />
                     </Link>
                 </SwiperSlide>    

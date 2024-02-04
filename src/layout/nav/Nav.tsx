@@ -30,6 +30,21 @@ const Nav = () => {
   const { pathname } = useLocation()
 
 
+    // useEffect(() => {
+    //   if(searchDronDown){
+    //        function handleOpenDropdown() {
+    //         if(searchDronDown){
+    //           document.body.style.overflow = "hidden"
+    //         }
+    //         else{
+    //           document.body.style.overflow = "scroll"
+    //         }
+    //       }
+    //       handleOpenDropdown()
+    //   }
+    // }, [searchDronDown])
+
+
 
 
   const open = Boolean(anchorEl);
@@ -73,7 +88,7 @@ const Nav = () => {
     <>
   {
     !pathname.includes ("/auth") && 
-    <div className="nav__navigation">
+    <div style={searchDronDown ? {display: "none"}: {display: "flex"}} className="nav__navigation">
     {
       <>
         <h3>{ChangingText[0].title}</h3>
@@ -196,9 +211,8 @@ const Nav = () => {
                 </Menu>
               </div>
             </div>
+
             {/*HOVER NAV CATERGORY  */}
-
-
           </div>
 
         </Container>
@@ -272,20 +286,8 @@ const Nav = () => {
                       <strong>$ 135.00</strong>
                     </div>
                   </div>
-                  <div className="card">
-                    <img width={100} height={100} src="https://images.puma.com/image/upload/f_auto,q_auto,b_rgb:fafafa,w_2000,h_2000/global/379330/01/sv01/fnd/PNA/fmt/png/MELO-x-DEXTER'S-LAB-MB.03-Men's-Basketball-Shoes" alt="" />
-                    <div className="content">
-                      <p>MELO x DEXTER'S LAB MB.03 Men's Basketball Shoes</p>
-                      <strong>$ 135.00</strong>
-                    </div>
-                  </div>
-                  <div className="card">
-                    <img width={100} height={100} src="https://images.puma.com/image/upload/f_auto,q_auto,b_rgb:fafafa,w_2000,h_2000/global/379330/01/sv01/fnd/PNA/fmt/png/MELO-x-DEXTER'S-LAB-MB.03-Men's-Basketball-Shoes" alt="" />
-                    <div className="content">
-                      <p>MELO x DEXTER'S LAB MB.03 Men's Basketball Shoes</p>
-                      <strong>$ 135.00</strong>
-                    </div>
-                  </div>
+              
+                
                 </div>
               </div>
             </div>

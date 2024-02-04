@@ -23,7 +23,7 @@ const ProductTr = ({product, type}: {product: ProductTypes, type: "product" | "l
       {type === "product" && <td>
         <div className="table-action__wrapper">
           <button className="btn btn-warning">Edit</button>
-          <button onClick={handleProductDelete} className="btn btn-danger">Delete</button>
+          <button  className="btn btn-danger">Delete</button>
         </div>
       </td>}
     </tr>

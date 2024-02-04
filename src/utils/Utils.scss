@@ -134,3 +134,58 @@
     font-size: 2.5rem;
     cursor: pointer;
 }
+
+
+
+// DELETE MODAL STYLES
+
+.delete-modal{
+    padding: 10px;
+    width: 650px;
+    height: 300px;
+    border-radius: 10px;
+    background-color: var(--light-color);
+}
+
+.delete-content{
+    display: flex;
+    i{
+        font-size: 20px;
+    }
+    .text-info{
+        h4{
+            font-size: 17px;
+            font-family: var(--apple-font);
+        }
+        p{
+            margin-top: 10px;
+            font-size: 15px;
+            font-family: var(--apple-font);
+        }
+    }
+}
+
+.btn-action{
+    display: flex;
+    align-items: center;
+    column-gap: 14px;
+    justify-content: flex-end;
+    width: 100%;
+    button{
+        padding: 6px 12px;
+        border-radius: 10px;
+        background: transparent;
+        border: none;
+        font-size: 16px;
+        font-family: var(--apple-font);
+    }
+    .cancel-btn{
+        background-color: var(--light-color);
+        border: 1px solid var(--dark-color);
+        color: var(--dark-color);
+    }
+    .delete-btn{
+        background-color: red;
+        color: var(--light-color);
+    }
+}

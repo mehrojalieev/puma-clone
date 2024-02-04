@@ -3,7 +3,7 @@ import Home from '../pages/home/Home'
 import Auth from '../pages/auth/Auth'
 import Register from './register/Register'
 import Login from './login/Login'
-import SingleShoes from './single-shoes/SingleShoes'
+import SingleShoes from './single-product/SingleProduct'
 import Cart from './cart/Cart'
 import Dashboard from './dashboard/Dashboard'
 import Profile from './dashboard/profile/Profile'
@@ -40,7 +40,7 @@ const RouteController = () => {
         </Route>
         <Route path='allproducts' element={<AllProducts />} />
 
-        <Route path='shoes/:id' element={<SingleShoes />} />
+        <Route path='single-product/:id' element={<SingleShoes />} />
 
         <Route path='/dashboard' element={<Dashboard/>}>
           <Route path='products' element={<ManageProducts/>}/>

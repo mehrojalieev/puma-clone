@@ -1,18 +1,19 @@
+import "./Utils.scss"
 import React, {  useState } from 'react'
 import { IoCloseSharp } from "react-icons/io5";
-import "./Utils.scss"
+import { IoWarningOutline } from "react-icons/io5";
 import Box from '@mui/material/Box';
 import Checkbox from '@mui/material/Checkbox';
+import TextField from '@mui/material/TextField';
+import Autocomplete from '@mui/material/Autocomplete';
+
 
 
 
 const label = { inputProps: { 'aria-label': 'Checkbox demo' } };
-import TextField from '@mui/material/TextField';
-import Autocomplete from '@mui/material/Autocomplete';
-
 const options = ['clothing', 'shoes', 'sneakers', 'jeans'];
 
-const Modal = ({ isOpenModal, setIsOpenModal }: any) => {
+const Modal = ({ isOpenModal, setIsOpenModal,openDeleteModal, setOpenDeleteModal }: any) => {
     // const [typeOutput, setTypeOutput] = React.useState('');
     const [value, setValue] = React.useState<string | null>("");
     const [inputValue, setInputValue] = React.useState('');
@@ -25,8 +26,10 @@ const Modal = ({ isOpenModal, setIsOpenModal }: any) => {
     // //         document.body.style.overflow = "hidden"
     // //     }
     // // }, [isOpenModal])
+
+
     return (
-        <div   style={isOpenModal ? { display: "flex" } : { display: "none " }} className="modal-overlay">
+        <div   style={isOpenModal | openDeleteModal ? { display: "flex" } : { display: "none " }} className="modal-overlay">
             <div className="modal">
                 <button onClick={() => setIsOpenModal(false)} className='close__modal-btn'><IoCloseSharp /></button>
                 <h2 className='create__form-title'>CREATE PRODUCT</h2>
@@ -66,6 +69,20 @@ const Modal = ({ isOpenModal, setIsOpenModal }: any) => {
                         </div>
                     <button type='submit' className='add-btn'>Add product</button>
                 </form>
+            </div>
+
+            <div className="delete-modal">
+                <div className="delete-content">
+                        <i><IoWarningOutline/></i>
+                        <div className="text-info">
+                            <h4>Delete Product</h4>
+                            <p>Are you sure want to detele this product ?</p>
+                        </div>
+                </div>
+                <div className="btn-action">
+                    <button onClick={() =>setOpenDeleteModal(false)} className="cancel-btn">Cancel</button>
+                    <button className="delete-btn">Delete</button>
+                </div>
             </div>
         </div>
     )

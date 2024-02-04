@@ -1,3 +1,4 @@
+import "./SingleProduct.scss"
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom'
 import { Container } from '../../styled-component/Styled';
@@ -8,7 +9,6 @@ import Stack from '@mui/material/Stack';
 import { addToCart } from '../../redux/slices/cart-slice';
 import { useDispatch } from 'react-redux'
 import { AppDispatch } from '../../redux/store/store';
-import "./SingleShoes.scss"
 import { TbTruckDelivery } from "react-icons/tb";
 import { IoReloadOutline } from "react-icons/io5";
 import { Divider } from '@mui/material';
@@ -58,7 +58,7 @@ const SingleShoes = () => {
               </div>
               <div className="product__content">
                 <h2>{data.product_name}</h2>
-                <p>{data.description}</p>
+                <p>{data.description.slice(0, 130)}</p>
                 <Stack spacing={1}>
                   <Rating className='rating-star' name="half-rating-read" defaultValue={4} precision={0.5} readOnly />
                 </Stack>
