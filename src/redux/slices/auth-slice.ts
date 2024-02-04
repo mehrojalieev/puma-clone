@@ -73,7 +73,7 @@ const authSlice = createSlice({
             }
             window.location.pathname = "/dashboard"
         }),
-            builder.addCase(loginUser.fulfilled, (state, action) => {
+            builder.addCase(loginUser.fulfilled, (state, action ) => {
                 if(action.payload?.token){
                     localStorage.setItem("user-token", action.payload.token)
                     state._id = action.payload._id
