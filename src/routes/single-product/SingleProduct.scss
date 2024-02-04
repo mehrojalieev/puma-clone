@@ -6,7 +6,7 @@
 .single__data-container {
     width: 100%;
     display: flex;
-    column-gap: 60px;
+    column-gap: 80px;
 }
 
 .product__grid-image {
@@ -17,8 +17,9 @@
 
     img {
         width: 350px;
-        aspect-ratio: 1/1;
+        height: 400px;
         border-radius: 5px;
+        object-fit: contain;
     }
 }
 
@@ -31,10 +32,10 @@
     p {
         margin-top: 12px;
         margin-bottom: 10px;
-        width: 550px;
+        width: 400px;
         line-height: 27px;
         letter-spacing: 0.4px;
-        font-size: 20px;
+        font-size: 18px;
     }
 
     button {

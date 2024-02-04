@@ -65,8 +65,8 @@ nav{
     position: absolute;
     width: 100%;
     top: 99%;
-    height: 500px;
-    background-color: rgb(255, 255, 255);
+    height: 100vh;
+    background-color: rgb(173, 117, 117);
   
  
 }
@@ -154,15 +154,22 @@ nav{
     }
 }
 
+.overlay-dropdown{
+    z-index: 4;
+    overflow: hidden !important;
+    width: 100%;
+    height: 700px;
+}
+
 .search__content-wrapper{
     position: absolute;
     top: 0;
     transform-origin: top;
-    z-index: 2;
-    width: 100%;
+    z-index: 3;
+    width: 100% ;
     background-color: var(--light-color);
     transform: scaleY(0);
-    transition: 0.1s;
+    transition: 0.2s;
 }
 
 .dropdown__search-navigation{
@@ -273,16 +280,16 @@ nav{
 }
 
 .shoes__card-wrapper{
+    overflow: hidden;
     width: 840px;
-    height: 600px;
 }
 .card-container{
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    gap: 5px 15px;
-    width: 100%;
-    height: 100%;
-    margin-top: 25px;
+    gap: 0px 15px;
+    width: 600px;
+    height: 420px;
+    margin-top: 20px;
 }
 .card{
     width: 408px;

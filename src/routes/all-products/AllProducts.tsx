@@ -31,7 +31,7 @@ const AllProducts = () => {
                     {
                         shoesData.map((shoes: ProductTypes, index) =>
                             <div key={index} className="shoes-card">
-                                <Link className='shoes__image-link' to={`/shoes/${shoes._id}`}>
+                                <Link className='shoes__image-link' to={`/single-product/${shoes._id}`}>
                                     <img src={shoes.product_images[0]} className='shoes-image' />
                                 </Link>
                                 <div className="shoes-info">
