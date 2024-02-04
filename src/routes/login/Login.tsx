@@ -17,7 +17,7 @@ const Login = () => {
   const dispatch = useDispatch<AppDispatch>()
   const [showPassword, setShowPassword] = useState(false)
   const [passwordInputType, setPasswordInputType] = useState("password")
-  const [email, setEmail] = useState("")
+  const [email, setEmail] = useState<string>("")
   const [password, setPassword] = useState("")
   const [isEmailError, setIsEmailError] = useState<string | null>(null)
   const [isPasswordError, setIsPasswordError] = useState<string | null>(null)
@@ -72,7 +72,7 @@ const Login = () => {
   const handleLoginUser = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault()
     console.log(UserData);    
-    dispatch(loginUser())
+    dispatch(loginUser() )
   }
 
 
