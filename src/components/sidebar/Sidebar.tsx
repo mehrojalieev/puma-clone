@@ -18,7 +18,7 @@ const Sidebar = () => {
       <Link to={"/"} className="sidebar-logo">
        <img width={120} height={50} src="https://upload.wikimedia.org/wikipedia/ru/thumb/b/b4/Puma_logo.svg/2560px-Puma_logo.svg.png" alt="Puma Logo" />
       </Link>
-      <ul className='sidebar-menu'>
+      <ul className='sidebar__list'>
         {
           validation.decoded && validation.decoded.user.role === "admin" ?
             <>
@@ -28,19 +28,19 @@ const Sidebar = () => {
             :
             <>
               <li className='menu-item'>
-                <NavLink end className={({ isActive }) => isActive ? "item-link item-link--active" : "item-link"} to={"/dashboard"}>  <i><CgProfile /></i >Profile</NavLink>
+                <NavLink end className={({ isActive }) => isActive ? "sidebar-link sidebar-link--active" : "sidebar-link"} to={"/dashboard"}>  <i><CgProfile /></i >Profile</NavLink>
               </li>
               <li className='menu-item'>
-                <NavLink className={({ isActive }) => isActive ? "item-link item-link--active" : "item-link"} to={"/dashboard/products"}><i><FiShoppingBag /></i> Manage Products</NavLink>
+                <NavLink className={({ isActive }) => isActive ? "sidebar-link sidebar-link--active" : "sidebar-link"} to={"/dashboard/products"}><i><FiShoppingBag /></i> Manage Products</NavLink>
               </li>
               <li className='menu-item'>
-                <NavLink className={({ isActive }) => isActive ? "item-link item-link--active" : "item-link"} to={"/dashboard/manage-users"}><i><FaUsers /></i> Manage-user</NavLink>
+                <NavLink className={({ isActive }) => isActive ? "sidebar-link sidebar-link--active" : "sidebar-link"} to={"/dashboard/manage-users"}><i><FaUsers /></i> Manage-user</NavLink>
               </li>
               <li className='menu-item'>
-                <NavLink className={({ isActive }) => isActive ? "item-link item-link--active" : "item-link"} to={"/dashboard/orders"}> <i><FaBorderNone /></i> Orders</NavLink>
+                <NavLink className={({ isActive }) => isActive ? "sidebar-link sidebar-link--active" : "sidebar-link"} to={"/dashboard/orders"}> <i><FaBorderNone /></i> Orders</NavLink>
               </li>
               <li className='menu-item'>
-                <NavLink className={({ isActive }) => isActive ? "item-link item-link--active" : "item-link"} to={"/dashboard/settings"}> <i><IoMdSettings /></i> Settings</NavLink>
+                <NavLink className={({ isActive }) => isActive ? "sidebar-link sidebar-link--active" : "sidebar-link"} to={"/dashboard/settings"}> <i><IoMdSettings /></i> Settings</NavLink>
               </li>
             </>
         }

@@ -8,3 +8,34 @@
 }
 @import "./fonts";
 @import "./variables";
+
+
+.link{
+    background-color: var(--pd-color);
+    color: #fff;
+    font-size: 14px;
+    padding: 1rem 1.6rem;
+    border-radius: 30px;
+    display: inline-block;
+    border: none;
+    cursor: pointer;
+    &:hover{
+      opacity: 0.8;
+    }
+  
+    &:active{
+      transform: scale(0.98);
+    }
+  
+   &--light{
+    background-color: var(--pl-color);
+    color: var(--pd-color);
+    border: 1px solid var(--pd-color);
+    margin-top: 20px;
+   }
+  
+   &:disabled{
+    opacity: 0.4;
+   }
+  }
+  

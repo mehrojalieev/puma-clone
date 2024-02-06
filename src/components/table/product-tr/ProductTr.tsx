@@ -2,7 +2,7 @@ import { AxiosError, AxiosResponse } from "axios";
 import ApiInstance from "../../../api";
 import { ProductTypes } from "../../../types";
 
-const ProductTr = ({ product, type, editProduct, setEditProduct } : { product: ProductTypes, type:  "product" | "liked",  editProduct: ProductTypes | null, setEditProduct:  React.Dispatch<React.SetStateAction<ProductTypes | null>> }) => {
+const ProductTr = ({ product, type,  setEditProduct } : { product: ProductTypes, type:  "product" | "liked",  setEditProduct:  React.Dispatch<React.SetStateAction<ProductTypes | null>> }) => {
 
   const handleProductDelete = () => {
     const adminAgree = confirm("Are you really going to delete this product?");

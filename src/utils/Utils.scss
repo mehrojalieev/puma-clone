@@ -1,191 +1,28 @@
 .modal-overlay{
-    display: flex;
-    justify-content: center;
-    place-items: center ;
     width: 100vw;
     height: 100vh;
-    z-index: 1;
+    overflow-y: auto;
     position: fixed;
     top: 0;
     left: 0;
-    background-color: rgba(59, 59, 59, 0.767);
+    background-color: #00000081;
+    backdrop-filter: blur(2px);
+    display: grid;
+    place-items: center;
 }
 
 .modal{
-    border-radius: 5px;
+    max-width: 900px;
+    width: 100%;
+    background-color: #fff;
     position: relative;
-    width: 600px;
-    height: 600px;
-    background-color: var(--light-color);
-    padding: 1rem .8rem;
-}
-.create__form-title{
-    padding: 1rem 0;
-    font-family: var(--apple-font);
-    font-size: 30px;
-    letter-spacing: 1px;
-}
-.create__product-form{
-    margin-top: 1rem;
-    padding: 0 1rem;
-    width: 100%;
-    .description{
-        width: 100%;
-        height: 50px !important;
-        outline: none;
-        resize: none;
-        border-radius: 5px;
-        transition: 0.2s;
-        margin-top: 10px;
-        padding: .5rem;
-        font-size: 18px;
-        font-family: var(--apple-font);
-        &:focus{
-            border: 1px solid transparent;
-            box-shadow: 0 0 1px 2px rgb(64, 64, 248);
-        }
 
+    .close-modal-btn{
+        position: absolute;
+        top: 1rem;
+        right: 1rem;
+        font-size: 2rem;
     }
-}
 
-.product__names{
-    display: flex;
-    column-gap: 10px;
-    .name-input{
-        flex: 1;
-    }
-}
-
-.checkbox-action{
-    margin-top: 10px;
-    margin: 1rem 0;
-    display: flex;
-    column-gap: 20px;
-    .action-item{
-        display: flex;
-        align-items: center;
-        label{
-            font-size: 17px;
-        }
-        .checkbox{
-            accent-color: var(--dark-color) !important;
-        }
-
-    }
-}
-
-
-.variants-wrapper{
-    margin-top: 1rem;
-    width: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    h2{
-        font-size: 27px;
-        font-family: var(--dark-color);
-    }
-    .add__variant-btn{
-        padding: 12px 28px;
-        border-radius: 10px;
-        background-color: var(--dark-color);
-        color: var(--light-color);
-        font-size: 17px;
-        border: none;
-        transition: 0.2s;
-        &:hover{
-            cursor: pointer;
-            opacity: 0.8;
-        }
-        &:active{
-            transform: scale(0.95);
-        }
-    }
-}
-
-
-.add-btn{
-    margin-top: 20px;
-    width: 100%;
-    padding: 0.7rem 0;
-    font-family: var(--apple-font);
-    font-size: 18px;
-    font-weight: 500;
-    border-radius: 5px;
-    border: none;
-    color: var(--light-color);
-    background-color: var(--dark-color);
-    transition: 0.2s;
-    &:hover{
-        cursor: pointer;
-        opacity: 0.7;
-    }
-    &:active{
-        transform: scale(0.95);
-    }
-}
-
-.close__modal-btn{
-    position: absolute;
-    border: none;
-    background: transparent;
-    right: 1px;
-    top: 1px;
-    font-size: 2.5rem;
-    cursor: pointer;
-}
-
-
-
-// DELETE MODAL STYLES
-
-.delete-modal{
-    padding: 10px;
-    width: 650px;
-    height: 300px;
-    border-radius: 10px;
-    background-color: var(--light-color);
-}
-
-.delete-content{
-    display: flex;
-    i{
-        font-size: 20px;
-    }
-    .text-info{
-        h4{
-            font-size: 17px;
-            font-family: var(--apple-font);
-        }
-        p{
-            margin-top: 10px;
-            font-size: 15px;
-            font-family: var(--apple-font);
-        }
-    }
-}
-
-.btn-action{
-    display: flex;
-    align-items: center;
-    column-gap: 14px;
-    justify-content: flex-end;
-    width: 100%;
-    button{
-        padding: 6px 12px;
-        border-radius: 10px;
-        background: transparent;
-        border: none;
-        font-size: 16px;
-        font-family: var(--apple-font);
-    }
-    .cancel-btn{
-        background-color: var(--light-color);
-        border: 1px solid var(--dark-color);
-        color: var(--dark-color);
-    }
-    .delete-btn{
-        background-color: red;
-        color: var(--light-color);
-    }
+    padding: 3rem;
 }
