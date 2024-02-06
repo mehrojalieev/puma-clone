@@ -1,12 +1,12 @@
-import { ProductTypes, UserTypes } from "../../types"
-import "./Table.scss"
-import UserTr from "./user-tr/UserTr"
-import ProductTr from "./product-tr/ProductTr"
+import { ProductTypes, UserTypes } from "../../types";
+import "./Table.scss";
+import ProductTr from "./product-tr/ProductTr";
+import UserTr from "./user-tr/UserTr";
 
-const Table = ({data, type}: {data: ProductTypes[] | UserTypes[], type: "user" | "product" | "liked"}) => {
+const Table = ({ data, type, setEditProduct, editProduct }: { data: ProductTypes[] | UserTypes[], type: "user" | "product" | "liked", editProduct: ProductTypes | null, setEditProduct:  React.Dispatch<React.SetStateAction<ProductTypes | null>>}) => {
   return (
-    <div>
-          <table className="dashboard-table">
+    <div className="table-wrapper">
+      <table className="dashboard-table">
       <thead>
         <tr>
           <th>Name</th>
@@ -20,7 +20,7 @@ const Table = ({data, type}: {data: ProductTypes[] | UserTypes[], type: "user" |
       <tbody>
         {data?.map((item, index) => {
           if(type === "product" || type === "liked"){
-            return <ProductTr product={item as ProductTypes} type={type} key={index} />
+            return <ProductTr setEditProduct={setEditProduct} editProduct={editProduct} product={item as ProductTypes} type={type} key={index} />
           }
           else{
             return <UserTr user={item as UserTypes} key={index} />
@@ -30,7 +30,7 @@ const Table = ({data, type}: {data: ProductTypes[] | UserTypes[], type: "user" |
       <tfoot></tfoot>
     </table>
     </div>
-  )
-}
+  );
+};
 
-export default Table
+export default Table;
