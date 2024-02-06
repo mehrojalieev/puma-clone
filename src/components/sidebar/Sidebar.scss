@@ -1,8 +1,8 @@
 .sidebar{
-    max-width: 300px;
+    max-width: 250px ;
     height: 100vh;
     background-color: #e5e5e5;
-    padding: 2rem;
+    padding: 2rem 1rem;
     flex: 1;
     box-sizing: border-box;
  
@@ -14,14 +14,8 @@
     column-gap: 5px;
     width: 100%;
     text-align: center !important;
-    i{
-        font-size: 30px;
-    }
-    h1{
-       font-size: 26px;
-        color: var(--dark-color);
-        letter-spacing: 1.2px;
-    }
+  
+   
 }
 .sidebar__list{
     display: flex;
@@ -29,6 +23,7 @@
     gap: 10px 0;
     text-decoration: none;
     list-style: none;
+    margin-top: 30px;
     li{
        
         cursor: pointer;
@@ -40,10 +35,11 @@
 
         .sidebar-link{
             display: flex;
-            padding: 1rem;
+            padding: 14px;
             align-items: center;
             border-radius: 5px;
             text-decoration: none;
+            color: var(--dark-color);
 
 
             &--active{
@@ -54,7 +50,7 @@
 
         svg{
             margin-right: 1rem;
-            font-size: 1.4rem;
+            font-size: 1.3rem;
         }
     }
 }

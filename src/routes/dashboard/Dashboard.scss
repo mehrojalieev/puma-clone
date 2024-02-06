@@ -1,5 +1,4 @@
 .dashboard{
-    width: 100vw;
     height: 100vh;
     display: flex;
     column-gap: 15px;
@@ -7,4 +6,5 @@
 .dashboard-content{
     width: 100vw;
     height: 100vh;
+    padding: 20px 0 0 0;
 }
