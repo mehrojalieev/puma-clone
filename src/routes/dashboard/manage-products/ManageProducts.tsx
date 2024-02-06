@@ -14,7 +14,7 @@ const ManageProducts = () => {
   const [visibleInStore, setVisibleInStore] = useState<boolean>(false);
   const [loading, setLoading] = useState<boolean>(false);
   const [productVariants, setProductVariants] = useState<any[]>([]);
-  const productTypes = useFetch("/product/product-type");
+  const productTypes: any = useFetch("/product/product-type");
   const [items, setItems] = useState<string[]>([]);
   const [productName, setProductName] = useState<string>("");
   const [productCategory, setProductCategory] = useState<string>("");
@@ -26,8 +26,7 @@ const ManageProducts = () => {
   const [productFiles, setProductFiles] = useState<any[]>([]);
   const [productPreviewFiles, setProductPreviewFiles] = useState<string[]>([]);
   const [editProduct, setEditProduct] = useState<ProductTypes | null>(null)
-  const {data} = useFetch("/product/all");
-
+  const {data} = useFetch("/product/all") as ProductTypes | any;
   const onProductTypeChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     console.log(event.target.value)
     setProductType(event.target.value.trim());
@@ -236,7 +235,7 @@ const ManageProducts = () => {
             <div className="product-image-select">
                 <div className="product-image-select__wrapper">
                 <div className="image-select">
-                      <input onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
+                      <input onChange={(e: any) => {
                         if(e.target.files && e.target.files?.length > 5 ){
                           alert("Max files count is 5")
                         }

@@ -3,7 +3,7 @@ import "./Table.scss";
 import ProductTr from "./product-tr/ProductTr";
 import UserTr from "./user-tr/UserTr";
 
-const Table = ({ data, type, setEditProduct, editProduct }: { data: ProductTypes[] | UserTypes[], type: "user" | "product" | "liked", editProduct: ProductTypes | null, setEditProduct:  React.Dispatch<React.SetStateAction<ProductTypes | null>>}) => {
+const Table = ({ data, type, setEditProduct }: { data: ProductTypes[] | UserTypes[], type: "user" | "product" | "liked", editProduct: ProductTypes | null, setEditProduct:  React.Dispatch<React.SetStateAction<ProductTypes | null>>}) => {
   return (
     <div className="table-wrapper">
       <table className="dashboard-table">
@@ -20,7 +20,7 @@ const Table = ({ data, type, setEditProduct, editProduct }: { data: ProductTypes
       <tbody>
         {data?.map((item, index) => {
           if(type === "product" || type === "liked"){
-            return <ProductTr setEditProduct={setEditProduct} editProduct={editProduct} product={item as ProductTypes} type={type} key={index} />
+            return <ProductTr setEditProduct={setEditProduct}  product={item as ProductTypes} type={type} key={index} />
           }
           else{
             return <UserTr user={item as UserTypes} key={index} />
