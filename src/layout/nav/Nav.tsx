@@ -1,49 +1,40 @@
 import "./Nav.scss"
+import { Link, NavLink, useLocation } from 'react-router-dom'
 import React, { useEffect, useRef, useState } from "react"
 import { Container } from "../../styled-component/Styled"
-import Data from "../../db/data.json"
-import { Link, NavLink, useLocation } from 'react-router-dom'
+import { PiShoppingCartSimpleBold } from "react-icons/pi"
 import { IoIosSearch, IoMdClose } from "react-icons/io";
 import { FaRegHeart, FaRegUser } from "react-icons/fa";
-import { PiShoppingCartSimpleBold } from "react-icons/pi"
-import { SiPuma } from "react-icons/si";
-import Box from '@mui/material/Box';
-import Avatar from '@mui/material/Avatar';
-import Menu from '@mui/material/Menu';
+import { RootState } from "../../redux/store/store"
+import IconButton from '@mui/material/IconButton';
 import MenuItem from '@mui/material/MenuItem';
 import Divider from '@mui/material/Divider';
-import IconButton from '@mui/material/IconButton';
 import Tooltip from '@mui/material/Tooltip';
-import {  Route } from "../../types"
+import Avatar from '@mui/material/Avatar';
+import { useSelector } from "react-redux"
+import Badge from '@mui/material/Badge';
+import { SiPuma } from "react-icons/si";
+import Menu from '@mui/material/Menu';
+import Data from "../../db/data.json"
+import Box from '@mui/material/Box';
+import { Route } from "../../types"
 
 
 const Nav = () => {
+  const { pathname } = useLocation()
+  const token = localStorage.getItem("user-token")
+  const { cart } = useSelector((state: RootState) => state.productCart)
+  console.log(cart);
+
+
+  // --- HOOKS ---
   const [searchDronDown, setSearchDropDown] = useState<boolean>(false)
   const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);
   const [categoryData, setCategoryData] = useState<Route[]>([])
   const [formFocus, setFormFocus] = useState<boolean>(false)
   const [clearBtn, setClearBtn] = useState<boolean>(false)
-  const [inputValue, setInputValue] = useState("")
   const [showDropdown, setShowDropDown] = useState(false)
-
-  const token = localStorage.getItem("user-token")
-  const { pathname } = useLocation()
-
-
-    // useEffect(() => {
-    //   if(searchDronDown){
-    //        function handleOpenDropdown() {
-    //         if(searchDronDown){
-    //           document.body.style.overflow = "hidden"
-    //         }
-    //         else{
-    //           document.body.style.overflow = "scroll"
-    //         }
-    //       }
-    //       handleOpenDropdown()
-    //   }
-    // }, [searchDronDown])
-
+  const [inputValue, setInputValue] = useState("")
 
 
 
@@ -54,6 +45,8 @@ const Nav = () => {
   const handleClose = () => {
     setAnchorEl(null);
   };
+
+
 
 
 
@@ -83,21 +76,21 @@ const Nav = () => {
     localStorage.removeItem("user-token")
     window.location.reload()
   }
-  
-  return  (
-    <>
-  {
-    !pathname.includes ("/auth") && 
-    <div style={searchDronDown ? {display: "none"}: {display: "flex"}} className="nav__navigation">
-    {
-      <>
-        <h3>{ChangingText[0].title}</h3>
-        <Link className="navigation-link" to={"/"}>{ChangingText[0].link}</Link>
-      </>
 
-    }
-  </div>
-  }
+  return (
+    <>
+      {
+        !pathname.includes("/auth") &&
+        <div style={searchDronDown ? { display: "none" } : { display: "flex" }} className="nav__navigation">
+          {
+            <>
+              <h3>{ChangingText[0].title}</h3>
+              <Link className="navigation-link" to={"/"}>{ChangingText[0].link}</Link>
+            </>
+
+          }
+        </div>
+      }
       <nav>
         <Container>
           <div className="nav-wrapper">
@@ -141,7 +134,9 @@ const Nav = () => {
               </div>
               <div className="action-card">
                 <Link to={"/"} className="action-link"><FaRegHeart /></Link>
+                <Badge badgeContent={cart ? cart.length : ''} color="primary">
                 <Link to={"/cart"} className="action-link"><PiShoppingCartSimpleBold /></Link>
+                </Badge>
                 <Box sx={{ display: 'flex', alignItems: 'center', textAlign: 'center' }}>
 
                   <Tooltip title="Account settings">
@@ -286,8 +281,8 @@ const Nav = () => {
                       <strong>$ 135.00</strong>
                     </div>
                   </div>
-              
-                
+
+
                 </div>
               </div>
             </div>

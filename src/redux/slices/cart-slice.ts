@@ -17,15 +17,25 @@ export const cartSlice = createSlice({
     initialState,
     reducers: {
         addToCart: (state, action: PayloadAction<ProductTypes>) => {
-            const productExist = state.cart.findIndex((product) => product._id === action.payload._id)
-            if(productExist === -1){
+            const productExistIndex = state.cart.findIndex((product) => product._id === action.payload._id && product.selectedVariant.variant_value === action.payload.selectedVariant.variant_value)
+            if(productExistIndex === -1){
                 state.cart = [...state.cart, action.payload]
-                state.total += action.payload.variants[0].variant_sale_price   
             }
+            else{
+                state.cart[productExistIndex].count += 1
+            }
+        },
+        removeFromCart: (state, action:PayloadAction<ProductTypes>) => {
+            const productExistIndex = state.cart.findIndex((product) => product._id === action.payload._id && product.selectedVariant.variant_value === action.payload.selectedVariant.variant_value)
+            state.cart[productExistIndex].count -= 1
+            if(state.cart[productExistIndex].count === 0){
+                state.cart.splice(productExistIndex, 1)
+            }
+            localStorage.setItem("cart", JSON.stringify(state.cart))
         }
     }
 })
 
-export const {addToCart} = cartSlice.actions
+export const {addToCart, removeFromCart} = cartSlice.actions
 
 export default cartSlice.reducer

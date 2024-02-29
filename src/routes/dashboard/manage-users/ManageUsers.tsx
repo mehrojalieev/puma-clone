@@ -4,7 +4,7 @@ import Table from "../../../components/table/Table"
 
 const ManageUsers = () => {
 
-  const {data} = useFetch("/admin/registered-users")
+  const {data} = useFetch("/admin/registered-users") as any
   console.log(data);
   
   return (

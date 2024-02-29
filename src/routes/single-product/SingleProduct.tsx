@@ -1,91 +1,157 @@
 import "./SingleProduct.scss"
-import { useEffect, useState } from 'react';
-import { useParams } from 'react-router-dom'
-import { Container } from '../../styled-component/Styled';
-import ApiInstance from '../../api';
-import { ProductTypes } from '../../types';
-import Rating from '@mui/material/Rating';
-import Stack from '@mui/material/Stack';
-import { addToCart } from '../../redux/slices/cart-slice';
-import { useDispatch } from 'react-redux'
-import { AppDispatch } from '../../redux/store/store';
-import { TbTruckDelivery } from "react-icons/tb";
-import { IoReloadOutline } from "react-icons/io5";
-import { Divider } from '@mui/material';
-import { FaRegHeart } from "react-icons/fa";
+import 'swiper/css';
+import 'swiper/css/scrollbar';
+import 'swiper/css/pagination';
+import 'swiper/css/navigation';
+import {  useEffect, useState } from 'react';
+import { useParams } from 'react-router-dom';
+import { Swiper, SwiperSlide } from 'swiper/react';
+import useFetch from "../../helpers/hooks/useFetch";
+import { useDispatch, useSelector } from 'react-redux'
+import { ProductTypes, ProductVariant } from '../../types';
+import { FreeMode, Navigation, Thumbs } from 'swiper/modules';  
+import { AppDispatch, RootState } from '../../redux/store/store';
+import { NavigationBnts, SmallContainer } from "../../utils/Utils";
+import { addToCart, removeFromCart } from '../../redux/slices/cart-slice';
 
 
 const SingleShoes = () => {
   const { id } = useParams()
-  const [singleData, setSingleData] = useState([])
   const dispatch = useDispatch<AppDispatch>()
-  const [addCartLoading, setAddCartLoading] = useState<boolean>(false)
-  const handleAddToCart = (product: ProductTypes): void => {
-    setAddCartLoading(true)
-    console.log(product);
-    dispatch(addToCart(product))
-  }
-  useEffect(() => {
-    async function loadData() {
-      try {
-        const response = await ApiInstance(`/product/${id}`)
-        setSingleData(response.data.payload)
-      }
-      catch (error) {
-        console.log(error);
-      }
+  const {cart} = useSelector((state: RootState) => state.productCart)
+  
+  console.log(cart);
+  
+  
+  // ----- HOOKS -----
+  const [isLiked, setIsLiked] = useState<boolean>(false)
+  const [thumbsSwiper, setThumbsSwiper] = useState(null);
+  const [currentVariant, setCurrentVariant] = useState<ProductVariant>();
+  
+  useEffect(() => {setIsLiked(false)}, [])
+  
+  const {data} = useFetch(`/product/${id}?liked=${isLiked}`)
+  
+  
+  const productData: ProductTypes = data[0];
+
+  const handleAddToCart = (product: ProductTypes) : void =>  {
+    if(currentVariant){
+      let p = {...product};
+      p = {...p, count: 1, selectedVariant: currentVariant};
+      dispatch(addToCart(p))
     }
-    loadData()
-  }, [])
+    else{
+      console.log("Please select the variant");
+    }
+  }
 
+  const handleRemoveFromCart = (product: ProductTypes) : void =>  {
+    if(currentVariant){
+      let p = {...product};
+      p = {...p, selectedVariant: currentVariant};
+      dispatch(removeFromCart(p))
+    }
+    else{
+      console.log("Please select the variant");
+    }
+  }
 
-  useEffect(() => {
-    setTimeout(() => {
-      setAddCartLoading(false)
-    }, 3500)
-  }, [])
+  console.log(cart);
+  
+  console.log(cart?.find((product) => product?._id === productData?._id && product?.selectedVariant?.variant_value === currentVariant?.variant_value));
+  
 
   return (
     <div className="single-wrapper">
-      <Container>
+      <SmallContainer>
         {
-          singleData.map((data: ProductTypes) =>
-            <div key={data._id} className="single__data-container">
-              <div className="product__grid-image">
-                <img src={data.product_images[0]} alt={data.product_name} />
-                <img src={data.product_images[1]} alt={data.product_name} />
-                <img src={data.product_images[2]} alt={data.product_name} />
-              </div>
-              <div className="product__content">
-                <h2>{data.product_name}</h2>
-                <p>{data.description.slice(0, 130)}</p>
-                <Stack spacing={1}>
-                  <Rating className='rating-star' name="half-rating-read" defaultValue={4} precision={0.5} readOnly />
-                </Stack>
-                <button>BEST SELLER</button>
-                <strong>${data.variants[0].variant_original_price}</strong>
-                <button className="explore-btn">EXPLORE THIS COLLECTION</button>
-                <p className='delivery-text'> <i><TbTruckDelivery /> </i>This item qualifies for free shipping!</p>
-                <p className='reload-text'><i><IoReloadOutline /></i> Free returns on all qualifying orders.</p>
-                <Divider />
-                <div className="card__btn-actions">
-
-                  <button onClick={() => handleAddToCart(data)} style={addCartLoading ? { background: "#9a9c9e", cursor: "not-allowed" } : { background: "#000", cursor: "auto" }} className='addcart-btn'>
-                    {
-                      !addCartLoading ? "Add To Cart" : <div className="loader"></div>
-
-                    }
-                  </button>
-                  <button className='addwishlist-btn'>
-                    <i><FaRegHeart /></i>
-                    ADD TO WISHLIST
-                  </button>
-                </div>
+          productData &&
+         <div className="single-carousel">
+          <Swiper
+        onSwiper={setThumbsSwiper as any } 
+        spaceBetween={10}
+        slidesPerView={4}
+        freeMode={true}
+        watchSlidesProgress={true}
+        modules={[FreeMode, Navigation, Thumbs]}
+        className="mySwiper"
+      >
+        {
+                    productData?.product_images.map((img, index) =>
+                        <SwiperSlide  key={index}>
+                            <img src={img} alt="" />
+                        </SwiperSlide>
+                    )
+                }
+          </Swiper>
+           <div className="single-carousel__main">
+            <Swiper 
+            slidesPerView={1}
+                  spaceBetween={0}
+                  thumbs={{ swiper: thumbsSwiper }}
+                  modules={[FreeMode, Thumbs]}
+                  className="mySwiper2"
+              >
+                  <NavigationBnts/>
+                  {
+                      productData?.product_images?.map((img, index) =>
+                          <SwiperSlide  key={index}>
+                              <img className="swiper-main-image" src={img && img}  />
+                          </SwiperSlide>
+                      )
+                  }
+              </Swiper>
+           </div>
+           <div className="product-actions">
+            <h1>{productData.product_name}</h1>
+            <p>{productData.description}</p>
+            <div className="variants"> 
+            <h5>{productData?.variants[0].variant_type}</h5>
+              <div className="variants__wrapper">
+              {
+                productData?.variants.map((variant, index) => 
+                  <div onClick={() => setCurrentVariant(variant)} className={`product-variant product-variant${currentVariant?.variant_value === variant.variant_value ? "-active" : ""}`} key={index}>{variant.variant_value}</div>  
+                )
+              }
               </div>
             </div>
-          )
+            {
+              cart?.findIndex((product) => product?._id === productData._id && product.selectedVariant?.variant_value === currentVariant?.variant_value) === -1 ? 
+              <button className="link" disabled={!productData} onClick={() => handleAddToCart(productData)}>Add To Cart</button>
+              :
+              <div className="add-to-cart-wrapper">
+                <button onClick={() => handleRemoveFromCart(productData)} className="link">-</button>
+                <p>
+                {cart?.find((product) => product?._id === productData?._id && product?.selectedVariant?.variant_value === currentVariant?.variant_value)?.count}
+                </p>
+                <button className="link" onClick={() => handleAddToCart(productData)}>+</button>
+              </div> 
+            }
+            {/* <div>
+            <div className="likedby-wrapper">
+              {productData.likes > 0 && "Liked by "}
+            <Avatar.Group
+              maxCount={2}
+              size="small"
+            >
+              {
+                [...productData.likedby].reverse().map(likedUser => {
+                  if(likedUser !== validation.decoded?.user.email){
+                    return <Avatar key={likedUser} style={{ backgroundColor: '#f56a00' }}>{likedUser[0].toUpperCase()}</Avatar>
+                  }
+                }
+                )
+              }        
+            </Avatar.Group>
+            {productData.likedby.includes(validation.decoded?.user.email) && ` ${productData.likes === 1 && productData.likedby.includes(validation.decoded?.user.email) ? "" : "and"} you`}
+            </div>
+             {productData.likedby.includes(validation.decoded?.user.email) ? <button disabled={isLoading}  onClick={() => removeFromWishlist(productData._id)} className="link link--light">Remove from wishlist</button>  : <button disabled={isLoading}  onClick={() => addToWishlist(productData._id)} className="link link--light">Add to wishlist</button> }
+            </div> */}
+           </div>
+        </div> 
         }
-      </Container>
+      </SmallContainer>
     </div>
   )
 }

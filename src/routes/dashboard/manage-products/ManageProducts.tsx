@@ -1,6 +1,6 @@
 import { useState, useRef, useEffect } from "react";
 import { Divider, Input, Select, Space, Button } from 'antd';
-import Modal from "../../../utils/Utils";
+import {Modal} from "../../../utils/Utils";
 import Table from "../../../components/table/Table"
 import useFetch from "../../../helpers/hooks/useFetch";
 import { FiImage, FiPlus, FiTrash2, FiX } from "react-icons/fi";
