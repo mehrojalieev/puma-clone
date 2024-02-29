@@ -12,6 +12,7 @@ export type ProductVariant = {
   variant_sale_price: number;
 };
 
+
 export type ProductTypes = {
   _id: string;
   product_name: string;
