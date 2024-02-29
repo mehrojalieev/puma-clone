@@ -3,6 +3,7 @@ import 'swiper/css';
 import 'swiper/css/scrollbar';
 import 'swiper/css/pagination';
 import 'swiper/css/navigation';
+import { CgDanger } from "react-icons/cg";
 import {  useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { Swiper, SwiperSlide } from 'swiper/react';
@@ -26,7 +27,10 @@ const SingleShoes = () => {
   // ----- HOOKS -----
   const [isLiked, setIsLiked] = useState<boolean>(false)
   const [thumbsSwiper, setThumbsSwiper] = useState(null);
+  const [showWarningText, setShowWarningText] = useState<boolean>(false)
   const [currentVariant, setCurrentVariant] = useState<ProductVariant>();
+  console.log(currentVariant);
+  
   
   useEffect(() => {setIsLiked(false)}, [])
   
@@ -37,11 +41,13 @@ const SingleShoes = () => {
 
   const handleAddToCart = (product: ProductTypes) : void =>  {
     if(currentVariant){
+      setShowWarningText(false)
       let p = {...product};
       p = {...p, count: 1, selectedVariant: currentVariant};
       dispatch(addToCart(p))
     }
     else{
+      setShowWarningText(true)
       console.log("Please select the variant");
     }
   }
@@ -57,9 +63,6 @@ const SingleShoes = () => {
     }
   }
 
-  console.log(cart);
-  
-  console.log(cart?.find((product) => product?._id === productData?._id && product?.selectedVariant?.variant_value === currentVariant?.variant_value));
   
 
   return (
@@ -78,9 +81,9 @@ const SingleShoes = () => {
         className="mySwiper"
       >
         {
-                    productData?.product_images.map((img, index) =>
-                        <SwiperSlide  key={index}>
-                            <img src={img} alt="" />
+                    productData?.product_images.slice(0,4).map((img, index) =>
+                    <SwiperSlide  key={index}>
+                          <img src={img} alt="Carousel Image" />
                         </SwiperSlide>
                     )
                 }
@@ -91,12 +94,12 @@ const SingleShoes = () => {
                   spaceBetween={0}
                   thumbs={{ swiper: thumbsSwiper }}
                   modules={[FreeMode, Thumbs]}
-                  className="mySwiper2"
+                  className="mySwiper2  navigation-swiper"
               >
                   <NavigationBnts/>
                   {
                       productData?.product_images?.map((img, index) =>
-                          <SwiperSlide  key={index}>
+                          <SwiperSlide   key={index}>
                               <img className="swiper-main-image" src={img && img}  />
                           </SwiperSlide>
                       )
@@ -115,6 +118,10 @@ const SingleShoes = () => {
                 )
               }
               </div>
+            </div>
+            <div style={showWarningText ? {display: "flex"} : {display: "none"}} className="warning__size-text">
+            <p> Please select a size</p>
+              <i><CgDanger/></i>
             </div>
             {
               cart?.findIndex((product) => product?._id === productData._id && product.selectedVariant?.variant_value === currentVariant?.variant_value) === -1 ? 
