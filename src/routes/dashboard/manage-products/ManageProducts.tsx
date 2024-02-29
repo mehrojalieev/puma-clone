@@ -34,12 +34,7 @@ const ManageProducts = () => {
 
   const addItem = (e: React.MouseEvent<HTMLButtonElement | HTMLAnchorElement>) => {
     e.preventDefault();
-    // setItems(() => {
-    //   if(items.includes(productType) || productTypes.data?.productTypes?.includes(productType)){
-    //     return items
-    //   }
-    //   return [...items, productType]
-    // });
+
     setProductType('');
     setTimeout(() => {
       inputRef.current?.focus();
